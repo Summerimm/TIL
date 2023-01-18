@@ -41,13 +41,13 @@
       - return을 하게 되면, 값 반환 후 **함수가 바로 종료**
 
 > ### 두 개 이상의 값 반환
-- 튜플(혹은 리스트와 같은 컨테이너)을 활용하여 두 개 이상의 값 반환
+- 튜플(혹은 리스트와 같은 컨테이너)을 활용하여 두 개 이상의 값 반환  
 ![image3](https://user-images.githubusercontent.com/108309396/213062796-72d4d8ff-abb1-43b1-933b-db2c20e807f1.png)
 
 ## 4. 함수의 입력(Input)
 > ### Parameter와 Argument
-- **Parameter**: 함수를 **정의**할 때, 함수 내부에서 사용되는 변수  
-- **Argument**: 함수를 **호출**할 때, 넣어주는 값  
+- **Parameter**: 함수를 **정의**할 때, 함수 내부에서 사용되는 변수 (매개변수) 
+- **Argument**: 함수를 **호출**할 때, 넣어주는 값 (인자)
   - 필수 argument: 반드시 전달되어야 함  
   - 선택 argument: 값을 전달하지 않아도 되는 경우는 기본값 전달 (ex. range() 기본값은 1씩 증가)
   - Positional Arguments: 각 위치에 자동 배정  
