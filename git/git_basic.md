@@ -6,6 +6,8 @@
 - `.gitignore` => **git init**하자마자 생성
   - secret.txt 등 commit하면 안 되는 것은 `.gitignore` 메모장에 복사+붙여넣기
   - gitignore.io에서 운영체제, 언어, 에디터 선택 후 생성
+  - `git push`를 몇 번 한 상태에서 `git init`을 하게 되면 이전에 올라가있는 ignore되어야 할 파일들은 여전히 삭제해도 git 관리가 됨
+    - git repository를 새로 팔 수 밖에 없을 듯
 ---
 ## [ Add & Commit ]
 - `git add {파일 이름}`
