@@ -1,4 +1,4 @@
-# [Function 함수]
+# [Function]
 
 ## 1. Intro
 > ### 함수를 왜 사용할까?

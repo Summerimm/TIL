@@ -1,4 +1,4 @@
-# [Function 함수]
+# [Function application]
 
 ## 1. 함수 응용
 > ### 내장 함수(Built-in Functions)  
@@ -93,5 +93,5 @@ x, *y = i, j, k... # x = i, y = j, k, ..
 - 패키지는 여러 모듈/하위 패키지로 구조화
   - package.module
 - 모든 폴더에는 \_\_init__.py를 만들어 패키지로 인식
-- 
+
 ## 4. 가상환경
