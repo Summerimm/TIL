@@ -101,6 +101,6 @@ x, *y = i, j, k... # x = i, y = j, k, ..
   - 실행환경(Git bash 등)에서 가상환경을 활성화시켜 해당 폴더에 있는 패키지를 관리/사용
 - 가상환경을 생성하면, 해당 디렉토리에 별도의 파이썬 패키지가 설치됨 `$ python -m venv venv`
 - 활성화 
-  - `<venv>`는 가상환경을 포함하는 디렉토리의 경로
+  - `<venv>`는 가상환경을 포함하는 디렉토리의 경로  
 ![111](https://user-images.githubusercontent.com/108309396/214743248-2c8a8e2e-02a1-43b0-bd04-61cf49d6161a.png)
 - 비활성화는 `$ deactivate`
