@@ -12,12 +12,12 @@
 > ### String
 - 모든 문자는 str 타입(immutable)
 - 문자열은 작음따옴표(')나 큰 따옴표(")를 활용하여 표기 &rarr; 소스코드 내에서 하나의 문장부호를 유지 권장
-- 문자열 조회/탐색 및 검증 메서드
+- 문자열 조회/탐색 및 검증 메서드  
 ![image8](https://user-images.githubusercontent.com/108309396/214722293-6dcb55b3-2ee4-4943-a731-4f7ea16cb8ec.png)
     - `.find(x)`: x가 존재하지 않을 때 **-1 반환**  
     - `.index(x)`: x가 존재하지 않을 때 **오류 발생**
 
-- 문자열 변경 메서드
+- 문자열 변경 메서드  
 ![image9](https://user-images.githubusercontent.com/108309396/214722686-b5493ef8-6c37-4cad-aa68-1a0d42c6882f.png)
     - `.replace(old, new[, count])`: count를 지정하면, 해당 개수만큼만 시행
     - strip(양쪽 제거), lstrip(왼쪽 제거), rstrip(오른쪽 제거)
@@ -53,8 +53,8 @@
   - 순서가 없기 때문에 index를 이용한 접근이 불가능
 - 수학에서의 집합과 동일
   - 집합 연산이 가능(여집합을 표현하는 연산자는 별도로 존재X)
-- mutable
-- method
+- mutable 
+ 
 ![image10](https://user-images.githubusercontent.com/108309396/214724172-6f2c7512-fd6e-4c41-9290-f93d4053f10f.png)
 
 > ### Dictionary
@@ -62,8 +62,8 @@
 - key
   - key는 immutable한 데이터만 활용 가능
 - values
-  - 어떠한 형태는 상관없음 
-- method
+  - 어떠한 형태는 상관없음  
+
 ![image11](https://user-images.githubusercontent.com/108309396/214725505-a1139de2-d1cb-45fa-b671-a790676f5490.png)
 
 
@@ -74,7 +74,7 @@
   - 해당 주소의 일부 값을 변경하는 경우 이를 참조하는 모든 변수에 영향
 - **얕은 복사(Shallow copy)**
   - slice 연산자 활용하여 같은 원소를 가진 리스트지만 연산된 결과를 복사(다른 주소)
-  - 복사하는 리스트의 원소가 주소를 참조하는 경우
+  - 복사하는 리스트의 원소가 주소를 참조하는 경우  
 ![image15](https://user-images.githubusercontent.com/108309396/214735332-37c800d4-68e7-4d59-bc2a-fcc58d551d4f.png)
 - **깊은 복사(Deep copy)**  
 ![image14](https://user-images.githubusercontent.com/108309396/214735062-52957be6-ca88-4adb-af24-61752b4377de.png)
