@@ -35,5 +35,9 @@ export CLASSPATH
   - `.idea directory`: 프로젝트의 구조 정보 등의 프로젝트 관련 meta data가 존재
   - `.iml`(IntelliJ IDEA Module): Module 구성에 대해 xml 형태로 기술해놓은 파일
   - `src directory`: Class 생성하는 공간, 새로운 Class  파일을 생성하게 되어도 실제로는 .java 소스 파일이고 .class 파일은 해당 source code를 build한 뒤 생성된다.  
-<img src="https://user-images.githubusercontent.com/108309396/215321533-b1fcfb93-1055-40df-81b2-7ac92612addf.jpeg" width="50%" height="50%"/>
-
+  <img src="https://user-images.githubusercontent.com/108309396/215321533-b1fcfb93-1055-40df-81b2-7ac92612addf.jpeg" width="50%" height="50%"/>
+- `main` 입력 후 클릭 시 자동으로  `public static void main(String[] args){}` 생성
+- `sout` 입력 시 자동으로 `System.out.print();` 생성
+- Built Project: `cmd + F9`
+- 빌드가 완료되면 out > production > [프로젝트명] > [클래스이름].class 파일이 생성됨
+- Run .java: `ctrl + R`
