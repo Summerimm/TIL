@@ -53,7 +53,7 @@ type(test_data) # <class 'str'>
 - 클래스 정의 `class MyClass:`
 - 인스턴스 생성 `my_instance = MyClass()`
 - 메서드 호출 `my_instance.my_method()`
-- 속성 접근 `my_instance.my_attibute`
+- 속성 접근 `my_instance.my_attribute`
 
 ### 객체 비교하기
 - `==`
@@ -106,7 +106,7 @@ type(test_data) # <class 'str'>
 - 인스턴스 변수를 사용하거나, 인스턴스 변수에 값을 설정하는 메서드
 - 클래스 내부에 정의되는 메서드의 기본
 - 호출 시, 첫 번째 인자로 self가 자동으로 전달
-- `**self**`: 인스턴스 자기자신
+- **`self`**: 인스턴스 자기자신
   - 인스턴스 메서드는 호출 시 첫 번째 인자로 인스턴스 자신이 전달되게 설계
 - `magic method`: Double underscore(\__)가 있는 메서드로 특수한 동작을 위해 만들어진 메서드
   - 특정 상황에 자동으로 불림
