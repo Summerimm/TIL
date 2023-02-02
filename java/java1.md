@@ -40,4 +40,54 @@ export CLASSPATH
 - `sout` 입력 시 자동으로 `System.out.print();` 생성
 - Built Project: `cmd + F9`
 - 빌드가 완료되면 out > production > [프로젝트명] > [클래스이름].class 파일이 생성됨
-- Run .java: `ctrl + R`
+- Run .java: `ctrl + R` / `Shift+F10`
+
+## JVM(Java Virtual Machine, 자바 가상머신)이란?
+- 자바 바이트코드를 실행할 수 있는 주체
+- 자바 바이트코드는 플랫폼에 독립적이며 모든 JVM은 자바 가상 머신 규격에 정의된대로 자바 바이트 코드를 실행
+- C언어의 경우 컴파일하면 바로 기계어가 나와 머신에서 실행가능
+- Java의 경우 Java 원시프로그램(.java)를 컴파일하면 자바 바이트 코드(.class)가 나오고 각 운영체제에 맞는 JVM 위에서 실행됨
+- 장점: 어떤 운영체제든 컴파일을 한 번만 하면 각 운영체제 위에서 실행 가능함. 즉, 운영체제별로 컴파일할 필요가 없음
+- C의 경우 목적 운영체제에 맞게 따로 컴파일을 해줘야 함  
+![화면 캡처 2023-02-02 091347](https://user-images.githubusercontent.com/108309396/216198756-286d1bda-6b29-4062-96fd-d7b3fe78efce.png)
+- 안드로이드 운영체제의 경우 최적화를 위해 J자바 바이트 코드(.class)가 아닌 달빅 실행 파일(.dex)을 VM이 아닌 달빅 가상 머신에서 실행시킨다.
+
+## JDK & JRE
+- JDK(Java SE Developmenet Kit) = JRE + 개발에 필요한 도구(컴파일러, 디버거)
+- JRE(Java Runtime Environment): 자바 실행 환경(JVM이 포함됨) 
+
+## Hello SSAFY
+```java
+import java.lang.*;
+public class Hello{
+  public static void main(String[]args){
+    System.out.println("Hello World!");
+  }
+}
+// Hello World!
+```
+- Hello.java로 저장 후 C:드라이브의 Temp파일에 저장(.txt가 아닌 모든 파일로 저장)
+- 터미널에서 Temp파일에 접근 후 `javac Hello.java`로 컴파일, 실행은 `java Hello`
+
+## main method
+- `public static void main(String[]args){}`
+- 실행 명령인 java를 실행 시 가장 먼저 호출되는 부분
+- 만약 Application에서 main() 메서드가 없다면 절대로 실행될 수 없음
+- Application의 시작 &rarr; 특정 클래스의 main() 실행
+
+## 주석(Comment)
+- `//`, `/*내용*/`: 한 줄 주석, 여러 줄 주석
+- `/**내용**/`: Documentation API를 위한 주석 처리
+
+## 출력문
+- print: 문자열
+- println: 문자열 + "/n"
+- printf
+  - `%d`: 정수 
+    - `%4d`: 4칸 확보 후 오른쪽 정렬 
+    - `%-4d`: 4칸 확보 후 왼쪽 정렬
+    - `%04d`: 4칸 확보 후 오른쪽 정렬, 빈 칸 대신 0을 채워넣음
+  - `%f`: 실수(default 여섯째자리까지 표시)
+    - `.2f`: 둘째 자리까지 표시
+  - `%c`: 문자
+  - `%s`: 문자열
