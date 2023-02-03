@@ -1,4 +1,4 @@
-# [Java 개발환경 Setting]
+# Java 개발환경 Setting
 ## 환경변수 설정
 1. vi ~/.zshrc
 ```\# User configuration
