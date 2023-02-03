@@ -1,4 +1,4 @@
-# 배열
+# Array 배열
 - 같은 종류의 데이터를 저장하기 위한 자료구조
 - **크기가 고정되어 있음** (한 번 생성된 배열은 크기를 바꿀 수 없음-배열 생성 시 메모리 상에서 연속적으로 할당하기 때문)
 - 배열을 객체로 취급(참조형)
@@ -105,4 +105,119 @@ public class Main {
         System.out.println(sum /5);
     }
 }
+```
+
+### 배열의 복사
+-  배열은 생성하면 길이를 변경할 수 없기 때문에 더 많은 저장공간이 필요하다면 큰 배열을 생성하고 이전 배열의 값을 복사해야함
+-  새로운 배열 = Arrays.copyOf(복사하고 싶은 배열, 새로운 배열의 크기)
+```java
+public class Main {
+    public static void main(String[] args) {
+        int[] scores = new int[] {29, 45, 67, 84, 92};
+        // scores[5] = 44; -> ArrayIndexOutOfBoundsException
+        // 기본적인 방법
+        int[] newScores = new int[10];
+        for(int i=0; i<5; i++){
+            newScores[i] = scores[i];
+        }
+        System.out.println(Arrays.toString(newScores));
+        // Arrays.copyOf 사용
+        int[] newScores2 = Arrays.copyOf(scores, scores.length * 2);
+        System.out.println(Arrays.toString(newScores2));
+    }
+}
+```
+
+## 배열 실습 문제
+### 배열의 최댓값, 최솟값 찾기 문제
+```java
+public class Main {
+    public static void main(String[] args) {
+        int[] intArray = { 3, 27, 13, 8, 235, 7, 22, 9, 435, 31, 54 };
+
+        int min = Integer.MAX_VALUE; // 21억
+        int max = Integer.MIN_VALUE; // -21억
+
+        for(int num : intArray){
+            min = Math.min(min, num);
+            max = Math.max(max, num);
+        }
+        System.out.printf("min: %d, max: %d%n", min, max);
+    }
+}
+```
+
+### 배열 빈도수 구하기
+```java
+public class Main {
+    public static void main(String[] args) {
+        int[] intArray = {3, 7, 2, 5, 7, 7, 9, 2, 8, 1, 1, 5, 3};
+        int[] count = new int[10]; // using Counting array
+
+        for(int num : intArray){
+            count[num]++;
+        }
+        System.out.println(Arrays.toString(count));
+    }
+}
+```
+
+# Multidimensional Array 다차원 배열
+- 2차원 이상의 배열을 의미
+- 배열 요소로 또 다른 배열을 가지는 배열
+- 2차원 배열은 배열 요소로 1차원 배열의 참조를 가지는 배열
+- 3차원 배열은 배열 요소로 2차원 배열의 참조를 가지는 배열
+
+### 2차원 배열 선언
+- `int[][] iArr` &rarr; 권장
+- `int iArr[][]`
+- `int[] iArr[]`
+
+### 2차원 배열 생성
+- `배열의 이름 = new 배열유형[1차원 배열개수][1차원 배열의 크기];`
+- `배열의 이름 = new 배열유형[1차원 배열개수][];`
+```java
+int [][] scores = {{90, 95, 84, 90},{100, 80, 75, 60}, {100, 90, 80, 95}};
+```
+![배열](https://user-images.githubusercontent.com/108309396/216528999-f9ff4288-a611-47e4-a7ed-8e564df2e9dc.png)
+```java
+public class Main {
+    public static void main(String[] args) {
+        int[][] arr = new int[3][4];
+        int[][] raggedArr = new int[3][];
+        raggedArr[0] = new int[4];
+        raggedArr[1] = new int[3];
+        raggedArr[2] = new int[5];
+
+        // new int[행][열]
+        // 행: 2차원 배열의 크기
+        // 열: 1차원 배열의 크기
+        // arr.length: 3
+        // arr[0].length : 4
+        // arr.length * arr[0].length : 12
+        for(int r=0; r<3; r++){
+            for(int c=0; c<4; c++){
+                System.out.printf("%4d", arr[r][c]);
+            }
+            System.out.println();
+        }
+    }
+}
+```
+
+### 실습문제) 모래시계
+```java
+public class Main {
+    public static void main(String[] args) {
+        int[][] iArr = new int[6][6];
+
+    }
+}
+/*
+1 2 3 4 5
+  6 7 8
+    9
+  10 11 12
+13 14 15 16 17
+ */
 ```
