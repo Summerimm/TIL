@@ -202,7 +202,6 @@ public class Main {
             System.out.println();
         }
     }
-}
 ```
 
 ### 실습문제) 모래시계
