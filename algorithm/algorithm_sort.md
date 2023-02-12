@@ -29,7 +29,7 @@ for i: N-1 -> 1 # 각 구간의 끝
 '''
 N = int(input())
 arr = list(map(int, input().split()))
-for i in range(N-1, 0, -1): # 각 구간의 끝
+for i in range(N-1, 0, -1): # 각 구간의 끝(78부터 확정됨)
     for j in range(i): # 비교할 왼쪽 원소
         if arr[j] > arr[j+1]:
             arr[j], arr[j+1] = arr[j+1], arr[j] # 큰 원소 오른쪽으로
@@ -47,7 +47,7 @@ print(*arr)
 - 항목들의 순서를 결정하기 위해 집합에 각 항목이 몇 개씩 있는지 세는 작업을 하여, 선형 시간에 정렬하는 효율적인 알고리즘
 - 제한 사항
   - **정수나 정수로 표현할 수 있는 자료에 대해서만 적용 가능**: 각 항목의 발생 횟수를 기록하기 위해, 정수 항목으로 인덱스 되는 카운트들의 배열을 사용하기 때문이다.
-  - 카운트들을 위한 충분한 공간을 할당하려면 집합 내의 가장 큰 정수를 알아야 한다.
+  - 카운트들을 위한 충분한 공간을 할당하려면 **집합 내의 가장 큰 정수를 알아야 한다.**
 - 시간 복잡도
   - $O(n+k)$: n은 리스트 길이, k는 정수의 최댓값
 ```python
@@ -74,8 +74,16 @@ def CountingSort(A, B, k):
   - 주어진 리스트 중에서 최솟값을 찾는다
   - 그 값을 리스트의 맨 앞에 위치한 값과 교환한다
   - 맨 처음 위치를 제외한 나머지 리스트를 대상으로 위의 과정을 반복한다
-- 시간복잡도 $O(n^2)$  
-![화면 캡처 2023-02-07 104525](https://user-images.githubusercontent.com/108309396/217126931-6899956a-f2ab-40b7-aa2d-60e00c98003f.png)
+- 시간복잡도 $O(n^2)$ 
+```python
+def selectionSort(arr, N):
+  for i in range(N-1):
+    minIdx = i
+    for j in range(i+1, N):
+      if arr[minIdx] > arr[j]:
+        minIdx = j
+    arr[i], arr[minIdx] = arr[minIdx], arr[i]
+``` 
 
 ## Selection Algorithm
 - 저장되어 있는 자료로부터 k번째로 큰 혹은 작은 원소를 찾는 방법
@@ -85,8 +93,16 @@ def CountingSort(A, B, k):
   - 원하는 순서에 있는 원소 가져오기
 - k가 비교적 작을 때 유용 
 - $O(kn)$  
-![화면 캡처 2023-02-07 105035](https://user-images.githubusercontent.com/108309396/217127575-aee9cbf9-4d5d-4bb8-af17-59c102c0c0ba.png)
-
+```python
+def select(arr, k):
+  for i in range(k):
+    minIdx = i
+    for j in range(i+1, len(arr)):
+      if arr[minIdx] > arr[j]:
+        minIdx = j
+    arr[i], arr[minIdx] = arr[minIdx], arr[i]
+  return arr[k-1]
+``` 
 
 # 시간복잡도 비교
 <img src="https://user-images.githubusercontent.com/108309396/216209392-a2834b9b-be09-47c4-be08-e23cb3f8f049.png" width="80%" height="50%"/>

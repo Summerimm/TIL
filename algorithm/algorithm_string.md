@@ -3,8 +3,8 @@
 ### Big-Endian / Little-Endian
 - 대부분의 컴퓨터는 Little-Endian
 - 네트워크 등에서는 Big-Endian을 사용하기도 함
-- 메모리의 1000번지에 30을 저장, 1001번지에 00을 저장 &rarr; Big-Endian
-- - 메모리의 1000번지에 00을 저장, 1001번지에 30을 저장 &rarr; Little-Endian
+  - 메모리의 1000번지에 30을 저장, 1001번지에 00을 저장 &rarr; Big-Endian
+  - 메모리의 1000번지에 00을 저장, 1001번지에 30을 저장 &rarr; Little-Endian
 
 
 ### 유니코드 인코딩(UTF: Unicode Transformation Format)
@@ -46,11 +46,12 @@
   - 문자열 비교에서 == 연산은 메모리 참조가 같은지를 묻는 것
 - Python: ==, is 연산자
   - == 연산자는 내부적으로 특수 메서드 \_\_eq\_\_()를 호출
+  - is 연산자는 메모리 참조까지 동일한지
 
 ### 문자열 숫자를 정수로 변환
-- C: atoi() 함수, 역함수로는 itoa()가 있다
+- C: `atoi()` 함수, 역함수로는 `itoa()`가 있다
 - Java: 숫자 클래스의 parse 메서드
   - `Integer.parseInt(String)`
-  - 역함수로는 toString()
+  - 역함수로는 `toString()`
 - Python: 숫자와 문자변환 함수
   - `int('123'), str(123)`
