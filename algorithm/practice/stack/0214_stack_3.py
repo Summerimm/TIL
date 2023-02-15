@@ -1,4 +1,4 @@
-# [파이썬 S/W 문제해결 기본] 4일차 - 그래프 경로
+# 그래프 경로
 import sys
 sys.stdin = open('input.txt', 'r')
 

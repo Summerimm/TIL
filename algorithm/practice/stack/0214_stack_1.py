@@ -1,4 +1,4 @@
-# Stack1_연습문제_2: 깊이우선탐색
+# 깊이우선탐색
 import sys
 sys.stdin = open('input.txt', 'r')
 
