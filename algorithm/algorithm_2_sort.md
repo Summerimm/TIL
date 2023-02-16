@@ -9,7 +9,7 @@
   - Insertion Sort
   - Merge Sort
 
-## 버블 정렬(Bubble Sort)
+# 버블 정렬(Bubble Sort)
 ![버블정렬](https://user-images.githubusercontent.com/108309396/216204091-3d5a0582-01bf-4e5d-98be-dbf5f8589be9.png)
 - 인접한 두 개의 원소를 비교하며 자리를 계속 교환하는 방식
 - 정렬과정
@@ -38,8 +38,8 @@ print(*arr)
 7 12 42 55 78
 ```
 
-## 카운팅 정렬(Counting Sort)
-### 카운팅 정렬 과정
+# 카운팅 정렬(Counting Sort)
+## 카운팅 정렬 과정
 ![count1](https://user-images.githubusercontent.com/108309396/216209161-8da8d33a-48f7-46d3-84eb-a0741b9ce214.png)
 ![cnt2](https://user-images.githubusercontent.com/108309396/216209163-915e5098-3be8-44a1-be0d-bcf7e3c212a3.png)
 ![cnt3](https://user-images.githubusercontent.com/108309396/216209166-14964c75-47ec-435e-b554-8a856497e9db.png)
@@ -68,7 +68,7 @@ def CountingSort(A, B, k):
     B[C[A[i]]] = A[i] # 정렬 배열 해당 인덱스에 넣음
 ```
 
-## Selection Sort(선택 정렬)
+# 선택 정렬(Selection Sort)
 - 주어진 자료들 중 가장 작은 값의 원소부터 차례대로 선택하여 위치를 교환하는 방식
 - 과정
   - 주어진 리스트 중에서 최솟값을 찾는다
@@ -103,6 +103,55 @@ def select(arr, k):
     arr[i], arr[minIdx] = arr[minIdx], arr[i]
   return arr[k-1]
 ``` 
+
+# 퀵 정렬
+## 분할 정복 알고리즘
+- 분할(Divide): 해결할 문제를 여러 개의 작은 부분으로 나눈다.
+- 정복(Conquer): 나눈 작은 문제를 각각 해결한다.
+- 통합(Combine): (필요하다면) 해결된 해답을 모은다.
+- 
+## 퀵 정렬 요약
+- 주어진 배열을 두 개로 분할하고, 각각을 정렬
+- 합병정렬과의 차이점
+  - 합병정렬은 그냥 두 부분으로 나누는 반면, 퀵 정렬은 분할 시 pivot item을 중심으로 작은 것은 왼편으로 큰 것은 오른편에 위치시킴
+  - 각 부분 정렬이 끝난 후 합병정렬은 합병(후처리) 필요, 퀵 정렬은 필요X
+```python
+def quickSort(a, begin, end):
+  if begin < end:
+    p = parition(a, begin, end)
+    quickSort(a, begin, p-1)
+    quickSort(a, p+1, end)
+
+def partition(a, begin, end):
+  pivot = (begin + end) // 2
+  L = begin
+  R = end
+  while L < R:
+    while (L < R and a[L] < a[pivot]): L += 1
+    while (L < R and a[R] >= a[pivot]): R -= 1
+    if L < R:
+      if L == pivot: pivot = R
+      a[L], a[R] = a[R], a[L]
+  a[pivot], a[R] = a[R], a[pivot]
+  return R
+```
+
+## 퀵 정렬 수행 과정
+![1](https://user-images.githubusercontent.com/108309396/219248703-da46ae8e-b5fc-48ea-ad55-12b41d355a21.png)  
+![2](https://user-images.githubusercontent.com/108309396/219248707-c6f6a695-490b-48c1-913b-96ecb9fd1477.png)  
+![3](https://user-images.githubusercontent.com/108309396/219248711-471f6ffa-96b0-4583-98c9-6334585158f7.png)  
+![4](https://user-images.githubusercontent.com/108309396/219248712-4f25953d-c751-4362-a44b-ce50d78cff13.png)  
+![5](https://user-images.githubusercontent.com/108309396/219248715-7c3f0dba-4cf2-455a-8163-cd59db14b63c.png)  
+![6](https://user-images.githubusercontent.com/108309396/219248717-33cbad32-253e-47a5-89a5-1e5a9a4ca781.png)  
+![7](https://user-images.githubusercontent.com/108309396/219248719-5dfde775-9b75-45c3-8241-f5d6ca2bd119.png)  
+![8](https://user-images.githubusercontent.com/108309396/219248721-3448febe-7ec7-4890-afe6-6adfd7285aa4.png)  
+![9](https://user-images.githubusercontent.com/108309396/219248724-b447861e-203d-4905-9b66-76b4697ce161.png)  
+
+
+## 퀵 정렬의 시간복잡도
+- In worst case, $O(n^2)$ &rarr; 합병정렬에 비해 좋지 않음
+- In average, $O(nlogn)$
+
 
 # 시간복잡도 비교
 <img src="https://user-images.githubusercontent.com/108309396/216209392-a2834b9b-be09-47c4-be08-e23cb3f8f049.png" width="80%" height="50%"/>
