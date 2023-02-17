@@ -1,3 +1,4 @@
+# 베이비진 게임
 import sys
 sys.stdin = open('input.txt', 'r')
 
