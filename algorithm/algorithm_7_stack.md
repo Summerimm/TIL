@@ -12,7 +12,7 @@
 - 저장소 자체를 스택이라 부르기도 한다
 - 스택에서 마지막 삽입된 원소의 위치를 top이라 부른다.
 - 연산
-  - 삽입: `push` &rarr; append(느림..)
+  - 삽입: `push` &rarr; `append`(느림..)
   - 삭제: `pop`
   - 스택이 공백인지 아닌지를 확인하는 연산: `isEmpty`
   - 스택의 top에 있는 item(원소)을 반환하는 연산: `peek`  
@@ -90,8 +90,8 @@ def fibo2(n):
 ```
 
 ## DP의 구현 방식
-- recursive 방식: fib1()
-- iterative 방식: fib2()
+- recursive 방식: fibo1()
+- iterative 방식: fibo2()
 - memoization을 재귀적 구조에 사용하는 것보다 반복적 구조로 DP를 구현한 것이 성능 면에서 효율적
 - 재귀적 구조는 내부에 시스템 호출 스택을 사용하는 오버헤드가 발생하기 때문이다.
 
