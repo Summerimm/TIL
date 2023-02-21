@@ -66,3 +66,49 @@ for i in range(E):
   adjL[v2].append(v1)
 ```
 ## BFS(Breadth First Search, 너비 우선 탐색)
+- 탐색 시작점의 인접한 정점들을 먼저 차례로 방문한 뒤에 방문했던 정점을 시작점으로 하여 다시 인접한 정점들을 차례로 방문하는 방식
+- Queue 활용
+```python
+def BFS(G, v):  # 그래프 G, 탐색 시작점 v
+  visited = [0] * (n+1)   # n: 정점의 개수
+  queue = []              # 큐 생성
+  queue.append(v)         # 시작점 v를 큐에 삽입
+  while queue:            # 큐가 비어있지 않은 경우
+    t = queue.pop(0)      # 큐의 첫 번째 원소 반환
+    if not visited[t]:    # 방문되지 않은 곳이라면
+      visited[t] = True   # 방문한 것으로 표시
+      visit(t)            # 정점 t에서 할 일
+      for i in G[t]:      # t와 연결된 모든 정점에 대해
+        if not visited[i]:  # 방문되지 않은 곳이라면
+          queue.append(i)   # 큐에 넣기
+```
+
+### BFS 구현
+![1](https://user-images.githubusercontent.com/108309396/220223708-34a088e8-dcfc-4b04-bbc6-9456e2bb8bd9.png)  
+![2](https://user-images.githubusercontent.com/108309396/220223713-5794449d-68a3-4ad6-ba21-e25693ec451c.png)  
+![3](https://user-images.githubusercontent.com/108309396/220223714-2dd75378-cf16-43da-9d90-080e412f4d3e.png)  
+![4](https://user-images.githubusercontent.com/108309396/220223716-cd161134-4680-4742-98ac-36938e214134.png)  
+![5](https://user-images.githubusercontent.com/108309396/220223719-32bec32f-2c5d-43c6-b4e2-7653363e6785.png)  
+![6](https://user-images.githubusercontent.com/108309396/220223720-cec5688f-d2f6-4f6e-9ce2-0aa798089bb4.png)  
+![7](https://user-images.githubusercontent.com/108309396/220223723-7f3c0a35-344b-407e-bfba-bcf7feb40c5a.png)  
+![8](https://user-images.githubusercontent.com/108309396/220223724-f9560a58-528e-4d19-92a5-f99dff88ac0b.png)  
+![9](https://user-images.githubusercontent.com/108309396/220223727-af3b64b2-81fa-400e-8fee-f396d64aa491.png)  
+![10](https://user-images.githubusercontent.com/108309396/220223729-2b6fa9f6-519f-43ce-ab19-3b6ad1ecf70b.png)  
+![11](https://user-images.githubusercontent.com/108309396/220223731-d92bf7c5-a73c-474e-9126-bc67d405f0c3.png)  
+
+
+# BFS 참고
+```python
+def BFS(G, v):  # 그래프 G, 탐색 시작점 v
+  visited = [0] * (n+1)   # n: 정점의 개수
+  queue = []              # 큐 생성
+  queue.append(v)         # 시작점 v를 큐에 삽입
+  visited[v] = 1        # 시작점 enqueue되었음을 표시
+  while queue:            # 큐가 비어있지 않은 경우
+    t = queue.pop(0)      # 큐의 첫 번째 원소 반환
+    visit(t)              # 정점 t에서 할 일
+      for i in G[t]:      # t와 연결된 모든 정점에 대해
+        if not visited[i]:  # 방문되지 않은 곳이라면
+          queue.append(i)   # 큐에 넣기
+          visited[i] = visited[t] + 1   # n으로부터 1만큼
+```
