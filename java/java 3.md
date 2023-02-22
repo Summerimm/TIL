@@ -14,7 +14,7 @@ if 조건식{
   실행할 문장2;
 }
 else{
-  실행할 문장 a;
+  실행할 문장a;
 }
 ```
 ## 중첩 if문
@@ -49,7 +49,8 @@ else{
 - 인자로 선택변수를 받아 변수의 값에 따라서 실행문이 결정
 - break가 있는지 없는지가 중요
 - default &rarr; else의 역할과 동일
-- switch(수식){
+```java
+switch(수식){
   case 값1:
     실행문 A;
     break;
@@ -59,6 +60,7 @@ else{
   default:
     실행문 C;
 }
+```
 
 # 반복문(Loop)
 ## for문

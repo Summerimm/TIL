@@ -1,4 +1,4 @@
-# String(문자열)
+# String
 
 ### Big-Endian / Little-Endian
 - 대부분의 컴퓨터는 Little-Endian
