@@ -10,13 +10,14 @@
 ## 배열의 선언
 - 타입[] 변수 &rarr; 권장
 - 타입 변수[]  
-![배열](https://user-images.githubusercontent.com/108309396/216481715-c7653580-a6f3-4416-bf3f-08364f3fa98a.png)
+<img width="711" alt="image" src="https://user-images.githubusercontent.com/108309396/220562404-c4e53e81-6b90-4356-998b-af1c44dfef0e.png">
+
 
 ## 배열의 생성과 초기화
 - 자료형[] 배열이름 = new 자료형[길이]; // 배열 생성(자료형의 초기값으로 초기화)
 - 자료형[] 배열이름 = new 자료형[] {값1, 값2, 값3, 값4}; // 배열 생성 및 값 초기화
 - 자료형[] 배열이름 = {값1, 값2, 값3, 값4}; // 선언과 동시에 초기화  
-![배열2](https://user-images.githubusercontent.com/108309396/216482286-d6f75f91-3c9e-44c3-9bf1-55cb86d63cc0.png)
+<img width="675" alt="image" src="https://user-images.githubusercontent.com/108309396/220562264-342bb586-0201-4332-818b-eaa2588ebd41.png">
 ```java
 public class Main {
     public static void main(String[] args) {
@@ -35,7 +36,8 @@ public class Main {
 }
 ```
 ## 배열의 메모리 생성과정
-![화면 캡처 2023-02-03 093744](https://user-images.githubusercontent.com/108309396/216482900-32fbab30-dba2-4e39-9524-23e9f6628e47.png)
+<img width="754" alt="스크린샷 2023-02-22 오후 5 15 43" src="https://user-images.githubusercontent.com/108309396/220562011-595f3ac8-555d-43a0-9aad-72c5d1195e5a.png">
+
 ```java
 public class Main {
     public static void main(String[] args) {
