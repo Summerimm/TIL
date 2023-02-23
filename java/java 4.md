@@ -5,6 +5,7 @@
 - 배열의 요소를 참조하려면 배열이름과 index라고 하는 음이 아닌 정수값을 조합하여 사용
 - **index는 0부터 시작**
 - **배열이름.length**를 통해 배열의 길이 조회 가능
+  - `.`: 멤버 연산자
 - 크기 변경 필요 시 새로운 배열을 생성 후 내용을 옮긴다
 
 ## 배열의 선언
@@ -60,6 +61,7 @@ public class Main {
 - 가독성이 개선된 반복문으로, 배열 및 Collections에서 사용
 - index 대신 직접 요소(elements)에 접근하는 변수를 제공
 - naturally ready only(copied value)
+- 전체 순회할 때 유용
 ```java
 int intArray [] = {1, 3, 5, 7, 9};
 for(intx : intArray){
