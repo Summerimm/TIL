@@ -8,8 +8,7 @@ def diagonal(arr):
             tmp1 = ''.join((arr[i][j], arr[i+1][j+1], arr[i+2][j+2], arr[i+3][j+3], arr[i+4][j+4]))
             if tmp1 == 'o' * 5:
                 return True
-    else:
-        return False
+    return False
 
 T = int(input())
 for tc in range(1, T+1):
