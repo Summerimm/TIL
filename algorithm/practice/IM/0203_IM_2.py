@@ -1,3 +1,4 @@
+# 두 개의 숫자열
 import sys
 sys.stdin = open("input.txt", "r")
 
