@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #hphk > p:nth-child(2) {
+      color: blue;
+    }
+    #hphk > p:nth-of-type(2) {
+      color: red;
+    }
+  </style>
+  <!--p:nth-of-child(n)은 hphk라는 id를 가진 tag의 자식 중 2번째 contents에 적용-->
+  <!--p:nth-of-child(2) hphk라는 id를 가진 tag의 자식 p중 2번째 contents에 적용-->
+</head>
+<body>
+  <div id="hphk">
+    <h2>어떻게 선택 될까?</h2>
+    <p>첫번째 단락</p>      <!--p:nth-of-child(2) 선택 시 blue-->
+    <p>두번째 단락</p>      <!--p:nth-of-type(2) 선택 시 red-->
+    <p>세번째 단락</p>
+    <p>네번째 단락</p>
+  </div>
+</body>
+</html>
