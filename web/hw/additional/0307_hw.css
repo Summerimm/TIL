@@ -1,0 +1,17 @@
+#profile {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.center {
+  text-align: center;
+}
+
+.blue{
+  color: blue;
+}
+
+#name {
+  text-align: inherit;
+  font-size: 30px;
+}

@@ -106,3 +106,28 @@ public class Manager{
   }
 }
 ```
+
+## JVM 메모리 구조
+- Java 언어는 메모리 관리를 개발자가 하지 않음
+- GC(Garbage Collection)가 메모리 관리  
+<img width="998" alt="image" src="https://user-images.githubusercontent.com/108309396/223443503-1a9d52f7-2fcf-4774-b4f0-c213d834833b.png">
+
+### static 특징
+1. 로딩 시점
+  - `static`: 클래스 로딩 시
+  - `non-static`: 객체 생성 시
+2. 메모리 상의 차이
+  - `static`: 클래스 당 하나의 메모리 공간만 할당
+  - `non-static`: 인스턴스 당 메모리가 별도로 할당
+3. 문법적 특징
+  - `static`: 클래스 이름으로 접근
+  - `non-static`: 객체 생성 후 접근
+4. static 영역에서는 non-static 영역을 직접 접근이 불가능
+5. non-static 영역에서는 static 영역에 대한 접근이 가능
+
+## 객체 배열 관리
+- 정보 관리 시스템
+- 캡슐화를 이용하여 클래스 작성
+- DB 대신 배열을 사용해 객체의 정보를 저장
+- 객체의 조회, 추가, 수정, 삭제(CRUD)를 구현
+- 싱글턴 패턴을 사용하여 정보 관리 일원화
