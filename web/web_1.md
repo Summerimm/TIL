@@ -106,7 +106,7 @@
   - 클래스(`.class_name`) 선택자, 아이디(`#id_name`) 선택자, 속성(`attr`) 선택자
   - id selector는 단일 사용, class selector는 다중 사용 가능
 - 결합자(Combinators)
-  - 자손 결합자(`.class_name > child_tag`)-자식 에게만 적용, 자식 결합자(`.class_name child_tag`)-모든 자손에 적용
+  - 자식 결합자(`.class_name > child_tag`)-자식 에게만 적용, 자손 결합자(`.class_name child_tag`)-모든 자손에 적용
 
 ### CSS 적용 우선순위(cascading order)
 1. 중요도(Importance)-사용 시 주의
