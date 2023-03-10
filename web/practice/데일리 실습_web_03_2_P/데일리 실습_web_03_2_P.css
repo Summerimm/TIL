@@ -1,0 +1,93 @@
+.header {
+  box-sizing: border-box;
+  width: 450px;
+  line-height: 60px;
+  background-color: red;
+  color: white;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.title {
+  font-size: 38px;
+  font-weight: bold;
+  margin: 12px auto
+}
+
+.line{
+  width: 450px;
+  height: 1px;
+  background-color: gainsboro;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.sign-box {
+  box-sizing: border-box;
+  width: 450px;
+  height: 350px;
+  border: 1px solid gainsboro;
+}
+
+.signin {
+  font-weight: bold;
+  text-align: center;
+  margin: 20px auto;
+}
+
+.blueline {
+  width: 450px;
+  height: 2px;
+  background-color: royalblue;
+  
+}
+
+.usrpwd {
+  margin-left: 20px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+#input {
+  margin-left: 20px;
+  margin-top: 10px;
+  width: 400px;
+  height: 30px;
+  border: 1px solid gainsboro;
+}
+
+.clearfix:before, .clearfix:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+#check{
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 10px;
+  border: 1px solid gainsboro;
+  float: left;
+}
+
+.left {
+  margin-top: 15px;
+  float: left;
+}
+
+.right {
+  margin-top: 15px;
+  margin-right: 20px;
+  float: right;
+  text-align: right;
+  color: royalblue;
+}
+.signin-button {
+  width: 400px;
+  line-height: 40px;
+  margin-top: 50px;
+  margin-left: 20px;
+  text-align: center;
+  color: white;
+  background-color: rgb(63, 146, 95);
+}
