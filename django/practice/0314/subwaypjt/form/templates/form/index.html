@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>FORM</h1>
+  <div>
+    주문서를 작성하여 주십시오
+  </div>
+  <br>
+  <div>
+    <label for="name">이름: </label>
+    <input type="text" name="name" id="name" placeholder="이름을 입력해주세요">
+    <br>
+    <label for="date">날짜: </label>
+    <input type="date" name="date" id="date">
+  </div>
+  <div>
+    <h1>1. 샌드위치 선택</h1>
+    <input type="radio" name="eggmayo" id="eggmayo">
+    <label for="eggmayo">에그마요</label>
+    <br>
+    <input type="radio" name="bmt" id="bmt">
+    <label for="bmt">이탈리안 비엠티</label>
+    <br>
+    <input type="radio" name="baconabocado" id="baconabocado">
+    <label for="baconabocado">터키 베이컨 아보카도</label>
+  </div>
+  <hr>
+  <div>
+    <h1>2. 사이즈 선택</h1>
+    <input type="number" name="size" id="size">
+    <label for="size"></label>
+  </div>
+  <hr>
+  <div>
+    <h1>3. 빵</h1>
+    <form action="#">
+      <select name="languages" id="lang">
+        <option value="화이트">화이트</option>
+        <option value="위트">위트</option>
+        <option value="플랫브레드">플랫브레드</option>
+        <option value="파마산 오레가노">파마산 오레가노</option>
+        <option value="허니오트">허니오트</option>
+        <option value="하티">하티</option>
+      </select>
+    </form>
+  </div>
+  <div>
+    <h1>4. 야채/소스</h1>
+    <input type="checkbox" name="토마토" id="토마토">
+    <label for="토마토">토마토</label>
+    <br>
+    <input type="checkbox" name="오이" id="오이">
+    <label for="오이">오이</label>
+    <br>
+    <input type="checkbox" name="할라피뇨" id="할라피뇨">
+    <label for="할라피뇨">할라피뇨</label>
+    <br>
+    <input type="checkbox" name="핫 칠리" id="핫 칠리">
+    <label for="핫 칠리">핫 칠리</label>
+    <br>
+    <input type="checkbox" name="바베큐" id="바베큐">
+    <label for="바베큐">바베큐</label>
+  </div>
+  <input type="submit" value="Submit" />
+</body>
+</html>

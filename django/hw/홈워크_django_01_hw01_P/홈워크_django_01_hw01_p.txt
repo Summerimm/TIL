@@ -1,0 +1,9 @@
+mkdir pjt
+cd pjt
+python -m venv venv
+source venv/Scripts/activate
+pip install django==3.2.18
+django-admin startproject my_pjt
+cd my_pjt
+python manage.py startapp my_app
+python manage.py runserver
