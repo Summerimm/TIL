@@ -85,7 +85,7 @@
   - view 함수들이 정의되는 곳
   - MTV 패턴의 V에 해당
 - 애플리케이션 등록
-  - 앱을 사용하기 위해서는 settings.py에 반드시 INSTALLED_LAPPS 리스트에 반드시 추가해야함  
+  - **앱을 사용하기 위해서는 settings.py에 반드시 INSTALLED_LAPPS 리스트에 반드시 추가해야함**  
 ![image](https://user-images.githubusercontent.com/108309396/224872630-1e538796-d5c6-45d3-805b-7d1a27a4584b.png)
 
 
