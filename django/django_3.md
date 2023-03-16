@@ -133,7 +133,7 @@
 ### makemigrations
 - 모델의 변경사항에 대한 새로운 migration을 만들 때 사용
 - `python manage.py makemigrations`
-- "파이썬으로 작성된 설계도"
+- "파이썬으로 작성된 설계도"  
 ![image](https://user-images.githubusercontent.com/108309396/225544593-84caea63-f736-41d7-98ad-659c71a0042a.png)
 
 ### migrate
@@ -145,9 +145,9 @@
 ### Migrations 기타 명령어
 1. `showmigrations`
   - migrations 파일들이 migrate 됐는지 안 됐는지 여부를 확인하는 용도
-  - [X] 표시가 있으면 migrate가 완료되었음을 의미
+  - \[X] 표시가 있으면 migrate가 완료되었음을 의미
   - `python manage.py showmigrations`
-2. `sqlmigrate`
+1. `sqlmigrate`
   - `python manage.py sqlmigrate articles 0001`
   - 해당 migrations 파일이 SQL문으로 어떻게 해석될 지 미리 확인할 수 있음
 
@@ -177,3 +177,62 @@
 
 
 # QuerySet API
+### 사전준비
+- SQLite 설치 후 실행(`db.sqlite3`-우클릭-`Open Database`)
+- 좌측 하단 SQLITE EXPLORER 클릭-테이블 선택 후 show table 버튼 클릭 
+- 추가 라이브러리 설치 및 설정
+  - `pip install ipython`, `pip install django-extensions`
+  - `settings.py` `INSTALLED_APPS`에 `'django_extensions',` 추가
+  - 패키지 목록 업데이트(`pip freeze > requirements.txt`)
+- ORM 구문 연습을 위해 파이썬 쉘 환경 사용(`python manage.py shell_plus`)
+
+## Database API
+- Django가 제공하는 ORM을 사용해 DB를 조작하는 방법
+- Model을 정의하면 데이터를 만들고 읽고 수정하고 지울 수 있는 API를 제공  
+<img width="531" alt="image" src="https://user-images.githubusercontent.com/108309396/225655625-e4e236f8-f301-456d-aead-a6a0d561c29a.png">
+
+### objects manager
+- Django 모델이 DB 쿼리 작업을 가능하게 하는 인터페이스
+- DB를 Python class로 조작할 수 있도록 여러 메서드를 제공하는 manager
+
+### Query
+- 데이터베이스에 특정한 데이터를 보여달라는 요청
+- "쿼리문을 작성한다" &rarr; 원하는 데이터를 얻기 위해 데이터베이스에 요청을 보낼 코드를 작성한다.
+- 파이썬으로 작성한 코드는 ORM에 의해 SQL로 변환되어 DB에 전달, DB의 응답데이터를 ORM이 `QuerySet`이라는 자료 형태로 변환하여 우리에게 전달
+
+### QuerySet
+![image](https://user-images.githubusercontent.com/108309396/225657341-5d5f6fb7-af4c-4a4e-b019-132d671ce45f.png)  
+- 데이터베이스에게서 전달 받은 객체 목록(데이터 모음)
+  - 순회가 가능한 데이터로써 1개 이상의 데이터를 불러와 사용 가능
+- Django ORM을 통해 만들어진 자료형으로 필터를 걸거나 정렬 등을 수행 가능
+- objects manager를 사용하여 복수의 데이터를 가져오는 queryset method를 사용할 때 반환되는 객체
+- **단, DB가 단일한 객체를 반환할 때는 QuerySet이 아닌 모델(Class)의 인스턴스로 반환됨**
+
+## CRUD
+- Create / Read / Update / Delete
+
+## Create
+1. 첫 번째 방법 
+1) `article = Article()`: 클래스를 통한 인스턴스 생성
+2) `article.title = 'first'`: 클래스 변수명과 같은 이름의 인스턴스 변수를 생성 후 값 할당
+3) `article.save()`: 인스턴스로 save 메서드 호출
+<img width="454" alt="image" src="https://user-images.githubusercontent.com/108309396/225658901-59372126-6dd3-47d8-a660-1f86c0de7d4c.png">  
+<img width="601" alt="image" src="https://user-images.githubusercontent.com/108309396/225659069-206fe4ed-26f6-4d66-ae1b-63a1ed797e3c.png">  
+<img width="537" alt="image" src="https://user-images.githubusercontent.com/108309396/225661174-43f74a6d-52a5-4661-99c8-0bfb466ab61c.png">  
+
+2. 두 번째 방법
+- 인스턴스 생성 시 초기 값을 함께 작성하여 생성
+<img width="836" alt="image" src="https://user-images.githubusercontent.com/108309396/225659648-1f7ba07e-345a-4e99-97a4-f93af4eef1d8.png">  
+
+3. 세 번째 방법
+- QuerySet API 중 create() 메서드 활용
+<img width="512" alt="image" src="https://user-images.githubusercontent.com/108309396/225660037-3826cf25-3fa7-45ab-8aa6-1f6c276ce175.png">
+
+> `.save()`
+> - "Saving object"
+> - 데이터 생성 시 save를 호출하기 전까진 객체의 id 값은 None
+>   - id 값은 데이터베이스에서 계산되기 때문
+> - 단순히 모델 클래스를 통해 인스턴스를 생성하는 것은 DB에 영향을 끼치지 않기 때문에 반드시 save를 호출해야 테이블에 레코드가 생성됨 
+
+
+## READ
