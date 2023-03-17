@@ -1,0 +1,93 @@
+/* 부트스트랩의 컨테이너 역할을 합니다. */
+.container{
+  display: flex;
+  justify-content: center;
+}
+
+.red-banner {
+  /* flexbox 속성을 사용해 중간에 오도록 만듭니다. */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: rgb(203, 73, 48);
+  color: white;
+  height: 40px;
+  padding: 10px 50px;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: xx-large;
+}
+
+/* 구분선 입니다. */
+.grey-divider {
+  border: 1px solid rgb(225, 225, 225);
+}
+
+.signin-form-wrap {
+  border: 2px solid rgb(225, 225, 225);
+  border-radius: 4px;
+  margin-top: 30px;
+}
+
+.signin-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  padding: 10px 50px;
+  font-weight: bold;
+  font-size: large;
+}
+
+.blue-divider {
+  border: 1px solid rgb(101, 104, 190);
+}
+
+
+.signin-form {
+  display: flex;
+  /* stretch 되어 화면비율을 줄여도 레이아웃이 유지됩니다. */
+  flex-direction: column;
+}
+
+.input-label {
+  font-weight: bold;
+  font-size: large;
+  padding: 10px 20px;
+}
+
+.signin-input {
+  border: 1px solid rgb(225, 225, 225);
+  border-radius: 4px;
+  height: 20px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.password-find {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.password-find  a {
+  text-decoration: none;
+  color: rgb(52, 106, 176);
+}
+
+.sign-in-btn {
+  height: 45px;
+  border: 1px solid rgb(67, 140, 79);
+  border-radius: 4px;
+  background-color: rgb(80, 167, 94);
+  color: white;
+  font-weight: lighter;
+  font-size: large;
+  margin: 20px 20px;
+}

@@ -7,7 +7,7 @@
 
 ## CSS Box model
 - **모든 HTML element는 box model이다**
-- 위에서 아래로, 왼쪽에서 오른쪽으로 쌓임
+- 위에서 아래로, 왼쪽에서 오른쪽으로 쌓임  
 ![1](https://user-images.githubusercontent.com/108309396/223601980-8425cfab-0140-4552-8b84-fb9f5e7ad4a0.png)  
 
 ### Box model 구성
@@ -15,14 +15,14 @@
   - content
   - padding
   - border
-  - margin
+  - margin  
 ![2](https://user-images.githubusercontent.com/108309396/223601985-7c6c6c0e-cd48-42ee-ba97-76f163179bd0.png)  
 
 ### Box-sizing
 - 기본적으로 모든 요소의 box-sizing은 content-box
   - padding을 제외한 순수 contents 영역만을 box로 지정
 - 다만, 우리가 일반적으로 영역을 볼 때는 border까지의 너비를 지정하길 원함
-  - 이 경우 box-sizing을 border-box로 설정
+  - 이 경우 box-sizing을 border-box로 설정  
 ![3](https://user-images.githubusercontent.com/108309396/223601989-ddba23ba-e208-4c55-8254-495da073478e.png)  
 
 ## CSS Display

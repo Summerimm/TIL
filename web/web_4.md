@@ -47,6 +47,6 @@
   - Container: Column들을 담고 있는 공간
 - Bootstrap Grid system은 flexbox로 제작됨
 - container, rows, column으로 컨텐츠를 배치하고 정렬
-- 12개의 column, 6개의 grid breakpoints
+- 12개의 column, 6개의 grid breakpoints  
 ![image](https://user-images.githubusercontent.com/108309396/224259527-eca700bb-3982-4d19-96bd-da31c00d0478.png)  
 ![image](https://user-images.githubusercontent.com/108309396/224259599-8911878d-f427-4b99-9a4a-86b49b8cd1d9.png)  

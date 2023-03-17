@@ -4,19 +4,19 @@
 - 이를 통해 사용자는 HTTP 요청에서 전달할 정보를 제공 가능
 
 ## Sending form data(Client)
-### HTML <form> element
+### HTML `<form>` element
 - **사용자로부터 할당된 데이터를 서버로 전송**
 - "데이터를 어디(action)로 어떤 방식(method)으로 보낼지"
 - 핵심 속성: `action`, `method`
-  1. action
+  1. `action`
   - 입력 데이터가 전송될 URL을 지정
   - 지정하지 않으면 현재 form이 있는 페이지의 URL로 보내짐
-  2. method
+  2. `method`
   - 데이터를 어떻게 보낼 것인지 정의
   - 입력 데이터의 HTTP request methods를 지정
   - HTML form 데이터는 `GET/POST` 2가지 방법으로만 전송 가능  
 
-### HTML <form> element 작성
+### HTML `<form>` element 작성
 ![image](https://user-images.githubusercontent.com/108309396/225520327-4b8d1659-d557-4e1d-a322-67e6572a8104.png)
 
 ### HTML \<input> element 작성
@@ -111,9 +111,9 @@
 
 ### models.py
 - 모델 클래스를 작성하는 것은 **DB table의 스키마를 정의하는 것**
-- "모델 클래스 == 테이블 스키마"
+- "모델 클래스 == 테이블 스키마"  
 ![image](https://user-images.githubusercontent.com/108309396/225542666-df6959a7-fb66-4278-9881-894c6277766a.png)  
-- Model 이해하기
+- Model 이해하기  
 ![image](https://user-images.githubusercontent.com/108309396/225542798-b18799a4-968f-4bff-86fa-d575acf545fb.png)  
 ![image](https://user-images.githubusercontent.com/108309396/225542876-a3df3423-48b6-406c-a987-17c3f97279d4.png)  
 ![image](https://user-images.githubusercontent.com/108309396/225542933-2ab22131-ddba-485f-b2ae-ecc9a4e61706.png)  
@@ -122,7 +122,7 @@
 ### Django Model Field
 - Django는 model field를 통해 table의 field(column)에 저장할 데이터 유형(INT, TEXT)을 정의
 - 데이터 유형에 따라 다양한 model field를 제공
-  - DateField(), CharField(), IntergerField() 등
+  - DateField(), CharField(), IntergerField() 등  
 ![image](https://user-images.githubusercontent.com/108309396/225544892-631d3290-977e-4304-852c-b4c8ddd92bd0.png)  
 ![image](https://user-images.githubusercontent.com/108309396/225544947-6618c746-cb30-4ecd-acc0-f5fdf5105cc3.png)  
 
@@ -212,20 +212,20 @@
 - Create / Read / Update / Delete
 
 ## Create
-1. 첫 번째 방법 
-1) `article = Article()`: 클래스를 통한 인스턴스 생성
-2) `article.title = 'first'`: 클래스 변수명과 같은 이름의 인스턴스 변수를 생성 후 값 할당
-3) `article.save()`: 인스턴스로 save 메서드 호출
+1. 첫 번째 방법     
+1\) `article = Article()`: 클래스를 통한 인스턴스 생성  
+2\) `article.title = 'first'`: 클래스 변수명과 같은 이름의 인스턴스 변수를 생성 후 값 할당  
+3\) `article.save()`: 인스턴스로 save 메서드 호출  
 <img width="454" alt="image" src="https://user-images.githubusercontent.com/108309396/225658901-59372126-6dd3-47d8-a660-1f86c0de7d4c.png">  
 <img width="601" alt="image" src="https://user-images.githubusercontent.com/108309396/225659069-206fe4ed-26f6-4d66-ae1b-63a1ed797e3c.png">  
 <img width="537" alt="image" src="https://user-images.githubusercontent.com/108309396/225661174-43f74a6d-52a5-4661-99c8-0bfb466ab61c.png">  
 
 2. 두 번째 방법
-- 인스턴스 생성 시 초기 값을 함께 작성하여 생성
+- 인스턴스 생성 시 초기 값을 함께 작성하여 생성  
 <img width="836" alt="image" src="https://user-images.githubusercontent.com/108309396/225659648-1f7ba07e-345a-4e99-97a4-f93af4eef1d8.png">  
 
 3. 세 번째 방법
-- QuerySet API 중 create() 메서드 활용
+- QuerySet API 중 create() 메서드 활용  
 <img width="512" alt="image" src="https://user-images.githubusercontent.com/108309396/225660037-3826cf25-3fa7-45ab-8aa6-1f6c276ce175.png">
 
 > `.save()`
@@ -236,3 +236,42 @@
 
 
 ## READ
+- QuerySet API method를 사용해 데이터를 다양하게 조회
+1. Methods that **return new querysets**
+2. Methods that **do not return querysets**  
+![image](https://user-images.githubusercontent.com/108309396/225841236-51e223af-4c21-4ae1-9626-0b83c0c7aa0f.png)
+
+
+### all()
+- QuerySet return
+- 전체 데이터 조회
+
+### get()
+- 단일 데이터 조회
+- 객체를 찾을 수 없으면 `DoesNotExist` 예외를 발생시킴
+- 둘 이상의 객체를 찾으면 `MultipleObjectsReturned` 예외를 발생시킴
+- &rarr; primary key와 같이 uniqueness(고유성)을 보장하는 조회에서 사용해야 함   
+![image](https://user-images.githubusercontent.com/108309396/225841524-55e4a025-8a4a-4e74-8350-4ec056655c76.png)
+
+### filter()
+- 지정된 조회 매개 변수와 일치하는 객체를 포함하는 새 QuerySet을 반환  
+![image](https://user-images.githubusercontent.com/108309396/225841896-a760652e-c973-4b82-9b5e-f9d85fb0143c.png)
+
+### Field lookups
+- 특정 레코드에 대한 조건을 설정하는 방법
+- QuerySet 메서드 `filter(), exclude(), get()`에 대한 키워드 인자로 지정됨  
+![image](https://user-images.githubusercontent.com/108309396/225842089-017300ef-a664-497a-876a-d9606abec66b.png)
+
+## UPDATE
+### Update 과정
+1. 수정하고자 하는 article 인스턴스 객체를 조회 후 반환 값을 저장
+2. article 인스턴스 객체의 인스턴스 변수 값을 새로운 값으로 할당
+3. save() 인스턴스 메서드 호출  
+![image](https://user-images.githubusercontent.com/108309396/225842387-6758a21f-9a79-485f-8847-bfc384cfd326.png)
+
+
+## DELETE
+### Delete 과정
+1. 삭제하고자 하는 article 인스턴스 객체를 조회 후 반환 값을 저장
+2. delete() 인스턴스 메서드 호출  
+![image](https://user-images.githubusercontent.com/108309396/225842622-4bd9849e-7ef0-4d76-8086-a10a3a50ea7d.png)

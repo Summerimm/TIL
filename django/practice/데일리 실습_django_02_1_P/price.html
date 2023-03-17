@@ -1,0 +1,22 @@
+
+{% comment %} 1, 2 {% endcomment %}
+{% if total %}
+  <p>{{ thing }} {{ cnt }}개의 가격은 {{ total }}</p>
+{% else %}
+  <p>{{thing}}은/는  없어용</p>
+{% endif %}
+
+
+{% if thing in product_price %}
+  <p>{{ thing }} {{ cnt }}개의 가격은 {{ total }}</p>
+{% else %}
+  <p>{{thing}}은/는  없어용</p>
+{% endif %}
+
+
+{% comment %} 3 {% endcomment %}
+{% comment %} {% if flag %}
+  <p>{{ thing }} {{ cnt }}개의 가격은 {{ total }}</p>
+{% else %}
+  <p>{{thing}}은/는  없어용</p>
+{% endif %} {% endcomment %}

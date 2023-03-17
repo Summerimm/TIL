@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 전체 form 이 들어가는 영역입니다. -->
+  <div class="container">
+    <section class="login-wrap">
+      <!-- 빨간색 배너 -->
+      <div class="red-banner">
+        <div>
+          <span>Invalid Login or password.</span>
+        </div>
+      </div>
+      <!-- 제목 -->
+      <h1>SSAFY 전용 GitLab 시스템</h1>
+      <!-- 구분선 -->
+      <div class="grey-divider"></div>
+      <!-- 로그인 영역 전체 -->
+      <div class="signin-form-wrap">
+        <!-- 로그인 제목 -->
+        <div class="signin-title">
+          <div>
+            <span>Sign in</span>
+          </div>
+        </div>
+        <div class="blue-divider"></div>
+        <!-- 로그인 form 영역 -->
+        <form class="signin-form">
+          <label class="input-label" for="username">Username or Email</label>
+          <input class="signin-input" id="username" type="text">
+          <label class="input-label" for="password">Password</label>
+          <input class="signin-input" type="password" id="password">
+          <div class="password-find">
+            <div>
+              <input type="checkbox">
+              <span>Remember me</span>
+            </div>
+            <div>
+              <a href="">Forgot your password?</a>
+            </div>
+          </div>
+          <button class="sign-in-btn">
+            Sign in
+          </button>
+        </form>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
