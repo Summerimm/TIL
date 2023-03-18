@@ -63,5 +63,3 @@
 - `position: sticky`: **스크롤에 따라** static &rarr; fixed로 변경
   - 스크롤 위치가 임계점에 이르면 `position: fixed`와 같이 박스를 화면에 고정
 
-![hw](https://user-images.githubusercontent.com/108309396/223601991-8551d44c-33e5-4c92-98cb-a7a015d557f0.png)
-
