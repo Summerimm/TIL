@@ -20,6 +20,8 @@ aside {
   clear: both;
 }
 
+
+
 /* 이곳에 코드를 작성합니다. */
 /* 모든 스타일 요소를 ***클래스 선택자***로 정의합니다. */
 
@@ -37,3 +39,35 @@ aside {
 /* 6. 모든 semantic 태그의 border 두께를 1px, 실선, 검은색으로 설정합니다. */
 
 /* 7. 모든 semantic 태그의 border 모서리 반경을 4px로 설정합니다. */
+
+.bg {
+  background-color: lightgrey;
+}
+
+.article {
+  background: white;
+}
+
+.mp {
+  margin: 4px;
+  padding: 4px;
+}
+
+.tcenter {
+  text-align: center;
+}
+
+.section {
+  width: 505px;
+  height: 300px;
+}
+
+.aside {
+  width: 280px;
+  height: 300px;
+}
+
+.border {
+  border: 1px solid black;
+  border-radius: 4px;
+}

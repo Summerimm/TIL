@@ -16,3 +16,21 @@ td{
   background-color: black;
   border-collapse: collapse;
 }
+
+.kingmove {
+  position: absolute;
+  top: 707px;
+  left: 607px;
+}
+
+.queenmove {
+  position: absolute;
+  top: 410px;
+  left: 9px;
+}
+
+.rookmove {
+  position: absolute;
+  top: 707px;
+  left: 507px;
+}
