@@ -117,3 +117,5 @@
 ### CSS 상속
 - CSS는 상속을 통해 부모 요소의 속성을 자식에게 상속
   - 속성 중에는 상속이 되는 것과 되지 않는 것들이 있다.
+  - 상속되는 것: Text 관련 요소(font, color, text-align), opacity, visibility 등
+  - 상속되지 않는 것: Box model 관련 요소(width, height, margin, padding, border, box-sizing, display), position 관련 요소(position, top/right/bottom/left, z-index) 등
