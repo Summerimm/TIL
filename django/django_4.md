@@ -120,16 +120,16 @@
 
 ## edit function
 ### 1. urls & views
-- 기존에 입력되어 있던 데이터 조회
+- 기존에 입력되어 있던 데이터 조회  
 ![image](https://user-images.githubusercontent.com/108309396/226289135-a82b95f2-fbd0-43d5-b969-1a35f95651b6.png)
 
 ### 2. templates(`edit.html`)
 - 기존 데이터 출력
-- `textarea` 태그는 value 속성이 없으므로 태그 내부 값으로 작성해야 함
+- `textarea` 태그는 value 속성이 없으므로 태그 내부 값으로 작성해야 함  
 ![image](https://user-images.githubusercontent.com/108309396/226289390-b8952d0c-e3f1-4bb0-a25a-7999d6c76e6d.png)
 
 ### 3. templates(`detail.html`)
-- Edit 페이지로 이동하기 위한 하이퍼 링크 작성
+- Edit 페이지로 이동하기 위한 하이퍼 링크 작성  
 ![image](https://user-images.githubusercontent.com/108309396/226290000-ee75f002-19fe-44f2-8cdb-a6480ed653d8.png)
 
 ## update function
@@ -150,7 +150,25 @@
 
 ## CREATE
 - new와 create view 함수를 합침
-- 각각의 역할은 `request.method` 값을 기준으로 나눔    
+- 각각의 역할은 `request.method` 값을 기준으로 나눔(POST면 create, GET이면 new)   
 ![image](https://user-images.githubusercontent.com/108309396/226291200-4bea2a35-88eb-4ef6-9a3c-e1d5d04ac287.png)
 - 불필요해진 new의 view 함수와 url path를 삭제  
 ![image](https://user-images.githubusercontent.com/108309396/226291344-07124daf-b7d1-43bd-b563-d0639405ea11.png)
+- `new.html` &rarr; `create.html` 이름 변경 및 action 속성 값 수정  
+<img width="601" alt="image" src="https://user-images.githubusercontent.com/108309396/226365071-2806e289-29bc-4579-80e0-357fc0931b88.png">
+- index 페이지에 있던 new 관련 링크 수정  
+<img width="674" alt="image" src="https://user-images.githubusercontent.com/108309396/226365320-0dad4405-8c70-4d5f-bc6a-51399d8a18d4.png">
+
+## UPDATE
+- edit과 update view 함수를 합침(POST면 update, GET이면 edit)  
+<img width="632" alt="image" src="https://user-images.githubusercontent.com/108309396/226365550-9a881fc2-03c4-4b4d-b4e3-b5b2979aad30.png">
+- 불필요해진 edit의 view 함수와 url path를 삭제  
+<img width="954" alt="image" src="https://user-images.githubusercontent.com/108309396/226365921-6ed9b38a-f94c-4cf2-8fd5-92137630b09a.png">
+- `edit.html` &rarr; `update.html` 이름 변경 및 action 속성 값 수정  
+<img width="725" alt="image" src="https://user-images.githubusercontent.com/108309396/226366329-519f1027-5bc4-4094-8175-89e9cdbff6c0.png">  
+- 이름변경으로 인한 관련 정보 수정  
+<img width="685" alt="image" src="https://user-images.githubusercontent.com/108309396/226366410-cd4ffdcf-2511-432f-ab21-7b03ca0c4651.png">  
+
+## DELETE
+- POST 요청에 대해서만 삭제가 가능하도록 수정  
+<img width="653" alt="image" src="https://user-images.githubusercontent.com/108309396/226366740-ad81f8ab-01c2-493b-a886-7f944229cfd8.png">
