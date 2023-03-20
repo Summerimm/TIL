@@ -1,0 +1,31 @@
+@media (max-width: 414px) {
+  .xx-large {
+    /* display: none; */
+    font-size: xx-large;
+    color: red;
+  }
+}
+
+@media (max-width: 375px) {
+  .x-large {
+    /* display: none; */
+    font-size: x-large;
+    color: blue;
+  }
+}
+
+@media (max-width: 360px) {
+  .large {
+    /* display: none; */
+    font-size: large;
+    color: green;
+  }
+}
+
+@media (max-width: 280px) {
+  .small {
+    /* display: none; */
+    font-size: small;
+    color: violet;
+  }
+}

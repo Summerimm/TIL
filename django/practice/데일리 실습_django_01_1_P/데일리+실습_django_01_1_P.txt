@@ -1,0 +1,20 @@
+day1/
+		day1_problem1/
+				project1/
+						__init__.py
+						asgi.py
+						settings.py
+						urls.py
+						wsgi.py
+				fruits/
+						migrations/
+						templates/
+								fruit.html
+						__init__.py
+						admin.py
+						apps.py
+						models.py
+						tests.py
+						views.py
+				venv/
+				manage.py

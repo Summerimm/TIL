@@ -117,7 +117,9 @@
 ![image](https://user-images.githubusercontent.com/108309396/225542798-b18799a4-968f-4bff-86fa-d575acf545fb.png)  
 ![image](https://user-images.githubusercontent.com/108309396/225542876-a3df3423-48b6-406c-a987-17c3f97279d4.png)  
 ![image](https://user-images.githubusercontent.com/108309396/225542933-2ab22131-ddba-485f-b2ae-ecc9a4e61706.png)  
-![image](https://user-images.githubusercontent.com/108309396/225542967-6dfa3c69-d59a-4b73-ab95-46065ea23802.png)  
+![image](https://user-images.githubusercontent.com/108309396/225542967-6dfa3c69-d59a-4b73-ab95-46065ea23802.png)
+- `updated_at = models.DateTimeField(auto_now=True)` &rarr; 생성시각
+- `created_at = models.DateTimeField(auto_now_add=True)` &rarr; 수정시각
 
 ### Django Model Field
 - Django는 model field를 통해 table의 field(column)에 저장할 데이터 유형(INT, TEXT)을 정의
@@ -184,7 +186,9 @@
   - `pip install ipython`, `pip install django-extensions`
   - `settings.py` `INSTALLED_APPS`에 `'django_extensions',` 추가
   - 패키지 목록 업데이트(`pip freeze > requirements.txt`)
+  - 패키지 목록을 그대로 가져올 때는 `pip install -r requirements.txt`
 - ORM 구문 연습을 위해 파이썬 쉘 환경 사용(`python manage.py shell_plus`)
+- 특정 디렉토리에서 가상환경을 자동으로 켜고 싶을 땐, venv 생성 후 `ctrl+shift+p` 눌러 `Python: Select Interpreter` 선택 &rarr; `venv` 선택
 
 ## Database API
 - Django가 제공하는 ORM을 사용해 DB를 조작하는 방법
