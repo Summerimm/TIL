@@ -1,0 +1,21 @@
+day2/
+  day2_problem2/
+	project2/
+		__init__.py
+		asgi.py
+		settings.py
+		urls.py
+		wsgi.py
+	 calculators/
+		migrations/
+		templates/
+		calculators/
+			calculator.html
+		__init__.py
+		admin.py
+		apps.py
+		models.py
+		tests.py
+		views.py
+      	 venv/
+      	 manage.py

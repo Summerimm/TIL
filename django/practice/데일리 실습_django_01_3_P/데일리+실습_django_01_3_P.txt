@@ -1,0 +1,24 @@
+day1/
+		day1_problem3/
+				project3/
+						__init__.py
+						asgi.py
+						settings.py
+						urls.py
+						wsgi.py
+				certifications/
+						migrations/
+						templates/
+								certification1.html
+								certification2.html
+								certification3.html
+						__init__.py
+						admin.py
+						apps.py
+						models.py
+						tests.py
+						views.py
+				templates/
+            base.html
+				venv/
+				manage.py

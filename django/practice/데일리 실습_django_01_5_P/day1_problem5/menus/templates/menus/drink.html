@@ -1,0 +1,7 @@
+{% extends 'order.html' %}
+
+{% block content %}
+{% for drink in drinks %}
+  <p>{{ drink|capfirst }}</p>
+{% endfor %}
+{% endblock content %}

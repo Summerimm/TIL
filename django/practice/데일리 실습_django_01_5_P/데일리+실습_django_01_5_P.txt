@@ -1,0 +1,25 @@
+day1/
+		day1_problem5/
+				project5/
+						__init__.py
+						asgi.py
+						settings.py
+						urls.py
+						wsgi.py
+				menus/
+						migrations/
+						templates/
+								food.html
+								drink.html
+								receipt.html
+						__init__.py
+						admin.py
+						apps.py
+						models.py
+						tests.py
+						views.py
+				templates/
+            base.html
+            _order.html
+				venv/
+				manage.py

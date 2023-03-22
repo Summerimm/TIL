@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<p>oops! I catch only {{ result }} ㅠㅠ</p>
+<form action="{% url 'first' %}">
+  <label for="throw3">throw!</label>
+  <input type="text" id="throw3" name="message">
+  <input type="submit" value="휙">
+</form>
+{% endblock content %}

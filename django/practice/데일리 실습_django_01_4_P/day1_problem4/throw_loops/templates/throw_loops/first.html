@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<p>catch! I catch 
+  {% if message == None %}
+    nothing!
+    {% else %}
+      {{ message }}!
+  {% endif %}</p>
+<form action="{% url 'second' %}">
+  <label for="throw">throw!</label>
+  <input type="text" id="throw" name="message">
+  <input type="submit" value="휙">
+</form>
+{% endblock content %}

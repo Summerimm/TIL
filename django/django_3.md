@@ -6,7 +6,7 @@
 ## Sending form data(Client)
 ### HTML `<form>` element
 - **사용자로부터 할당된 데이터를 서버로 전송**
-- "데이터를 어디(action)로 어떤 방식(method)으로 보낼지"
+- "데이터를 어디(**action**)로 어떤 방식(**method**)으로 보낼지"
 - 핵심 속성: `action`, `method`
   1. `action`
   - 입력 데이터가 전송될 URL을 지정
@@ -25,7 +25,7 @@
 - `type` 속성에 따라 동작 방식이 달라짐
   - 지정하지 않은 경우, 기본값은 `text`
 - 핵심 속성: `name`
-  - form을 통해 데이터를 제출(submit)했을 때 name 속성에 설정된 값을 서버로 전송
+  - form을 통해 데이터를 **제출(submit)**했을 때 **name 속성에 설정된 값을 서버로 전송**
   - 서버는 name 속성에 설정된 값을 통해 사용자가 입력한 데이터 값에 접근가능
   - 서버에 전달하는 파라미터(name은 key, value는 value)로 매핑하는 것
 
@@ -69,7 +69,7 @@
 1. 페이지가 요청되면 Django는 요청에 대한 메타데이터를 포함하는 HttpRequest object를 생성
 2. 해당하는 적절한 view 함수를 로드하고 HttpRequest를 첫 번째 인자로 전달
 3. 마지막으로 view 함수는 HttpResponse object를 반환
-
+---
 
 # Database
 - 체계화된 데이터의 모임
@@ -185,7 +185,7 @@
 - 추가 라이브러리 설치 및 설정
   - `pip install ipython`, `pip install django-extensions`
   - `settings.py` `INSTALLED_APPS`에 `'django_extensions',` 추가
-  - 패키지 목록 업데이트(`pip freeze > requirements.txt`)
+  - 패키지 목록 업데이트 `pip freeze > requirements.txt`
   - 패키지 목록을 그대로 가져올 때는 `pip install -r requirements.txt`
 - ORM 구문 연습을 위해 파이썬 쉘 환경 사용(`python manage.py shell_plus`)
 - 특정 디렉토리에서 가상환경을 자동으로 켜고 싶을 땐, venv 생성 후 `ctrl+shift+p` 눌러 `Python: Select Interpreter` 선택 &rarr; `venv` 선택
@@ -246,18 +246,18 @@
 ![image](https://user-images.githubusercontent.com/108309396/225841236-51e223af-4c21-4ae1-9626-0b83c0c7aa0f.png)
 
 
-### all()
+### `all()`
 - QuerySet return
 - 전체 데이터 조회
 
-### get()
+### `get()`
 - 단일 데이터 조회
 - 객체를 찾을 수 없으면 `DoesNotExist` 예외를 발생시킴
 - 둘 이상의 객체를 찾으면 `MultipleObjectsReturned` 예외를 발생시킴
 - &rarr; primary key와 같이 uniqueness(고유성)을 보장하는 조회에서 사용해야 함   
 ![image](https://user-images.githubusercontent.com/108309396/225841524-55e4a025-8a4a-4e74-8350-4ec056655c76.png)
 
-### filter()
+### `filter()`
 - 지정된 조회 매개 변수와 일치하는 객체를 포함하는 새 QuerySet을 반환  
 ![image](https://user-images.githubusercontent.com/108309396/225841896-a760652e-c973-4b82-9b5e-f9d85fb0143c.png)
 

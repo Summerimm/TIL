@@ -11,7 +11,7 @@
   <p>{{ num1 }} + {{ num2 }} = {{ num1|add:num2 }}</p>
   <p>{{ num1 }} * {{ num2 }} = {{ mul }}</p>
   <p>{{ num1 }} - {{ num2 }} = {{ sub }}</p>
-  {% if num2 == 0 %}
+  {% if num2 == "0" %}
     <p>계산할 수 없습니다.</p>
     {% else %}
       <p>{{ num1 }} / {{ num2 }} = {{ div }}</p>

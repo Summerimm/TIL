@@ -1,0 +1,23 @@
+day2/
+   day2_problem3/
+	project3/
+            		__init__.py
+            		asgi.py
+            		settings.py
+            		urls.py
+            		wsgi.py
+        	throw_catch/
+            		migrations/
+            		templates/
+                		throw_catch/
+                    			first.html
+                    			second.html
+            		__init__.py
+            		admin.py
+            		apps.py
+            		models.py
+           		tests.py
+		urls.py
+            		views.py
+      	 venv/
+      	 manage.py

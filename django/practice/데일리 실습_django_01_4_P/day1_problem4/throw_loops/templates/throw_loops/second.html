@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<p>catch! I catch {{ message }}!</p>
+<form action="{% url 'third' %}">
+  <label for="throw2">and throw!</label>
+  <input type="text" id="throw2" name="message1">
+  <label for="twice">twice!</label>
+  <input type="text" id="twice" name="message2">
+  <input type="submit" value="휙">
+</form>
+{% endblock content %}

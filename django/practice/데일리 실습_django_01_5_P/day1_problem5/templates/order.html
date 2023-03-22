@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>주문해주세요!</h1>
+  <hr>
+  {% block content %}
+  
+  {% endblock content %}
+
+  <form action="{% url 'receipt' %}">
+    <label for="order">주문란 : </label>
+    <input type="text" id="order" name="message">
+    <input type="hidden" name="prev" value="{{ request.resolver_match.url_name }}">
+    <input type="submit" value="주문하기">
+  </form>
+</body>
+</html>

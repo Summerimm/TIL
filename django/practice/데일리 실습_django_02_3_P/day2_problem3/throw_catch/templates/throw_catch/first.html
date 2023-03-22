@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>catch: 
+{% if message %}
+{{ message }} 을/를 받음!</div>
+{% else %}
+아무것도 받지 못함</div>
+{% endif %}
+<br>
+<div>
+  <form action="{% url 'throw_catch:second' %}">
+    <label for="message">throw:</label>
+    <input type="text" name="message" id="message">
+    <input type="submit" value="휙">
+  </form>
+</div>
+
+{% endblock content %}
