@@ -69,7 +69,7 @@
 1. 페이지가 요청되면 Django는 요청에 대한 메타데이터를 포함하는 HttpRequest object를 생성
 2. 해당하는 적절한 view 함수를 로드하고 HttpRequest를 첫 번째 인자로 전달
 3. 마지막으로 view 함수는 HttpResponse object를 반환
----
+
 
 # Database
 - 체계화된 데이터의 모임

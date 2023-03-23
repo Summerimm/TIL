@@ -24,9 +24,9 @@
 
 ### +) Form rendering options
 - `<label> & <input>` 쌍에 대한 3가지 출력 옵션
-1. `as_p()`: 각 필드가 단락(<p>태그)으로 감싸져서 렌더링
-2. `as_ul()`: 각 필드가 목록 항목(<li>태그)으로 감싸져서 렌더링 &rarr; <ul> 태그는 직접 작성해야함
-3. `as_table()`: 각 필드가 테이블(<tr>태그)으로 감싸져서 렌더링
+1. `as_p()`: 각 필드가 단락(`<p>`태그)으로 감싸져서 렌더링
+2. `as_ul()`: 각 필드가 목록 항목(`<li>`태그)으로 감싸져서 렌더링 &rarr; <ul> 태그는 직접 작성해야함
+3. `as_table()`: 각 필드가 테이블(`<tr>`태그)으로 감싸져서 렌더링
 
 ## Django의 2가지 HTML input 요소 표현
 1. Form fields
@@ -121,7 +121,7 @@
 ### Static files 관련 settings
 1. `STATIC_ROOT`
 2. `STATICFILES_DIRS`
-3. `STATIC_URL`
+3. `STATIC_URL`  
 ![image](https://user-images.githubusercontent.com/108309396/226536894-c1e8a0c8-1cc6-4be0-84f1-ca3b7404c67c.png)  
 ![image](https://user-images.githubusercontent.com/108309396/226536937-5428e459-e9b5-4c0d-bae7-698f376dbafd.png)  
 ![image](https://user-images.githubusercontent.com/108309396/226536967-b753f4fc-f447-41b4-9844-bbf017470c35.png)  
@@ -194,7 +194,7 @@
 - pillow: 광범위한 파일 형식 지원, 효율적이고 강력한 이미지 처리 기능을 제공하는 라이브러리
 
 ### ArticleForm에서 image 필드 출력 확인
-![image](https://user-images.githubusercontent.com/108309396/226833987-0137a4d2-ed4a-4c8b-932d-bffaa8a8177b.png)
+![image](https://user-images.githubusercontent.com/108309396/226833987-0137a4d2-ed4a-4c8b-932d-bffaa8a8177b.png)  
 - 파일 또는 이미지 업로드 시에는 `form` 태그에 `enctype` 속성을 변경해야 함
 ![image](https://user-images.githubusercontent.com/108309396/226834028-999f5a5a-5a15-4e0e-bb67-5add3df06a0b.png)
 - 파일 및 이미지는 `request`의 `POST` 속성 값으로 넘어가지 않고 `FILES` 속성값에 담겨 넘어감  

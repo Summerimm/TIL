@@ -10,6 +10,9 @@
 3. admin에 모델 클래스 등록
    - 모델의 record를 보기 위해서는 admin.py에 등록 필요
    - ![image](https://user-images.githubusercontent.com/108309396/226227870-13242d3d-1e4e-4a8f-92bf-2686fb1c45bb.png)
+4. admin site에서 DB table로 보고싶을 때는 `admin.py`에  ModelAdmin 등록  
+![image](https://user-images.githubusercontent.com/108309396/227083720-30c217ba-fe59-4ec6-b2b6-f3e153eabd4b.png)
+
 
 # CRUD with view functions
 - QuerySet API를 통해 view 함수에서 직접 CRUD 구현

@@ -1,0 +1,21 @@
+day3/
+    day3_problem3/
+        project3/
+            __init__.py
+            asgi.py
+            settings.py
+            urls.py
+            wsgi.py
+        articles/
+            migrations/
+                __init__.py
+                0001_initial.py
+            __init__.py
+            admin.py
+            apps.py
+            models.py
+            tests.py
+            views.py
+        venv/
+        db.sqlite3
+        manage.py

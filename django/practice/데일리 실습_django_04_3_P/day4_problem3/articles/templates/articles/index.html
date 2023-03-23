@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 style='text-align: center;'>articles</h1>
+<a href="{% url 'articles:new' %}">new</a>
+<hr>
+{% for article in articles %}
+<p>글 번호: {{ article.pk }}</p>
+<p>글 제목: {{ article.title }}</p>
+<p>글 내용: {{ article.content }}</p>
+<a href="{% url 'articles:detail' article.pk %}">[detail]</a><br>
+<a href="{% url 'articles:edit' article.pk %}">EDIT</a>
+<form action="{% url 'articles:delete' article.pk %}" method="POST">
+  {% csrf_token %}
+  <input type="submit" value="DELETE">
+</form>
+<hr>
+{% endfor %}
+
+
+{% endblock content %}
