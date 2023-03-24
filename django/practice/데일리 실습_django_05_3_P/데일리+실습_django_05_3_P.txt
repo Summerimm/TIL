@@ -1,0 +1,39 @@
+day5
+│
+└── day5_problem3
+    │
+    ├── project3
+    │   │   
+    │   ├── __init__.py
+    │   ├── asgi.py
+    │   ├── settings.py
+    │   ├── urls.py
+    │   └── wsgi.py
+    │   
+    ├── movies
+    │   │   
+    │   ├── migrations/
+    │   ├── __init__.py
+    │   ├── admin.py
+    │   ├── apps.py
+    │   ├── models.py
+    │   ├── tests.py
+    │   ├── urls.py
+    │   ├── views.py
+    │   └── templates
+    │       │         
+    │       └── movies
+    │           │   
+    │           ├── create.html
+    │           ├── detail.html
+    │           └── index.html
+    │       
+    ├── templates
+    │       │         
+    │       └── base.html
+    │       
+    ├── venv/
+    │       
+    ├── db.sqlite3
+    │  
+    └── manage.py

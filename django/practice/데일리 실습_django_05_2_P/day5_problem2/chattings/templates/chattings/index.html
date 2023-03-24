@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <h1>Chattings</h1>
+  <a href="{% url 'chattings:create' %}">CREATE</a>
+  <hr>
+  {% for chat in chats %}
+
+    <p>글 번호: {{ chat.pk }}</p>
+    <p>글 작성자: {{ chat.user }}</p>
+    <p>글 내용: {{ chat.content }}</p>
+    <a href="{% url 'chattings:detail' chat.pk %}">[detail]</a>
+    <hr>
+
+  {% endfor %}
+
+{% endblock content %}
+
+
+

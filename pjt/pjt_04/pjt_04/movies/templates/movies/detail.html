@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <h1 class="text-center">DETAIL</h1>
+  <hr>
+  {% comment %} <img src="http://image.tmdb.org/t/p/w500/{{movie.poster_url}}" alt="poster">
+  <p><b>{{ movie.title }}</b></p>
+  <p>Audience : {{ movie.audience }}</p>
+  <p>Release Dates : {{ movie.release_date }}</p>
+  <p>Genre : {{ movie.genre }}</p>
+  <p>Score : {{ movie.score }}</p>
+  <p>Poster URL : {{ movie.poster_url }}</p>
+  <p>Actor :</p>
+    {% if movie.actor_image %}
+      <img src="{{ movie.actor_image.url }}" alt="{{ movie.actor_image }}">
+    {% endif %}
+  <p>{{ movie.description }}</p><br>
+  
+  <a href="{% url 'movies:update' movie.pk %}">UPDATE</a>
+
+  <form action="{% url 'movies:delete' movie.pk %}" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="DELETE">
+  </form>
+  <a href="{% url 'movies:index' %}">BACK</a> {% endcomment %}
+
+  <div class="d-flex justify-content-center">
+    <div class="card" style="width: 30rem;">
+      <img class="card-img-top" src="http://image.tmdb.org/t/p/w500/{{movie.poster_url}}" alt="poster">
+      <div class="card-body">
+        <h5 class="card-title">{{ movie.title }}</h5>
+        <p class="card-text">
+          <p>Audience : {{ movie.audience }}</p>
+          <p>Release Dates : {{ movie.release_date }}</p>
+          <p>Genre : {{ movie.genre }}</p>
+          <p>Score : {{ movie.score }}</p>
+          <p>Poster URL : {{ movie.poster_url }}</p>
+          <p>Actor :</p>
+            {% if movie.actor_image %}
+              <img src="{{ movie.actor_image.url }}" alt="{{ movie.actor_image }}">
+            {% endif %}
+          <p>{{ movie.description }}</p><br>
+        </p>
+        <form action="{% url 'movies:delete' movie.pk %}" method="POST">
+          {% csrf_token %}
+          <input type="submit" value="DELETE" class="btn btn-primary m-1">
+        </form>
+        <a href="{% url 'movies:update' movie.pk %}" class="btn btn-primary m-1">UPDATE</a>
+        <a href="{% url 'movies:index' %}" class="btn btn-primary">BACK</a>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+
+
+

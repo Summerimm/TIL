@@ -127,7 +127,7 @@
 ![image](https://user-images.githubusercontent.com/108309396/226814188-0f8dbd8b-6ecc-4bda-9202-c33a95574bf0.png)
 
 ## Authentication with User
-- 현재 로그인 되어 있는 유저 정보 출력 &rarr; template에서 인증 관련 데이터 출력
+- 현재 로그인 되어 있는 유저 정보 출력 &rarr; template에서 인증 관련 데이터 출력  
 ![image](https://user-images.githubusercontent.com/108309396/226814526-b1dd7462-330b-4dea-b2e5-eee1c5176c35.png)
 - settings.py의 context processors 설정 값 때문에 context 데이터 없이 user 변수 사용 가능  
 

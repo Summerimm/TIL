@@ -188,6 +188,7 @@
   - 패키지 목록 업데이트 `pip freeze > requirements.txt`
   - 패키지 목록을 그대로 가져올 때는 `pip install -r requirements.txt`
 - ORM 구문 연습을 위해 파이썬 쉘 환경 사용(`python manage.py shell_plus`)
+- shell 쓰고 싶으면 `from articles.models import Article` 후 쿼리 조작 가능
 - 특정 디렉토리에서 가상환경을 자동으로 켜고 싶을 땐, venv 생성 후 `ctrl+shift+p` 눌러 `Python: Select Interpreter` 선택 &rarr; `venv` 선택
 
 ## Database API

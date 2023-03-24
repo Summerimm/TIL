@@ -28,16 +28,7 @@
 2. `as_ul()`: 각 필드가 목록 항목(`<li>`태그)으로 감싸져서 렌더링 &rarr; <ul> 태그는 직접 작성해야함
 3. `as_table()`: 각 필드가 테이블(`<tr>`태그)으로 감싸져서 렌더링
 
-## Django의 2가지 HTML input 요소 표현
-1. Form fields
-     - 입력에 대한 유효성 검사 로직 처리
-     - 템플릿에서 직접 사용  
-![image](https://user-images.githubusercontent.com/108309396/226526341-40ee92ec-7d9e-4ee8-a175-6244e0bce5b3.png)
-1. Widgets
-     - 웹 페이지의 HTML input element 렌더링을 담당: 단순히 input 요소의 보여지는 부분을 변경
-     - 유효성 검증과 아무런 관계가 없음
-     - Widgets은 반드시 form fields에 할당됨    
-![image](https://user-images.githubusercontent.com/108309396/226526364-9a21c0df-4cba-4a64-8c99-6cb72d2be789.png)
+
 
 ## Django ModelForm
 - Model을 통해 Form Class를 만들 수 있는 helper class
@@ -93,13 +84,21 @@
    - 사용자의 입력을 필요로 하고 입력을 받은 것을 그대로 DB 필드에 맞춰 저장할 때
    - 데이터의 유효성 검사가 끝나면 데이터를 각각 어떤 레코드에 맵핑해야 할지 이미 알고 있기 때문에 곧바로 save() 호출이 가능
 ---
+## Django의 2가지 HTML input 요소 표현
+1. Form fields
+     - 입력에 대한 유효성 검사 로직 처리
+     - 템플릿에서 직접 사용  
+![image](https://user-images.githubusercontent.com/108309396/226526341-40ee92ec-7d9e-4ee8-a175-6244e0bce5b3.png)
+1. Widgets
+     - 웹 페이지의 HTML input element 렌더링을 담당: 단순히 input 요소의 보여지는 부분을 변경
+     - 유효성 검증과 아무런 관계가 없음
+     - Widgets은 반드시 form fields에 할당됨    
+![image](https://user-images.githubusercontent.com/108309396/226526364-9a21c0df-4cba-4a64-8c99-6cb72d2be789.png)
 
 ## Widgets을 작성하는 2가지 방법  
-![image](https://user-images.githubusercontent.com/108309396/226533838-058c3281-3b00-4146-ba1f-78a741abc7cb.png)  
-- 오른쪽 작성 방식 권장
+- 오른쪽 작성 방식 권장   
+![image](https://user-images.githubusercontent.com/108309396/226533838-058c3281-3b00-4146-ba1f-78a741abc7cb.png)   
 ![image](https://user-images.githubusercontent.com/108309396/226533913-49180bb6-647c-44e7-9adc-67b71b398e2f.png)
-
-
 # Static files
 - 응답할 때 별도의 처리 없이 파일 내용을 그대로 보여주면 되는 파일
 - **파일 자체가 고정**되어 있고, 서비스 중에도 추가되거나 **변경되지 않고 고정**되어있음
@@ -167,9 +166,8 @@
 ### Media files 관련 settings
 1. `MEDIA_ROOT`  
 ![image](https://user-images.githubusercontent.com/108309396/226832080-27281b8d-f413-4c45-b527-c17418e22b23.png)
-2. `STATICFILES_DIRS`  
+2. `MEDIA_URL`  
 ![image](https://user-images.githubusercontent.com/108309396/226832110-c7874b17-c79c-4c08-be82-d4a34c1990fe.png)
-3. `STATIC_URL`
 
 ### 개발 단계에서 사용자가 업로드한 미디어 파일 제공하기
 ![image](https://user-images.githubusercontent.com/108309396/226832538-ccf82b42-661d-4ce6-80ff-07118155a46c.png)  
@@ -195,9 +193,9 @@
 
 ### ArticleForm에서 image 필드 출력 확인
 ![image](https://user-images.githubusercontent.com/108309396/226833987-0137a4d2-ed4a-4c8b-932d-bffaa8a8177b.png)  
-- 파일 또는 이미지 업로드 시에는 `form` 태그에 `enctype` 속성을 변경해야 함
+- 파일 또는 이미지 업로드 시에는 `form` 태그에 `enctype` 속성을 변경해야 함  
 ![image](https://user-images.githubusercontent.com/108309396/226834028-999f5a5a-5a15-4e0e-bb67-5add3df06a0b.png)
-- 파일 및 이미지는 `request`의 `POST` 속성 값으로 넘어가지 않고 `FILES` 속성값에 담겨 넘어감  
+- 파일 및 이미지는 `request`의 `POST` 속성 값으로 넘어가지 않고 `FILES` 속성값에 담겨 넘어감   
 ![image](https://user-images.githubusercontent.com/108309396/226834206-8eae21f8-ca1b-492b-ac8d-938ab1b16da5.png)
 
 ### 이미지 첨부하기
