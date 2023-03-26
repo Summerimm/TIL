@@ -1,0 +1,49 @@
+day7
+│
+└── day7_problem1
+    │
+    ├── project1
+    │   │   
+    │   ├── __init__.py
+    │   ├── asgi.py
+    │   ├── settings.py
+    │   ├── urls.py
+    │   └── wsgi.py
+    │   
+    ├── articles
+    │   │   
+    │   ├── migrations/
+    │   ├── __init__.py
+    │   ├── admin.py
+    │   ├── apps.py
+    │   ├── forms.py
+    │   ├── models.py
+    │   ├── tests.py
+    │   ├── urls.py
+    │   ├── views.py
+    │   └── templates
+    │       │         
+    │       └── articles
+    │           │   
+    │           ├── create.html
+    │           ├── detail.html
+    │           ├── index.html
+    │           └── update.html
+    │       
+    ├── templates
+    │       │         
+    │       └── base.html
+    │       
+    ├── static
+    │       │         
+    │       └── images
+    │           │         
+    │           └── **ssafy.png**
+    │       
+    ├── staticfiles/
+    │       
+    ├── venv/
+    │       
+    ├── db.sqlite3
+    │  
+    └── manage.py
