@@ -1,0 +1,41 @@
+day10
+│
+└── day10_problem3
+    │
+    ├── project3
+    │   │   
+    │   ├── __init__.py
+    │   ├── asgi.py
+    │   ├── settings.py
+    │   ├── urls.py
+    │   └── wsgi.py
+    │   
+    ├── movies/
+    │   
+    ├── accounts
+    │   │   
+    │   ├── migrations/
+    │   ├── __init__.py
+    │   ├── admin.py
+    │   ├── apps.py
+    │   ├── tests.py
+    │   ├── urls.py
+    │   ├── views.py
+    │   └── templates
+    │       │         
+    │       └── accounts
+    │           │   
+    │           ├── change_password.py
+    │           ├── login.py
+    │           ├── signup.py
+    │           └── update.html
+    │       
+    ├── templates
+    │       │         
+    │       └── base.html
+    │       
+    ├── venv/
+    │       
+    ├── db.sqlite3
+    │  
+    └── manage.py

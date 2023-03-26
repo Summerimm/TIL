@@ -1,4 +1,4 @@
-# 인증과 권한
+# 인증과 권한 - 로그인, 로그아웃
 - Django authentication system(인증 시스템)은 **인증(Authentication)**과 **권한(Authorization)** 부여를 함께 제공(처리)
 - 필수 구성은 `setting.py`에 이미 포함됨. `INSTALLED_APPS`에서 확인 가능 &rarr; `django.contrib.auth`
 - `Authentication`(인증)
