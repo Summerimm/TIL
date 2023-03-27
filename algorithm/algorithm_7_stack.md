@@ -219,6 +219,7 @@ print(cnt)    # 합이 key인 부분집합의 수
 ![33333](https://user-images.githubusercontent.com/108309396/218908177-de0e2d60-2a4f-469f-8e3c-75bb245e92ba.png)   
 ![111](https://user-images.githubusercontent.com/108309396/218908172-cd2684c1-06d9-4efe-90f4-24d472f0a276.png)  
 ![222](https://user-images.githubusercontent.com/108309396/218908174-73b017d1-b2fc-4225-ac76-8dc7e9de4682.png)  
+
 ## 순열 생성
 ```python
 def f(i, k):
