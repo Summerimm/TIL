@@ -23,7 +23,7 @@
 - fixed length
 - variable length
   - length controlled: java
-  - delimited: c
+  - delimited: c  
 ![java](https://user-images.githubusercontent.com/108309396/217408213-fefff510-fcf4-4035-b334-5ff04fd165c0.png)  
 ![c](https://user-images.githubusercontent.com/108309396/217408207-6b2564be-e9b8-407f-acd8-98599ab39c87.png)  
 
@@ -31,7 +31,7 @@
 - char 타입 없음
 - 텍스트 데이터의 취급방법이 통일되어 있음
 - 문자열 기호
-  - `'`, `"`, `'''`, `"""`
+  - ', ", ''', """
   - `+` Concatenation: 문자열 + 문자열 -  이어 붙여주는 역할
   - `*` Repeat: 문자열 * 수 - 수만큼 문자열이 반복
 
