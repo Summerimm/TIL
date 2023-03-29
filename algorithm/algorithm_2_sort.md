@@ -105,27 +105,22 @@ def select(arr, k):
 ``` 
 
 # 퀵 정렬
-## 분할 정복 알고리즘
-- 분할(Divide): 해결할 문제를 여러 개의 작은 부분으로 나눈다.
-- 정복(Conquer): 나눈 작은 문제를 각각 해결한다.
-- 통합(Combine): (필요하다면) 해결된 해답을 모은다.
-
 ## 퀵 정렬 요약
 - 주어진 배열을 두 개로 분할하고, 각각을 정렬
-- 합병정렬과의 차이점
-  - 합병정렬은 그냥 두 부분으로 나누는 반면, 퀵 정렬은 분할 시 pivot item을 중심으로 작은 것은 왼편으로 큰 것은 오른편에 위치시킴
-  - 각 부분 정렬이 끝난 후 합병정렬은 합병(후처리) 필요, 퀵 정렬은 필요X
+- 병합 정렬과의 차이점
+  - 병합정렬은 그냥 두 부분으로 나누는 반면, 퀵 정렬은 분할 시 pivot item을 중심으로 작은 것은 왼편으로 큰 것은 오른편에 위치시킴
+  - 각 부분 정렬이 끝난 후 병합정렬은 병합(후처리) 필요, 퀵 정렬은 필요X
 ```python
-def quickSort(a, begin, end):
-  if begin < end:
-    p = parition(a, begin, end)
-    quickSort(a, begin, p-1)
-    quickSort(a, p+1, end)
+def quickSort(arr, l, r):
+  if l < r:
+    p = parition(arr, l, r)
+    quickSort(arr, l, p-1)
+    quickSort(arr, p+1, r)
 
-def partition(a, begin, end):
-  pivot = (begin + end) // 2
-  L = begin
-  R = end
+def partition(arr, l, r):
+  pivot = (l + r) // 2
+  L = l
+  R = r
   while L < R:
     while (L < R and a[L] < a[pivot]): L += 1
     while (L < R and a[R] >= a[pivot]): R -= 1
@@ -149,10 +144,23 @@ def partition(a, begin, end):
 
 
 ## 퀵 정렬의 시간복잡도
-- In worst case, $O(n^2)$ &rarr; 합병정렬에 비해 좋지 않음
+- In worst case, $O(n^2)$ &rarr; 병합정렬에 비해 좋지 않음
 - In average, $O(nlogn)$
 
 
 # 시간복잡도 비교
 <img src="https://user-images.githubusercontent.com/108309396/216209392-a2834b9b-be09-47c4-be08-e23cb3f8f049.png" width="80%" height="50%"/>
 
+# 병합 정렬(Merge Sort)
+- 여러 개의 정렬된 자료의 집합을 병합하여 한 개의 정렬된 집합으로 만드는 방식
+- top-down 방식
+- $O(nlogn)$
+![image](https://user-images.githubusercontent.com/108309396/228403475-e49ff7a0-2dab-4d6d-9e08-eaf037083457.png)  
+![image](https://user-images.githubusercontent.com/108309396/228403510-b50f4ad7-49db-4630-853b-a71b3eb216f7.png)  
+
+## 구현
+### 분할과정
+![image](https://user-images.githubusercontent.com/108309396/228403742-d63bdb54-9345-40f7-a5e4-177d281eff93.png)  
+
+### 병합 과정
+![image](https://user-images.githubusercontent.com/108309396/228409130-f59b774a-9dbd-4849-b83d-3a9bc741f1c6.png)  

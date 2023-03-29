@@ -65,5 +65,18 @@
 - 함수 호출은 프로그램 메모리 구조에서 스택을 사용
   - 따라서 메모리 및 속도에서 성능저하 발생
 
-### 반복과 재귀의 비교
+### 반복 vs 재귀
 ![image](https://user-images.githubusercontent.com/108309396/227825443-6f51c8ac-e47b-4288-a785-b277d62d9f7f.png)  
+
+
+# 분할 정복 알고리즘
+- 분할(Divide): 해결할 문제를 여러 개의 작은 부분으로 나눈다.
+- 정복(Conquer): 나눈 작은 문제를 각각 해결한다.
+- 통합(Combine): (필요하다면) 해결된 해답을 모은다.  
+![image](https://user-images.githubusercontent.com/108309396/228403066-081f6c27-f623-4d56-9654-f1156f9677fc.png)  
+
+### 반복 vs 분할 정복
+- 반복(iterative) 알고리즘: $O(n)$
+![image](https://user-images.githubusercontent.com/108309396/228403188-65a2e5ae-2ba9-4653-aa12-8970262ca6f1.png)  
+- 분할 정복 기반 알고리즘: $O(log_2n)$
+![image](https://user-images.githubusercontent.com/108309396/228403341-96e4b4eb-a5a9-4511-ba58-42ce0333aa3a.png)  
