@@ -110,38 +110,26 @@ def select(arr, k):
 - 병합 정렬과의 차이점
   - 병합정렬은 그냥 두 부분으로 나누는 반면, 퀵 정렬은 분할 시 pivot item을 중심으로 작은 것은 왼편으로 큰 것은 오른편에 위치시킴
   - 각 부분 정렬이 끝난 후 병합정렬은 병합(후처리) 필요, 퀵 정렬은 필요X
-```python
-def quickSort(arr, l, r):
-  if l < r:
-    p = parition(arr, l, r)
-    quickSort(arr, l, p-1)
-    quickSort(arr, p+1, r)
 
-def partition(arr, l, r):
-  pivot = (l + r) // 2
-  L = l
-  R = r
-  while L < R:
-    while (L < R and a[L] < a[pivot]): L += 1
-    while (L < R and a[R] >= a[pivot]): R -= 1
-    if L < R:
-      if L == pivot: pivot = R
-      a[L], a[R] = a[R], a[L]
-  a[pivot], a[R] = a[R], a[pivot]
-  return R
-```
+## 알고리즘
+![image](https://user-images.githubusercontent.com/108309396/228694260-3455b1a8-d58d-41b2-af99-0179059b820c.png)  
+1. Hoare-Partition 알고리즘
+![image](https://user-images.githubusercontent.com/108309396/228694362-cc779300-8083-4d35-92d9-fba6ff5e4eb9.png)
+2. Lomuto-Partition 알고리즘
+![image](https://user-images.githubusercontent.com/108309396/228694795-eaa33ace-d590-4e4b-ad0a-c5e29eaf892d.png)
 
-## 퀵 정렬 수행 과정
-![1](https://user-images.githubusercontent.com/108309396/219248703-da46ae8e-b5fc-48ea-ad55-12b41d355a21.png)  
-![2](https://user-images.githubusercontent.com/108309396/219248707-c6f6a695-490b-48c1-913b-96ecb9fd1477.png)  
-![3](https://user-images.githubusercontent.com/108309396/219248711-471f6ffa-96b0-4583-98c9-6334585158f7.png)  
-![4](https://user-images.githubusercontent.com/108309396/219248712-4f25953d-c751-4362-a44b-ce50d78cff13.png)  
-![5](https://user-images.githubusercontent.com/108309396/219248715-7c3f0dba-4cf2-455a-8163-cd59db14b63c.png)  
-![6](https://user-images.githubusercontent.com/108309396/219248717-33cbad32-253e-47a5-89a5-1e5a9a4ca781.png)  
-![7](https://user-images.githubusercontent.com/108309396/219248719-5dfde775-9b75-45c3-8241-f5d6ca2bd119.png)  
-![8](https://user-images.githubusercontent.com/108309396/219248721-3448febe-7ec7-4890-afe6-6adfd7285aa4.png)  
-![9](https://user-images.githubusercontent.com/108309396/219248724-b447861e-203d-4905-9b66-76b4697ce161.png)  
 
+## Hoare-Partition 알고리즘 수행과정
+![image](https://user-images.githubusercontent.com/108309396/228694401-a6c12482-413b-4425-a40f-d0bf3aa31329.png)  
+![image](https://user-images.githubusercontent.com/108309396/228694426-3d4b21d0-48dd-489d-ae7f-75a08e037d51.png)  
+![image](https://user-images.githubusercontent.com/108309396/228694564-5a7ca1d6-a905-4bc5-9197-3f3a2ce391fb.png)    
+![image](https://user-images.githubusercontent.com/108309396/228694618-d4e5ba48-af0b-430b-b7a8-d62090402cd4.png)  
+![image](https://user-images.githubusercontent.com/108309396/228694653-7f410165-6bab-4f0e-a3b9-de03106f1e48.png)  
+![image](https://user-images.githubusercontent.com/108309396/228694681-9e8d5a01-bbfc-4df1-98aa-33bb92809dd8.png)  
+![image](https://user-images.githubusercontent.com/108309396/228694719-2bb0a358-f20b-4907-8d27-9c804101ffdb.png)  
+
+## Lomuto-Partition 알고리즘 수행과정
+![image](https://user-images.githubusercontent.com/108309396/228694831-f6b88f94-cf18-4bc2-9a4b-6adae2e52883.png)  
 
 ## 퀵 정렬의 시간복잡도
 - In worst case, $O(n^2)$ &rarr; 병합정렬에 비해 좋지 않음
@@ -149,7 +137,8 @@ def partition(arr, l, r):
 
 
 # 시간복잡도 비교
-<img src="https://user-images.githubusercontent.com/108309396/216209392-a2834b9b-be09-47c4-be08-e23cb3f8f049.png" width="80%" height="50%"/>
+![image](https://user-images.githubusercontent.com/108309396/216209392-a2834b9b-be09-47c4-be08-e23cb3f8f049.png)
+
 
 # 병합 정렬(Merge Sort)
 - 여러 개의 정렬된 자료의 집합을 병합하여 한 개의 정렬된 집합으로 만드는 방식
@@ -163,4 +152,4 @@ def partition(arr, l, r):
 ![image](https://user-images.githubusercontent.com/108309396/228403742-d63bdb54-9345-40f7-a5e4-177d281eff93.png)  
 
 ### 병합 과정
-![image](https://user-images.githubusercontent.com/108309396/228409130-f59b774a-9dbd-4849-b83d-3a9bc741f1c6.png)  
+![image](https://user-images.githubusercontent.com/108309396/228701942-a1f8d8d2-48c9-4a23-8bc0-a5442cabb827.png)
