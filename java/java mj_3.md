@@ -66,7 +66,7 @@
 - 소멸 시점: 선언된 영역인 {}을 벗어날 때
 
 ## [예제] Compiling
-<img width="928" alt="image" src="https://user-images.githubusercontent.com/108309396/229361745-ec982eba-8d26-4724-861f-79fcf9c07575.png">
+![image2](https://user-images.githubusercontent.com/108309396/229537357-13fe8786-df7f-4460-90f3-e97e7c222bea.png)
 
 # 메서드
 ## 메서드 정의와 필요성

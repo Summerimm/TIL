@@ -81,3 +81,6 @@ for (int i=0; i<arr.length; i++){
 ## 2차원 배열 만들기(2)
 - 1차 생성: `int[][] intArray = new int[4][];
 - 1차 배열만 생성 후, 필요에 따라 2차 배열을 생성: `intArray[0] = new int[3]; intArray[1] = new int[2];`
+
+## 2차원 배열의 메모리 사용 단계
+![image](https://user-images.githubusercontent.com/108309396/229529245-4c19796b-1e77-4052-8ec2-712bcdbe721a.png)
