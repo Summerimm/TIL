@@ -51,7 +51,7 @@
    - **기본 키**
    - 각 레코드의 고유한 값: **각각의 레코드를 구분할 수 있는 고윳값**
    - 기술적으로 다른 항목과 절대로 중복될 수 없는 단일 값(unique)
-   - 데이터베이스 관리 및 테이블 간 관계 설정 시 주요하게 활용
+   - 데이터베이스 관리 및 테이블 간 관계 설정 시 주요하게 활용  
 ![image](https://user-images.githubusercontent.com/108309396/230007751-4946cf5f-b60d-402c-ba7d-0d176b1ca7bf.png)
 4. FK(Foreign Key)
    - **외래 키**
@@ -234,8 +234,8 @@
 
 # DML
 ### 사전 준비
-1. 시작하기
-![image](https://user-images.githubusercontent.com/108309396/230029003-02e6cee9-f5d0-4567-9e42-ffb4bc637093.png)
+1. 시작하기  
+![image](https://user-images.githubusercontent.com/108309396/230294362-4e32e604-fdce-4147-8645-fec65c413094.png)
 
 2. 데이터베이스 파일 열기
 - 시작과 동시에 데이터베이스를 열 수도 있음  
@@ -262,7 +262,7 @@
 ![image](https://user-images.githubusercontent.com/108309396/230030729-79a0a6a5-2b4e-468d-9e33-7da574e1eb61.png)
 
 ## Sorting rows
-### ORDER BY clause
+### `ORDER BY` clause
 ![image](https://user-images.githubusercontent.com/108309396/230030919-710366ec-5923-4a29-b0f8-ed4454d98fa8.png)  
 - SELECT문에 추가하여 결과를 정렬
 - 하나 이상의 컬럼을 기준으로 결과를 오름차순(`ASC`-기본값), 내림차순(`DESC`)로 정렬 가능
@@ -283,3 +283,57 @@
   - `IN`
   - `BETWEEN`
 
+### `SELECT DISTINCT` clause
+![image](https://user-images.githubusercontent.com/108309396/230290728-2b427325-188c-4b8a-863b-a4c73246e06e.png)  
+- 조회 결과에서 **중복된 행을 제거**
+- 문법 규칙
+  - DISTINCT절은 SELECT 키워드 **바로 뒤에**
+  - DISTINCT 키워드 뒤에 컬럼 또는 컬럼 목록을 작성
+
+### [참고] NULL with DISTINCT
+- SQLite는 NULL값을 중복으로 간주
+- NULL값이 있는 컬럼에 DISTINCT절을 사용하면 SQLite는 NULL값의 한 행을 유지
+
+### `WHERE` clause
+![image](https://user-images.githubusercontent.com/108309396/230291579-c91318b0-6110-4180-b126-7a57d7cf6143.png)  
+- 조회 시 특정 검색 조건을 지정
+- WHERE절은 SELECT문에서 선택적으로 사용할 수 있는 절
+  - SELECT문 외에도 UPDATE 및 DELETE문에서 WHERE절을 사용할 수 있음
+- FROM절 뒤에 작성  
+- SQLite는 Boolean 데이터 타입을 제공하지 않으므로 1은 TRUE를 의미하고 0은 FALSE를 의미
+- 논리 연산자: `ALL, AND, ANY, BETWEEN, IN, LIKE, NOT, OR 등`  
+![image](https://user-images.githubusercontent.com/108309396/230291896-8dc8af80-5ef5-4c74-8e44-7026fc9067ef.png)
+
+### `LIKE` operator
+- 패턴 일치를 기반으로 데이터를 조회
+- WHERE절에서 사용
+- 기본적으로 대소문자를 구분하지 않음
+  - 'A' LIKE 'a'는 true
+- 패턴 구성을 위한 두 개의 와일드카드(wildcards) 제공
+  1. `%`: 0개 이상의 문자가 올 수 있음을 의미
+  2. `_`: 단일(1개) 문자가 있음을 의미  
+  ![image](https://user-images.githubusercontent.com/108309396/230292642-0fa64684-738c-4e3f-aec4-19518bbfd659.png)
+
+### `IN` operator
+![image](https://user-images.githubusercontent.com/108309396/230293171-cc38c5b4-88df-4f15-893b-b1949c9fc61b.png)  
+- 값이 값 목록 결과에 있는 값과 일치하는지 확인
+- 표현식이 값 목록의 값과 일치하는지 여부에 따라 true 또는 false를 반환
+- 반대: `NOT IN`
+
+### `BETWEEN` operator
+![image](https://user-images.githubusercontent.com/108309396/230293429-dd518057-9986-4508-9a93-9fbf298b9aa2.png)
+- 값이 값 범위에 있는지 테스트
+- 지정된 범위 안에 있으면 true 반환
+- WHERE 절에서 사용 가능
+- 반대: `NOT BETWEEN`
+
+### `LIMIT` clause
+![image](https://user-images.githubusercontent.com/108309396/230293576-d0608e0e-c544-4766-9f8d-2b761d67c278.png)  
+- 쿼리에서 반환되는 행 수를 제한
+- SELECT문에서 사용 가능
+- row_count는 반환되는 행 수를 지정하는 양의 정수를 의미
+
+### `OFFSET` keyword
+- `LIMIT`절을 사용하면 첫 번째 데이터부터 지정한 수만큼의 데이터를 받아올 수 있지만, OFFSET과 함께 사용하면 특정 지정된 위치에서부터 데이터를 조회할 수 있음
+- 11번째부터 20번째 데이터의 rowid와 이름 조회  
+![image](https://user-images.githubusercontent.com/108309396/230294023-fca392ef-a9d4-496f-b2f6-bb1e6180b0bf.png)

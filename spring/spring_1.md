@@ -11,7 +11,7 @@
   - Spring Web: `WEB` 
   - Thymeleaf: `Template Engines`, HTML을 만들어주는 템플릿 엔진
 - GENERATE(`cmd + enter`)
-- IntelliJ &rarr; `Open or Import` &rarr; `build.gradle`파일을 `Open as Project`
+- IntelliJ &rarr; `Open or Import` &rarr; `build.gradle` 파일을 `Open as Project`
 
 ## 프로젝트의 구조
   - `.idea`: 인텔리제이가 사용하는 설정 파일

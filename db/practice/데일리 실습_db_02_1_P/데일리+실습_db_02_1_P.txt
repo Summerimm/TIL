@@ -1,0 +1,4 @@
+dbproblem
+    │
+    ├── database.sqlite3
+    └── ddl_practice.sql

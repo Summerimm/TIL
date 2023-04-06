@@ -92,7 +92,7 @@
   - 메서드 이름: 반드시 동일
   - 파라미터: 선언된 파라미터의 개수는 반드시 동일, 타입은 promotion 적용 가능
 - 메서드 접근
-  - 멤버 변수와 마찬가지로 static(메모리에 올라가 있음) 또는 non static 상태를 구분해서 호출
+  - 멤버 변수와 마찬가지로 static(메모리에 올라가 있음) 또는 non static 상태를 구분해서 호출  
 <img width="705" alt="image" src="https://user-images.githubusercontent.com/108309396/229362306-11b76777-006c-4624-a1c1-e27360a08385.png">
 
 ### class 멤버와 instance 멤버 간의 참조와 호출

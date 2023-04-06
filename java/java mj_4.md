@@ -11,13 +11,13 @@
   - 부모의 생성자와 초기화 블록은 상속X
 - 기존 클래스의 멤버를 물려받기 때문에 코드의 절감
   - 부모의 코드를 변경하면 모든 자식들에게도 적용 &rarr; 유지 보수성 향상
-- 상속의 적용: `extends` 키워드 사용
+- 상속의 적용: `extends` 키워드 사용  
 ![image](https://user-images.githubusercontent.com/108309396/229653367-0b76ea9a-82bd-4708-9d77-c203362c0caf.png)
 
 ## Object 클래스
 - 모든 클래스의 조상 클래스
   - 별도의 extends 선언이 없는 클래스들은 `extends Object`가 생략됨
-  - 따라서 모든 클래스에는 Object 클래스에 정의된 메서드가 있음
+  - 따라서 모든 클래스에는 Object 클래스에 정의된 메서드가 있음  
 ![image](https://user-images.githubusercontent.com/108309396/229654019-7948e6b7-0404-4ad5-b3d3-f9d4a3d08ce5.png)     
 ![image](https://user-images.githubusercontent.com/108309396/229657222-5c2f547d-add7-43d1-bb29-29ac417383e4.png)
 
@@ -102,7 +102,7 @@ public boolean equals(Object obj) {
 
 ## `super` 키워드
 - `this` 통해 멤버에 접근했듯이 `super`를 통해 조상 클래스 멤버 접근
-  - `super.`을 이용해 조상의 메서드 호출로 조상의 코드 재사용
+  - `super.`을 이용해 조상의 메서드 호출로 조상의 코드 재사용  
 ![image](https://user-images.githubusercontent.com/108309396/229661540-4f05e137-f1d3-434a-b140-e9452f192f3f.png)  
 - 변수의 scope
   - 사용된 위치에서 점점 확장해가며 처음 만난 선언부에 연결됨
@@ -116,7 +116,7 @@ public boolean equals(Object obj) {
 - 명시적으로 `this()` 또는 `super()`를 호출하지 않은 경우 컴파일러가 `super()` 삽입
   - 결론적으로 맨 상위의 Object까지 객체가 다 만들어지는 구조  
 ![image](https://user-images.githubusercontent.com/108309396/229662595-dec3070f-3f60-4757-a8bf-15cf01ace34a.png)
-- 생성자 호출과 객체 생성의 단계
+- 생성자 호출과 객체 생성의 단계  
 ![image](https://user-images.githubusercontent.com/108309396/229663180-36f818ad-1bb5-47ec-818c-a823c6a67be1.png)  
 - **static method는 상속X**, hiding
 
