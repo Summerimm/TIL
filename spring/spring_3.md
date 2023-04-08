@@ -1,4 +1,12 @@
 # 회원 관리 예제 - 백엔드 개발
+- 줄 내리기 :cmd + shft + enter
+- 반환 타입 확인 : option + cmd + v
+- parameter info : cmd + p
+- show context actions : option + enter. → import 할 수 있다.
+- Rename : shift + F6(fn)
+- 이전에 실행한 내용 다시 실행하기 : ctrl + R
+- generate → constructor : cmd + N
+
 ## 3-1 비즈니스 요구사항 정리
 - 데이터: 회원ID, 이름
 - 기능: 회원 등록, 조회
@@ -19,6 +27,7 @@
 
 ## 3-2 회원 도메인과 리포지토리 만들기 
 ### 회원 객체
+- `hello.hellospring.domain/Member.class`
 ```java
 package hello.hellospring.domain;
 
@@ -46,6 +55,7 @@ public class Member {
 ```
 
 ### 회원 리포지토리 인터페이스
+- `hello.hellospring.repository/MemberRepository.interface`
 ```java
 package hello.hellospring.repository;
 
@@ -63,6 +73,7 @@ public interface MemberRepository {
 ```
 
 ### 회원 리포지토리 메모리 구현체
+- `hello.hellospring.repository/MemoryMemberRepository.class`
 ```java
 package hello.hellospring.repository;
 
@@ -118,7 +129,7 @@ public class MemoryMemberRepository implements MemberRepository {
 - 테스트(틀)를 먼저 만들고 구현 클래스를 만드는 것 &rarr; **테스트 주도 개발(TDD)**
 
 ### 회원 리포지토리 메모리 구현체 테스트
-- `src/text/java` 하위 폴더에 생성
+- `src/test/java` 하위 폴더에 생성
 ```java
 package hello.hellospring.repository;
 
@@ -203,6 +214,123 @@ public class MemoryMemberRepositoryTest {
 
 
 ## 3-4 회원 서비스 개발
+- [참고] `cmd + option + v`하면 return 해줌
+- 네이밍 시 서비스는 비즈니스에 의존적으로 설계, 리포지토리는 기계적으로 개발적인 용어를 사용(데이터 추출, 삽입..)
+```java
+package hello.hellospring.service;
 
+import hello.hellospring.domain.Member;
+import hello.hellospring.repository.MemberRepository;
 
-## 3-3 회원 서비스 테스트
+import java.util.List;
+import java.util.Optional;
+
+public class MemberService {
+    
+    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    
+    /**
+    * 회원가입
+    */
+    public Long join(Member member) {
+        validateDuplicateMember(member); //중복 회원 검증 memberRepository.save(member);
+        return member.getId();
+    }
+    
+    private void validateDuplicateMember(Member member) {
+        memberRepository.findByName(member.getName())
+            .ifPresent(m -> {
+                throw new IllegalStateException("이미 존재하는 회원입니다.");
+            });
+    }
+
+    /**
+    *전체 회원 조회
+    */
+    public List<Member> findMembers() {
+        return memberRepository.findAll();
+    }
+
+    public Optional<Member> findOne(Long memberId) {
+        return memberRepository.findById(memberId);
+    } 
+}
+```
+
+## 3-5 회원 서비스 테스트
+- `test/java/hello.hellospring.service/MemberServieTest`
+```java
+public class MemberService {
+      private final MemberRepository memberRepository =
+                                            new MemoryMemberRepository();
+}
+```
+- 회원 리포지토리의 코드가 회원 서비스 코드를 **DI(Dependency Injection)** 가능하게 변경한다.
+```java
+public class MemberService {
+      private final MemberRepository memberRepository;
+      public MemberService(MemberRepository memberRepository) {
+          this.memberRepository = memberRepository;
+}
+... }
+```
+- 회원 서비스 테스트
+```java
+package hello.hellospring.service;
+
+import hello.hellospring.domain.Member;
+import hello.hellospring.repository.MemoryMemberRepository;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+class MemberServiceTest {
+    MemberService memberService;
+    MemoryMemberRepository memberRepository;
+    
+    @BeforeEach
+    public void beforeEach() {
+        memberRepository = new MemoryMemberRepository();
+        memberService = new MemberService(memberRepository);
+    }
+    
+    @AfterEach
+    public void afterEach() {
+        memberRepository.clearStore();
+    }
+    
+    @Test
+    public void 회원가입() throws Exception {
+        //Given
+        Member member = new Member();
+        member.setName("hello");
+
+        //When
+        Long saveId = memberService.join(member);
+
+        //Then
+        Member findMember = memberRepository.findById(saveId).get();
+        assertEquals(member.getName(), findMember.getName());
+    }
+    
+    @Test
+    public void 중복_회원_예외() throws Exception {
+        //Given
+        Member member1 = new Member();
+        member1.setName("spring");
+
+        Member member2 = new Member();
+        member2.setName("spring");
+        
+        //When
+        memberService.join(member1);
+        IllegalStateException e = assertThrows(IllegalStateException.class,
+            () -> memberService.join(member2)); //예외가 발생해야 한다. 
+        assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
+    } 
+}
+```
+
+- `@BeforeEach` : 각 테스트 실행 전에 호출된다. 테스트가 서로 영향이 없도록 항상 새로운 객체를 생성하고, 의존관계도 새로 맺어준다.
