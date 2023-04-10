@@ -100,7 +100,6 @@
 - 왼쪽 테이블의 데이터를 기준으로 오른쪽 데이터 결합, 없으면 NULL  
 ![image](https://user-images.githubusercontent.com/108309396/230312100-019bb769-55aa-4ca1-a933-3bf8dd3573da.png)
 
-
 ## RIGHT (OUTER) JOIN
 - LEFT 반대  
 ![image](https://user-images.githubusercontent.com/108309396/230312239-b8e56ec3-ca12-4735-be03-d3b61cd93ead.png)
