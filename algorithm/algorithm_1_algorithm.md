@@ -3,7 +3,7 @@
   - 유한한 단계를 통해 문제를 해결하기 위한 절차나 방법이다. 
   - 컴퓨터가 어떤 일을 수행하기 위한 단계적 방법을 말한다.
 - 알고리즘을 표현하는 방법
-  - Pseudocode(의사코드) / 순서도
+  - Pseudocode(의사코드) / 순서도  
   ![순서도](https://user-images.githubusercontent.com/108309396/216204097-242c6129-4aa2-45e6-ab1a-da79ae4559c7.png)
 - 좋은 알고리즘의 조건
   - 정확성
@@ -76,7 +76,7 @@
 ![image](https://user-images.githubusercontent.com/108309396/228403066-081f6c27-f623-4d56-9654-f1156f9677fc.png)  
 
 ### 반복 vs 분할 정복
-- 반복(iterative) 알고리즘: $O(n)$
+- 반복(iterative) 알고리즘: $O(n)$  
 ![image](https://user-images.githubusercontent.com/108309396/228403188-65a2e5ae-2ba9-4653-aa12-8970262ca6f1.png)  
-- 분할 정복 기반 알고리즘: $O(log_2n)$
+- 분할 정복 기반 알고리즘: $O(log_2n)$  
 ![image](https://user-images.githubusercontent.com/108309396/228403341-96e4b4eb-a5a9-4511-ba58-42ce0333aa3a.png)  

@@ -99,28 +99,28 @@ def inorder(T):
   - 노드 번호가 i인 노드의 부모 노드 번호: ${(floor)} i/2$
   - 노드 번호가 i인 노드의 왼쪽 자식 노드 번호: $2\times i$
   - 노드 번호가 i인 노드의 오른쪽 자식 노드 번호: $2\times i + 1$
-  - 레벨 n의 노드 번호 시작 번호
-![1](https://user-images.githubusercontent.com/108309396/220501477-c0c40c84-26c0-4b5a-87bc-ea39c689eb54.png)  
+  - 레벨 n의 노드 번호 시작 번호  
+![1](https://user-images.githubusercontent.com/108309396/220501477-c0c40c84-26c0-4b5a-87bc-ea39c689eb54.png)    
 ![2](https://user-images.githubusercontent.com/108309396/220501485-50232edb-195c-4571-abf5-5a716159073e.png)  
 
 
 ## 이진 트리의 저장
-![3](https://user-images.githubusercontent.com/108309396/220501488-346f063d-d6e6-46c8-9258-41aed800bfa1.png)  
-![4](https://user-images.githubusercontent.com/108309396/220501489-4533eea3-af77-4d11-9d89-40a1c14d0cbc.png)  
-![5](https://user-images.githubusercontent.com/108309396/220501490-8298fcc4-c9ee-4af2-94f7-067d13f2dd21.png)  
+![3](https://user-images.githubusercontent.com/108309396/220501488-346f063d-d6e6-46c8-9258-41aed800bfa1.png)   
+![4](https://user-images.githubusercontent.com/108309396/220501489-4533eea3-af77-4d11-9d89-40a1c14d0cbc.png)   
+![5](https://user-images.githubusercontent.com/108309396/220501490-8298fcc4-c9ee-4af2-94f7-067d13f2dd21.png)   
 - 배열을 이용한 이진 트리의 표현의 단점
   - 편향 이진 트리의 경우 사용하지 않는 배열 원소에 대한 메모리 공간 낭비 발생
   - 트리의 중간에 새로운 노드를 삽입하거나 기존의 노드를 삭제할 경우 배열의 크기 변경이 어려워 비효율적
 - 연결리스트
   - 연결 자료구조를 이용한 이진트리의 표현
-  - 이진 트리의 모든 노드는 최대 2개의 자식 노드를 가지므로 일정한 구조의 단순 연결리스트 노드를 사용하여 구현
+  - 이진 트리의 모든 노드는 최대 2개의 자식 노드를 가지므로 일정한 구조의 단순 연결리스트 노드를 사용하여 구현  
 ![6](https://user-images.githubusercontent.com/108309396/220501494-b974deae-fbdb-42cb-8bc1-ad6b36e811f9.png)  
 
 ## 수식 트리
 - 수식을 표현하는 이진 트리
 - Expression Binary Tree
 - 연산자는 루트 노드이거나 가지 노드
-- 피연산자는 모두 잎 노드
+- 피연산자는 모두 잎 노드  
 ![1](https://user-images.githubusercontent.com/108309396/220812475-48c49ac5-8f98-4353-92ec-a30411905be6.png)
 
 
@@ -128,11 +128,11 @@ def inorder(T):
 - 탐색작업을 효율적으로 하기 위한 자료구조
 - 모든 원소는 서로 다른 유일한 키를 갖는다.
 - key(왼쪽 서브트리) < key(루트노드) < key(오른쪽 서브트리)
-- **중위순회**하면 오름차순으로 정렬된 값을 얻을 수 있음
-![2](https://user-images.githubusercontent.com/108309396/220812478-702964aa-5d90-45f1-bcab-0803008ea07a.png)  
-- 시간복잡도
-![3](https://user-images.githubusercontent.com/108309396/220812482-e5137818-ee8f-442d-b32f-91c7e09ecbbd.png)  
-![4](https://user-images.githubusercontent.com/108309396/220812485-8b088f20-c655-48db-8150-828bef9ae6f6.png)
+- **중위순회**하면 오름차순으로 정렬된 값을 얻을 수 있음  
+![2](https://user-images.githubusercontent.com/108309396/220812478-702964aa-5d90-45f1-bcab-0803008ea07a.png)    
+- 시간복잡도  
+![3](https://user-images.githubusercontent.com/108309396/220812482-e5137818-ee8f-442d-b32f-91c7e09ecbbd.png)    
+![4](https://user-images.githubusercontent.com/108309396/220812485-8b088f20-c655-48db-8150-828bef9ae6f6.png)  
 
 ## 힙
 - `완전 이진 트리`에 있는 노드 중에서 키값이 가장 큰 노드나 키값이 가장 작은 노드를 찾기 위해서 만든 자료구조
@@ -140,7 +140,7 @@ def inorder(T):
   - 키값이 가장 큰 노드를 찾기 위한 완전 이진 트리
   - 부모 노드의 키값 > 자식 노드의 키값
   - 루트 노드: 키값이 가장 큰 노드
-- - 최소 힙(min heap)
+- 최소 힙(min heap)
   - 키값이 가장 작은 노드를 찾기 위한 완전 이진 트리
   - 부모 노드의 키값 < 자식 노드의 키값
   - 루트 노드: 키값이 가장 작은 노드

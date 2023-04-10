@@ -62,7 +62,7 @@ if top > -1:       # pop()
   - 함수의 실행이 끝나면 시스템 스택의 top 원소(스택 프레임)를 pop하면서 프레임에 저장되어 있던 복귀주소를 확인하고 복귀
   - 함수 호출과 복귀에 따라 이 과정을 반복하여 전체 프로그램 수행이 종료되면 시스템 스택은 공백 스택이 된다.    
   - Program Counter(PC)가 프로그램의 수행 순서 및 주소를 관리함
-  - stack의 내용은 pop되면서 삭제되는 것이 아닌  Stack Pointer가 top을 찍는 위치에 따라 pop된다고 보는 것
+  - stack의 내용은 pop되면서 삭제되는 것이 아닌  Stack Pointer가 top을 찍는 위치에 따라 pop된다고 보는 것  
 ![2](https://user-images.githubusercontent.com/108309396/218360971-ededd3c4-c04f-4c28-baff-34040d42ec5f.png)
 
 ## 재귀호출
@@ -72,7 +72,7 @@ if top > -1:       # pop()
 
 # Memoization
 - 컴퓨터 프로그램을 실행할 때 이전에 계산한 값을 메모리에 저장해 매번 다시 계산하지 않도록 하여 전체적인 실행속도를 빠르게 하는 기술
-- 동적 계획법(DP)의 핵심이 됨  
+- 동적 계획법(DP)의 핵심이 됨   
 ![11](https://user-images.githubusercontent.com/108309396/218609313-04d3ab5a-c019-4459-9002-3ff38d8623e0.png)
 
 # DP(Dynamic Programming)
@@ -104,7 +104,7 @@ def fibo2(n):
 2. 후위표기법(postfix notation): `AB+`
 
 ### 중위표기법을 후위표기법으로 변환하는 알고리즘
-- 스택 밖의 왼쪽 괄호는 우선 순위가 가장 높고, 스택 안의 왼쪽 괄호는 우선 순위가 가장 낮음
+- 스택 밖의 왼쪽 괄호는 우선 순위가 가장 높고, 스택 안의 왼쪽 괄호는 우선 순위가 가장 낮음  
 ![1](https://user-images.githubusercontent.com/108309396/218896453-3751b191-5c6d-423a-a7ea-b2643979efe8.png)  
 ![2](https://user-images.githubusercontent.com/108309396/218896456-19d6b141-1787-4799-8fb4-f7e0683435e1.png)
 ![3](https://user-images.githubusercontent.com/108309396/218896458-253c8406-bb47-4ae1-8a7b-4de6cbc632e0.png)  

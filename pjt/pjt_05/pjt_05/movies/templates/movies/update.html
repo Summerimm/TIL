@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class= "mx-1 my-4">
+    <h1><b>UPDATE</b></h1>
+    <hr>
+  </div>
+  
+  <div class = "mx-1 my-4">
+    <form action="{% url 'movies:update' movie.pk %}" method = "POST" enctype='multipart/form-data' > 
+      {% csrf_token %}
+      {{form.as_p}}
+      <input type="reset" value = 'Reset'>
+      <input type="submit" value = 'Submit'>
+    </form>
+    
+    <hr>
+    <a href="{% url 'movies:detail' movie.pk %}">BACK</a><br>
+  </div>
+  
+{% endblock content %}

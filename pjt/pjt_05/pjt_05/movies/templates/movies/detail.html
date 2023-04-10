@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class= "mx-1 my-4">
+  <h1><b>DETAIL</b></h1>
+  <hr>
+</div>
+  
+  <div class = "mx-1">
+      <p><b>{{movie.title}}</b></p>
+      
+      <p>{{movie.description}}</p>
+
+    <hr>
+    <a href="{% url 'movies:update' movie.pk %}">UPDATE</a>
+    <br>
+    <form action="{% url 'movies:delete' movie.pk %}" method = "POST">
+      {% csrf_token %}
+      <input type="submit" value = 'DELETE'>
+    </form>
+    <a href="{% url 'movies:index' %}">BACK</a><br>
+  </div>
+{% endblock content %}

@@ -112,10 +112,10 @@ def select(arr, k):
   - 각 부분 정렬이 끝난 후 병합정렬은 병합(후처리) 필요, 퀵 정렬은 필요X
 
 ## 알고리즘
-![image](https://user-images.githubusercontent.com/108309396/228694260-3455b1a8-d58d-41b2-af99-0179059b820c.png)  
-1. Hoare-Partition 알고리즘
+![image](https://user-images.githubusercontent.com/108309396/228694260-3455b1a8-d58d-41b2-af99-0179059b820c.png)    
+1. Hoare-Partition 알고리즘  
 ![image](https://user-images.githubusercontent.com/108309396/228694362-cc779300-8083-4d35-92d9-fba6ff5e4eb9.png)
-2. Lomuto-Partition 알고리즘
+2. Lomuto-Partition 알고리즘  
 ![image](https://user-images.githubusercontent.com/108309396/228694795-eaa33ace-d590-4e4b-ad0a-c5e29eaf892d.png)
 
 

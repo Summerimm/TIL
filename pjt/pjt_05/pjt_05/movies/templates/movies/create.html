@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if movie.actor_image %}
+  <img src="{{movie.actor_image.url}}" alt="{{movie.actor_image}}">
+{% endif %}
+  <div class = "mx-1 my-4">
+    <h1><b>CREATE</b></h1>
+    <hr>
+
+    <form action="{% url 'movies:create' %}" method = "POST" enctype = "multipart/form-data">
+      {% csrf_token %}
+      {{form.as_p}}
+      <input type="submit" value = 'Submit'>
+    </form>
+    <hr>
+    {% comment %} make reset {% endcomment %}
+    <a href="{% url 'movies:index' %}">BACK</a>
+  </div>
+
+{% endblock content %}

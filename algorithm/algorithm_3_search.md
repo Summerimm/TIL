@@ -73,7 +73,7 @@ for i in range(E):
 - 여러 가지 선택지들이 존재하는 상황에서 한 가지를 선택한다.
 - 선택이 이루어지면 새로운 선택지들의 집합이 생성된다.
 - 이런 선택을 반복하면서 최종 상태에 도달한다.
-  - 올바른 선택을 계속하면 goal state에 도달
+  - 올바른 선택을 계속하면 goal state에 도달  
 ![image](https://user-images.githubusercontent.com/108309396/228709758-cf2d6d7a-8833-4cd6-963a-061d6057fbb0.png)
 
 ## BFS(Breadth First Search, 너비 우선 탐색)

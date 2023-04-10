@@ -69,7 +69,7 @@ def Qpeek():
 - 선형 큐 이용시의 문제점
   - 잘못된 포화상태 인식
   - 원소의 삽입과 삭제를 계속할 경우, 배열의 앞부분에 활용할 수 있는 공간이 있음에도 rear=n-1인 포화상태로 인식하여 더 이상의 삽입 수행X   
-![1](https://user-images.githubusercontent.com/108309396/219999259-e66eda83-b42c-473c-b8cb-939e1be80633.png)
+![1](https://user-images.githubusercontent.com/108309396/219999259-e66eda83-b42c-473c-b8cb-939e1be80633.png)  
 - 해결방법 1
   - 매 연산이 이루어질 때마다 저장된 원소들을 배열의 앞부분으로 이동
   - 원소 이동에 많은 시간이 소요되어 큐의 효율성 &darr;  

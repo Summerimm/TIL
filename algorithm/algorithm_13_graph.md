@@ -109,16 +109,16 @@ def BFS(arr, v):        # 그래프 arr, 탐색 시작점 v
 - Find-Set(x): x를 포함하는 집합을 찾는 연산
 1) 재귀    
 ![image](https://user-images.githubusercontent.com/108309396/229671610-6f04645c-cbf5-48ea-b42c-01beab7cd42d.png)
-2) 반복  
+2) 반복   
 ![image](https://user-images.githubusercontent.com/108309396/229671736-f95bea23-57cf-4a3d-807c-84c608dece67.png)  
-- Union(x, y): x와 y를 포함하는 두 집합을 통합하는 연산  
+- Union(x, y): x와 y를 포함하는 두 집합을 통합하는 연산    
 ![image](https://user-images.githubusercontent.com/108309396/229671621-733cd9ba-c62f-4f53-aace-95d8927cf3c7.png)
 
 
 ## 상호배타 집합 표현 - 연결리스트
 - 같은 집합의 원소들은 하나의 연결리스트로 관리한다.
 - 연결리스트의 맨 앞의 원소를 집합의 대표 원소로 삼는다.
-- 각 원소는 집합의 대표원소를 가리키는 링크를 갖는다.
+- 각 원소는 집합의 대표원소를 가리키는 링크를 갖는다.  
 ![image](https://user-images.githubusercontent.com/108309396/229670785-7a14c5f3-9003-4fb8-a4d0-8aa89fe4bcc1.png)
 - 연결리스트 연산 예
   - Find-Set(e)   return a
@@ -147,18 +147,18 @@ def BFS(arr, v):        # 그래프 arr, 탐색 시작점 v
 ### 연산의 효율을 높이는 방법
 1. Rank를 이용한 Union
   - 각 노드는 자신을 루트로 하는 subtree의 높이를 rank라는 이름으로 저장한다.
-  - 두 집합을 합칠 때 rank가 낮은 집합을 높은 집합에 붙인다.
-![image](https://user-images.githubusercontent.com/108309396/229675990-c4a206fa-867a-4a5a-9617-4bdb25027974.png)  
+  - 두 집합을 합칠 때 rank가 낮은 집합을 높은 집합에 붙인다.  
+![image](https://user-images.githubusercontent.com/108309396/229675990-c4a206fa-867a-4a5a-9617-4bdb25027974.png)    
 ![image](https://user-images.githubusercontent.com/108309396/229676042-4c9fb2ed-7e25-47c6-a350-068a79f00066.png)
-- 연산 방법
-  - Make-Set(x)  
+- 연산 방법  
+  - Make-Set(x)    
   ![image](https://user-images.githubusercontent.com/108309396/229676370-2e34ae4e-c964-40fa-a6a1-ffd62cbbad11.png)
   - Find-Set(x)  
   ![image](https://user-images.githubusercontent.com/108309396/229676415-22b0b7b2-34e8-4cbe-963c-3284574fd7fa.png)
-  - Union(x, y)
+  - Union(x, y)  
   ![image](https://user-images.githubusercontent.com/108309396/229676471-cab0476b-0b14-4810-87b1-007728018076.png)
-1. Path compression
-  - Find-Set을 행하는 과정에서 만나는 모든 노드들이 직접 root를 가리키도록 포인터를 바꾸어준다.  
+1. Path compression  
+  - Find-Set을 행하는 과정에서 만나는 모든 노드들이 직접 root를 가리키도록 포인터를 바꾸어준다.    
 ![image](https://user-images.githubusercontent.com/108309396/229676083-d1655152-bcf1-4572-bc61-ff2d0b2ebefd.png)
 
 # 최소 신장 트리(MST: Minimum Spanning Tree)
@@ -169,8 +169,8 @@ def BFS(arr, v):        # 그래프 arr, 탐색 시작점 v
 - 하나의 정점에서 연결된 간선들 중에 하나씩 선택하면서 MST를 만들어가는 방식
 1) 임의 정점을 하나 선택해서 시작
 2) 선택한 정점과 인접하는 정점들 중의 최소 비용의 간선이 존재하는 정점을 선택
-3) 모든 정점이 선택될 때까지 1), 2) 반복
-![image](https://user-images.githubusercontent.com/108309396/229678695-f5384ec8-b0bd-4078-82ad-a3141579a0a4.png)
+3) 모든 정점이 선택될 때까지 1), 2) 반복  
+![image](https://user-images.githubusercontent.com/108309396/229678695-f5384ec8-b0bd-4078-82ad-a3141579a0a4.png)  
 - 서로소인 2개의 집합 정보를 유지
   - 트리 정점들(tree vertices) - MST를 만들기 위해 선택된 정점들
   - 비트리 정점들(nontree vertices) - 선택되지 않은 정점들
@@ -180,7 +180,7 @@ def BFS(arr, v):        # 그래프 arr, 탐색 시작점 v
 1) 최초, 모든 간선을 가중치에 따라 **오름차순**으로 정렬
 2) 가중치가 가장 낮은 간선부터 선택하면서 트리를 증가시킴
    - 사이클이 존재하면 다음으로 가중치가 낮은 간선 선택
-3) n-1개의 간선이 선택될 때까지 2)를 반복
+3) n-1개의 간선이 선택될 때까지 2)를 반복  
 ![image](https://user-images.githubusercontent.com/108309396/229681313-7fa76cbd-13e8-4c8d-b70e-ad2d1c161278.png)  
 ![image](https://user-images.githubusercontent.com/108309396/229681337-bb40a54f-6377-4674-b0c8-549eac12a216.png)  
 ![image](https://user-images.githubusercontent.com/108309396/229681362-ed60c02e-3da9-4a28-8399-a3b49299fe35.png)
@@ -198,8 +198,8 @@ def BFS(arr, v):        # 그래프 arr, 탐색 시작점 v
 - 시작 정점에서 거리가 최소인 정점을 선택해 나가면서 최단 경로를 구하는 방식
 - 시작정점(s)에서 끝정점(t)까지의 최단 경로에 정점 x가 존재한다.
 - 이때, 최단경로는 s에서 x까지의 최단 경로와 x에서 t까지의 최단경로로 구성된다.
-- 탐욕 기법을 사용한 알고리즘으로 MST의 프림 알고리즘과 유사  
-![image](https://user-images.githubusercontent.com/108309396/229694293-6923ba8c-2075-498f-ba3a-030621f3d86c.png)
+- 탐욕 기법을 사용한 알고리즘으로 MST의 프림 알고리즘과 유사    
+![image](https://user-images.githubusercontent.com/108309396/229694293-6923ba8c-2075-498f-ba3a-030621f3d86c.png)  
 ```python
 def dijkstra(s, V):   # s 출발, V 마지막 정점 번호
   U = [0] * (V+1)     # U 최소 비용이 결정된 정점 집합 / visited 배열

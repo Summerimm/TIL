@@ -38,7 +38,7 @@ def BruteForce(p, t):
 ![3](https://user-images.githubusercontent.com/108309396/217696434-2843b69b-97a8-408c-b7f0-37d11fe65765.png)
 - 오른쪽 끝에 있는 문자가 불일치하고 이 문자가 패턴 내에 존재할 경우  
 ![4](https://user-images.githubusercontent.com/108309396/217696679-1dd15a3c-67c7-4441-9773-6a0cc0358438.png)
-- 예시
+- 예시  
 ![5](https://user-images.githubusercontent.com/108309396/217696685-ea0298ec-7b05-4051-bcbb-93ba3d16b677.png)
 
 ### 문자열 매칭 알고리즘 비교
