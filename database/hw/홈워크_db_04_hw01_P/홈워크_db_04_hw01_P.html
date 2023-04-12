@@ -1,0 +1,14 @@
+{% for article in articles %}
+    <p>{{ article.title }}</p>
+    <div>
+      <form action="{% url 'articles:likes' article.pk %}" method="POST">
+        {% csrf_token %}
+        {% if request.user in article.like_users.all %}
+          <button>좋아요 취소</button>
+        {% else %}
+          <button>좋아요</button>
+        {% endif %}
+      </form>
+    </div>
+    <p>좋아요 수: {{ article.like_users|length }}</p>
+  {% endfor %}

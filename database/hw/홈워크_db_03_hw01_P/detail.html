@@ -1,0 +1,19 @@
+<!-- detail.html -->
+
+...
+
+<h3>댓글 작성</h3>
+<form action="{% url 'articles:comment_create' article.pk %}" method="post">
+  {% csrf_token %}
+  {{ comment_form.as_p }}
+  <button type="submit">작성</button>
+</form>
+
+<hr>
+{% for comment in comments %}
+  <p>{{ comment.content }}</p>
+{% empty %}
+  <h4>아직 의견이 없습니다 :(</h4>
+{% endfor %}
+
+...
