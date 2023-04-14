@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1><b>DETAIL</b></h1>
+  <hr>
+
+  <div>
+    <h5>{{ movie.title }}</h5>
+    <p>{{ movie.description }}</p>
+  </div>
+  {% if request.user == movie.user_id %}
+    <a href="{% url 'movies:update' movie.pk %}">UPDATE</a>
+    <form action="{% url 'movies:delete' movie.pk %}" method="POST">
+      {% csrf_token %}
+      <input type="submit" value="DELETE">
+    </form>
+  {% endif %}
+  <a href="{% url 'movies:index' %}">BACK</a>
+  <hr>
+
+  <h4>댓글 목록</h4>
+  <ul>
+    {% for comment in comments %}
+      <li>
+        {{ comment.content }}
+        {% if request.user == comment.user_id %}
+          <form action="{% url 'movies:comments_delete' movie.pk comment.pk %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="DELETE">
+          </form>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+  <hr>
+
+  <form action="{% url 'movies:comments_create' movie.pk %}" method="POST">
+    {% csrf_token %}
+    {{ comment_form }}
+    <input type="submit" value="제출">
+  </form>
+{% endblock  %}

@@ -1,0 +1,59 @@
+day14
+│
+└── day14_problem1
+    │
+    ├── practice1
+    │   │   
+    │   ├── __init__.py
+    │   ├── asgi.py
+    │   ├── settings.py
+    │   ├── urls.py
+    │   └── wsgi.py
+    │
+    ├── accounts/
+    │   │   
+    │   ├── migrations/
+    │   ├── __init__.py
+    │   ├── admin.py
+    │   ├── apps.py
+    │   ├── forms.py
+    │   ├── models.py
+    │   ├── tests.py
+    │   ├── urls.py
+    │   ├── views.py
+    │   └── templates
+    │       │         
+    │       └── accounts
+    │           │   
+    │           ├── login.html
+    │	    └── signup.html
+    │ 
+    ├── templates
+    │       │         
+    │       └── base.html
+    │ 
+    ├── todos/
+    │   │   
+    │   ├── migrations/
+    │   ├── __init__.py
+    │   ├── admin.py
+    │   ├── apps.py
+    │   ├── forms.py
+    │   ├── models.py
+    │   ├── tests.py
+    │   ├── urls.py
+    │   ├── views.py
+    │   └── templates
+    │       │         
+    │       └── todos
+    │           │   
+    │           ├── index.html
+    │	      └── create.html
+    │       
+    ├── venv/
+    │       
+    ├── db.sqlite3
+    │  
+    ├── manage.py
+    │  
+    └── requirements.txt

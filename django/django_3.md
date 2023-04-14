@@ -264,7 +264,11 @@
 
 ### Field lookups
 - 특정 레코드에 대한 조건을 설정하는 방법
-- QuerySet 메서드 `filter(), exclude(), get()`에 대한 키워드 인자로 지정됨  
+- QuerySet 메서드 `filter(), exclude(), get()`에 대한 키워드 인자로 지정됨 
+- `id__gte=20`: greater than equal, 20보다 큰 id만
+- `id__lt=60`: less than
+- `filter(title__contains='ch')`
+- `filter(title_exact='haha')`, `filter(title='haha')`  
 ![image](https://user-images.githubusercontent.com/108309396/225842089-017300ef-a664-497a-876a-d9606abec66b.png)
 
 ## UPDATE

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1><b>INDEX</b></h1>
+  <a href="{% url 'movies:create' %}">[CREATE]</a>
+  <hr>
+  {% for movie in movies %}
+    <a href="{% url 'movies:detail' movie.pk %}"><p>{{ movie.title }}</p></a>
+    <p>좋아요 수: {{ movie.like_users.count }}</p>    
+    <p>싫어요 수: {{ movie.hate_users.count }}</p>    
+    <p>작성자: <a href="{% url 'accounts:profile' movie.user_id.username %}">{{ movie.user_id.username }}</a></p>
+
+    {% if request.user.is_authenticated %}
+      <div>
+        <form action="{% url 'movies:likes' movie.pk %}" method="POST">
+          {% csrf_token %}
+          {% if request.user in movie.like_users.all %}
+            <input type="submit" value="좋아요 취소">
+          {% else %}
+            <input type="submit" value="좋아요">
+          {% endif %}
+        </form>
+      </div>
+
+      <div>
+        <form action="{% url 'movies:hates' movie.pk %}" method="POST">
+          {% csrf_token %}
+          {% if request.user in movie.hate_users.all %}
+            <input type="submit" value="싫어요 취소">
+          {% else %}
+            <input type="submit" value="싫어요">
+          {% endif %}
+        </form>
+      </div>
+
+    {% endif %}
+    <hr>
+  {% endfor %}
+{% endblock %}
