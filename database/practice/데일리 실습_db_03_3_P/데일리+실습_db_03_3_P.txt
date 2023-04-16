@@ -1,8 +1,8 @@
 day14
 │
-└── day14_exercise1
+└── day14_exercise3
     │
-    ├── practice1
+    ├── config/
     │   │   
     │   ├── __init__.py
     │   ├── asgi.py
@@ -10,7 +10,7 @@ day14
     │   ├── urls.py
     │   └── wsgi.py
     │
-    ├── accounts/
+    ├── eithers/
     │   │   
     │   ├── migrations/
     │   ├── __init__.py
@@ -21,16 +21,18 @@ day14
     │   ├── tests.py
     │   ├── urls.py
     │   ├── views.py
-    │   └── templates
+    │   └── templates/
     │       │         
-    │       └── accounts
+    │       └── eithers/
     │           │   
-    │           ├── login.html
-    │	    └── signup.html
+    │           ├── create.html
+    │           ├── detail.html
+    │	        └── index.html
     │ 
     ├── templates
     │       │         
     │       └── base.html
+    │
     │       
     ├── venv/
     │       

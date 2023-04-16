@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1><b>INDEX</b></h1>
+<hr>
+{% for question in questions %}
+  <p>{{ question.pk }}번 이슈</p>
+  <h2>{{ question.title }}</h2>
+  <a href="{% url 'eithers:detail' question.pk %}">DETAIL</a>
+  <hr>
+{% endfor %}
+
+{% endblock content %}
+
+
+

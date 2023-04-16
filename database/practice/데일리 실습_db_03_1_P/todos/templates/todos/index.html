@@ -8,18 +8,18 @@
   {% for todo in todos %}
     <li>{{ todo.author }} - {{ todo.title }}</li>
     {% if todo.author == request.user %}
-      <form action="{% url 'todos:delete' todo.pk %}" method="POST">
-        {% csrf_token %}
-        <input type="submit" value="삭제하기">
-      </form><br>
-      <form action="{% url 'todos:toggle' todo.pk %}" method="POST">
-        {% csrf_token %}
-        {% if todo.completed %}
-          <input type="submit" value="취소하기">
-        {% else %}
-          <input type="submit" value="완료하기">
-        {% endif %}
-      </form>
+    <form action="{% url 'todos:toggle' todo.pk %}" method="POST">
+      {% csrf_token %}
+      {% if todo.completed %}
+      <button>취소하기</button>
+      {% else %}
+      <button>완료하기</button>
+      {% endif %}
+    </form>
+    <form action="{% url 'todos:delete' todo.pk %}" method="POST">
+      {% csrf_token %}
+      <button>삭제하기</button>
+    </form><br>
     {% endif %}
   {% empty %}
     <p>작성된 글이 없습니다.</p>

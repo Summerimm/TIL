@@ -1,5 +1,5 @@
 class Movie(models.Model):
-	hashtags = models.__(a)__(Hashtag)
+	hashtags = models.ManyToManyField(Hashtag)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     like_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="like_movies")
     title = models.CharField(max_length=10)

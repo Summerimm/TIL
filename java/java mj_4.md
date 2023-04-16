@@ -158,20 +158,3 @@ public boolean equals(Object obj) {
 
 ## 일반적인 클래스 레이아웃
 ![image](https://user-images.githubusercontent.com/108309396/229665816-360c8218-fc92-472c-906d-9381433e48e4.png)
-
-
-# 제한자(modifier)
-- 클래스, 변수, 메서드 선언부에 함께 사용되어 부가적인 의미 부여
-- 종류
-  - 접근 제한자: `public, protected, (default = package), private`
-  - 그 외 제한자
-    - `static`: 클래스 레벨의 요소 설정
-    - `final`: 요소를 더 이상 수정할 수 없게 함
-    - `abstract`: 추상 메서드 및 추상 클래스 작성
-    - `synchronized`: 멀티스레드에서의 동기화 처리
-- 하나의 대상에 여러 제한자를 조합 가능하나 접근 제한자는 하나만 사용 가능
-- 순서는 무관하나 일반적으로 접근 제한자를 맨앞에 배치
-
-### `final`
-![image](https://user-images.githubusercontent.com/108309396/229666497-766e5dc3-fbc6-4e01-a84f-c474330e4640.png)    
-![image](https://user-images.githubusercontent.com/108309396/229666719-9ccf8f92-24bf-43f6-aff1-b0dd7dbd8dd5.png)
