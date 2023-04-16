@@ -1,4 +1,5 @@
-# 제한자(modifier)
+# Encapsulation(데이터 은닉과 보호)
+## 제한자(modifier)
 - 클래스, 변수, 메서드 선언부에 함께 사용되어 부가적인 의미 부여
 - 종류
   - 접근 제한자: `public, protected, (default = package), private`
@@ -50,6 +51,7 @@ class SingletonClass {
 }
 ```
 
+
 # 다형성(Polymorphism)
 - 하나의 객체가 많은 형(타입)을 가질 수 있는 성질
 - **상속 관계**에 있을 때 *조상 클래스의 타입으로 자식 클래스 객체를 레퍼런스* 할 수 있다
@@ -58,7 +60,7 @@ class SingletonClass {
 1. 다른 타입의 객체를 다루는 배열
    - 배열의 특징: 같은 타입의 데이터를 묶음으로 다룬다.
    - 다형성으로 다른 타입의 데이터를 하나의 배열로 관리 가능  
-    <img width="502" alt="image" src="https://user-images.githubusercontent.com/108309396/232312270-19547645-e450-4691-adb6-98c8f6b1ebb1.png">
+    <img width="502" alt="image" src="https://user-images.githubusercontent.com/108309396/232312270-19547645-e450-4691-adb6-98c8f6b1ebb1.png">    
    - Object는 모든 클래스의 조상이므로  Object의 배열은 어떤 타입의 객체라도 저장 가능  
    - `objs[3] = 3`: autoboxing 기능에 의해 가능(기본형은 Object를 상속받지 않지만 `Integer.valueOf(3)`을 autoboxing) 
 2. 매개변수의 다형성
@@ -67,7 +69,6 @@ class SingletonClass {
   <img width="200" alt="image" src="https://user-images.githubusercontent.com/108309396/232312699-a404a9c2-d2af-4d00-9a9d-d682b21c0b66.png">
   - 즉, API에서 파라미터로 Object를 받는다는 것은 모든 객체를 처리한다는 말 &rarr; 필요하다면 하위클래스에서 오버라이딩
 
-# 다형성의 활용
 ## 참조형 객체의 형 변환
 - 메모리에 있더라도 참조하는 변수의 타입에 따라 접근할 수 있는 내용이 제한됨  
   <img width="591" alt="image" src="https://user-images.githubusercontent.com/108309396/232313817-a6d88fb6-07bf-4cad-a953-6b1e7ff1f5de.png">
