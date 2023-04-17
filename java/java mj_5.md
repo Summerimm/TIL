@@ -110,7 +110,7 @@ if (person instanceof SpiderMan) {
 - 실행결과: sub / sub class method / super / sub class method
 
 
-## 정적 바인딩과 동적 바인 딩
+## 정적 바인딩과 동적 바인딩
 1. 정적 바인딩(static binding)
    - 컴파일 단계에서 **참조 변수의 타입에 따라** 연결이 달라짐
    - 상속 관계에서 객체의 **멤버 변수(static/instance)가 중복**될 때 또는 static method
