@@ -107,10 +107,10 @@
    - **Template Literal**(\`)을 사용하면 줄 바꿈 가능, 문자열 사이에 변수도 삽입 가능(==python의 f-string)  
     ![image](https://user-images.githubusercontent.com/108309396/232682282-f992a827-1b7b-4b69-9530-4305ddfe8d96.png)
 3. null - 값이 없음을 의도적으로 표현  
-   - null은 원시타입 but `typeof null` &rarr; object(설계 상 버그)
+   - null은 원시타입 but `typeof null` &rarr; object(설계 상 버그)  
    ![image](https://user-images.githubusercontent.com/108309396/232682723-eb2c2fb1-c222-4335-9230-c7f9b2940cec.png)
 4. undefined - 값이 정의되어 있지 않음을 표현
-   - 변수 선언 이후 직접 값을 할당하지 않으면 자동으로 할당됨
+   - 변수 선언 이후 직접 값을 할당하지 않으면 자동으로 할당됨  
     ![image](https://user-images.githubusercontent.com/108309396/232682670-d090c178-2528-49cb-875c-ba1db615d5f8.png)
 5. Boolean - 참과 거짓 , `true와 false`
 6. Symbol - 유일한 값을 표현하는 자료형
@@ -146,7 +146,7 @@
 5. 삼항 연산자(Ternary Operator): `true ? 1:2 => 1`, 조건식이 참이면 `:`앞의 값, 거짓이면 `:`뒤의 값이 반환
 6. 스프레드 연산자(Spread Operator): 배열이나 객체를 전개하여 각 요소를 개별적인 값으로 분리
   - 주로 함수 호출 시 매개변수로 배열이나 객체 전달할 때 사용
-  - 얕은 복사를 위해서도 활용 가능
+  - 얕은 복사를 위해서도 활용 가능  
   ![image](https://user-images.githubusercontent.com/108309396/232686407-718a7138-f8e7-493a-811f-c878817d7868.png)
 
 # 조건문(`if` statement)  
