@@ -399,3 +399,10 @@ const movieInfo = {
     "total_pages": 500,
     "total_results": 10000
 }
+
+
+for (const movie of movieInfo.results) {
+  if (movie.vote_average >= 8) {
+    console.log(movie.title)
+  }
+}

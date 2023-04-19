@@ -129,10 +129,7 @@
    - 배열의 길이는 `array.length` 형태로 접근 가능(마지막 원소는 `array.length-`로 접근)
 3. function - function 키워드를 통해 생성하며, 호출 시 실행될 코드를 정의
    - 함수 선언식(function delcaration)  
-    ![image](https://user-images.githubusercontent.com/108309396/232684492-078bb1a7-a784-4c2a-b3db-02ffb0105e41.png)
    - 함수 표현식(function expression)  
-    ![image](https://user-images.githubusercontent.com/108309396/232684592-00d1a024-422c-4d6e-a85b-c2454de48d2f.png)  
-    ![image](https://user-images.githubusercontent.com/108309396/232684729-2fc286cc-43fd-48fe-8dea-f3197666b467.png)  
 
 ### ToBoolean Conversions(자동 형변환)  
 ![image](https://user-images.githubusercontent.com/108309396/232684853-2d5789ec-4045-4262-9d91-fc3e95711fe2.png)
