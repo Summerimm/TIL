@@ -15,7 +15,17 @@
   <a href=""></a>
 
   <script>
+    const ptag = document.querySelector('p')
+    console.log(ptag.innerText)   // node.textcontent vs HTMLElement.innerText
+    console.log(ptag.textContent) // node.textcontent vs HTMLElement.innerText
 
+    ptag.style.visibility = 'hidden'
+    console.log(ptag.innerText)   // 
+    console.log(ptag.textContent) // node.textcontent vs HTMLElement.innerText
+
+    ptag.style.visibility = 'visible'
+    console.log(ptag.innerText)   // node.textcontent vs HTMLElement.innerText
+    console.log(ptag.textContent) // node.textcontent vs HTMLElement.innerText
   </script>
 </body>
 </html>
