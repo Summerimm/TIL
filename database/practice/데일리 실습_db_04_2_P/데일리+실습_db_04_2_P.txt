@@ -1,0 +1,42 @@
+day15
+│
+└── day15_problem2
+    │
+    ├── project2
+    │   │   
+    │   ├── __init__.py
+    │   ├── asgi.py
+    │   ├── settings.py
+    │   ├── urls.py
+    │   └── wsgi.py
+    │   
+    ├── accounts
+    │   │   
+    │   ├── migrations/
+    │   ├── __init__.py
+    │   ├── admin.py
+    │   ├── apps.py
+    │   ├── models.py
+    │   ├── tests.py
+    │   ├── urls.py
+    │   ├── views.py
+    │   └── templates
+    │       │         
+    │       └── accounts
+    │           │   
+    │           ├── change_password.html
+    │           ├── login.html
+    │	    ├── signup.html
+    │	    └── update.html
+    │       
+    ├── templates
+    │       │         
+    │       └── base.html
+    │       
+    ├── venv/
+    │       
+    ├── db.sqlite3
+    │  
+    └── manage.py
+    │  
+    └── requirements.txt

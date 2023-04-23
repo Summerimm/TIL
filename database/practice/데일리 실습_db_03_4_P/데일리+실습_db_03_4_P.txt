@@ -1,0 +1,44 @@
+day14
+│
+└── day14_exercise3
+    │
+    ├── config/
+    │   │   
+    │   ├── __init__.py
+    │   ├── asgi.py
+    │   ├── settings.py
+    │   ├── urls.py
+    │   └── wsgi.py
+    │
+    ├── eithers/
+    │   │   
+    │   ├── migrations/
+    │   ├── __init__.py
+    │   ├── admin.py
+    │   ├── apps.py
+    │   ├── forms.py
+    │   ├── models.py
+    │   ├── tests.py
+    │   ├── urls.py
+    │   ├── views.py
+    │   └── templates/
+    │       │         
+    │       └── eithers/
+    │           │   
+    │           ├── create.html
+    │           ├── detail.html
+    │	        ├── index.html
+    │	        └── update.html
+    │ 
+    ├── templates
+    │       │         
+    │       └── base.html
+    │
+    │       
+    ├── venv/
+    │       
+    ├── db.sqlite3
+    │  
+    ├── manage.py
+    │  
+    └── requirements.txt

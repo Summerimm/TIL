@@ -1,0 +1,35 @@
+day7
+│
+└── day7_problem1
+    │
+    ├── my_api/
+    │   │   
+    │   ├── __init__.py
+    │   ├── asgi.py
+    │   ├── settings.py
+    │   ├── urls.py
+    │   └── wsgi.py
+    │   
+    ├── articles
+    │   │   
+    │   ├── migrations/
+    │   ├── __init__.py
+    │   ├── admin.py
+    │   ├── apps.py
+    │   ├── models.py
+    │   ├── tests.py
+    │   ├── urls.py
+    │   ├── views.py
+    │   └── templates
+    │       │         
+    │       └── articles
+    │           │   
+    │           └── article.html         
+    │       
+    ├── venv/
+    │       
+    ├── db.sqlite3
+    │  
+    └── manage.py
+    │  
+    └── requirements.txt

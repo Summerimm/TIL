@@ -30,7 +30,7 @@
 - 가장 일반적인 URI는 웹 주소로 알려진 **URL**  
 ![image](https://user-images.githubusercontent.com/108309396/231621624-6f5d2f1b-a0f3-4450-82f7-273e97dc0fee.png)
 - 특정 이름공간에서 이름으로 리소스를 식별하는 URI는 **URN**
-  - 리소스를 찾아가는 경로를 제공X
+  - 리소스를 찾아가는 경로를 제공X  
 ![image](https://user-images.githubusercontent.com/108309396/231621741-cfdeb834-80f3-451c-8d0a-86825531a035.png)
 
 ### URL

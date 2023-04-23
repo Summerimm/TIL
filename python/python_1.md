@@ -8,8 +8,8 @@
 
 ### 파이썬의 특징
 - 다른 언어에 비해 문법이 간단하고 엄격하지 않음
-- 별도의 데이터 타입 지정이 필요없고 재할당이 가능
-- 문장을 구분할 때 중괄호를 쓰지 않고 들여쓰기(indentation)를 사용
+- 별도의 데이터 타입 지정이 필요없고 **재할당이 가능**
+- 문장을 구분할 때 중괄호를 쓰지 않고 **들여쓰기(indentation)**를 사용
 - 컴파일 과정 없이 바로 실행 가능
 - OOP 언어로 모든 것이 객체로 구현되어 있음
 
@@ -113,3 +113,22 @@
   - `int('3') + 4` &rarr; `7`
 - 컨티이너 형 변환  
 ![1](https://user-images.githubusercontent.com/108309396/217984851-554f3552-7f7a-4b48-ae99-185c5b4675fa.png)
+
+---
+### [참고] `==`와 `is`의 차이
+- `==`: 정보가 같음
+  - integer나 string 같은 경우 값이 같다면 같은 memory space 참조
+```python
+a = 'haha'
+b = 'haha'
+a == b # True
+a is b # True
+```
+- `is`: 객체가 같음
+  - container는 무조건 memory space가 다름
+```python
+a = [1, 2, 3]
+b = [1, 2, 3]
+a == b # True
+a is b # False
+```
