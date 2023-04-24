@@ -1,0 +1,29 @@
+day6
+│
+└── day6_exercise1
+    │
+    ├── config
+    │   │   
+    │   ├── __init__.py
+    │   ├── asgi.py
+    │   ├── settings.py
+    │   ├── urls.py
+    │   └── wsgi.py
+    │
+    ├── practice_orms/
+    │   │   
+    │   ├── migrations/
+    │   ├── __init__.py
+    │   ├── admin.py
+    │   ├── apps.py
+    │   ├── models.py
+    │   ├── tests.py
+    │   └── views.py
+    │       
+    ├── venv/
+    │       
+    ├── db.sqlite3
+    │  
+    ├── manage.py
+    │  
+    └── requirements.txt
