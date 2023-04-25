@@ -7,15 +7,22 @@
   <title>Document</title>
 </head>
 <body>
-
   <script>
-		const btn = document.createElement('button')
-    btn.innerText = '로그 출력'
-    document.body.appendChild(btn)
-    
-    btn.addEventListener('click', function(event) {
-      console.log('버튼을 클릭하였습니다!');
+    console.log('Hi')
+
+    new Promise((resolve, reject) => {
+      setTimeout(() => {
+        console.log('SSAFY')
+        resolve()
+      }, 3000)
     })
+    .then(() => {
+      console.log('Bye')
+    })
+    .catch((err) => {
+      console.error(err)
+    })
+
   </script>
 </body>
 </html>
