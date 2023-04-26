@@ -582,41 +582,59 @@ public class SpringConfig {
 ```
 
 ## 6. 스프링 데이터 JPA
-- 스프링 부트 + JPA = 개발 생산성&uarr;, 개발해야할 코드&darr;
-- 스프링 데이터 JPA 사용 시, 리포지토리에 구현 클래스 없이 인터페이스 만으로 개발 가능. 
+- 스프링 부트 + JPA = 개발 생산성&uarr;, 개발 해야 할 코드&darr;
+- 스프링 데이터 JPA 사용 시, 리포지토리에 **구현 클래스 없이 인터페이스 만으로** 개발 가능. 
 - 기본 CRUD 기능도 스프링 데이터 JPA가 모두 제공
-스프링 부트와 JPA라는 기반 위에, 스프링 데이터 JPA라는 환상적인 프레임워크를 더하면 개발이 정말
-즐거워집니다. 지금까지 조금이라도 단순하고 반복이라 생각했던 개발 코드들이 확연하게 줄어듭니다.
-따라서 개발자는 핵심 비즈니스 로직을 개발하는데, 집중할 수 있습니다.
-실무에서 관계형 데이터베이스를 사용한다면 스프링 데이터 JPA는 이제 선택이 아니라 필수 입니다.
-> 주의: 스프링 데이터 JPA는 JPA를 편리하게 사용하도록 도와주는 기술입니다. 따라서 JPA를 먼저 학습한
-후에 스프링 데이터 JPA를 학습해야 합니다.
-앞의 JPA 설정을 그대로 사용한다.
+- 따라서 개발자는 핵심 비즈니스 로직을 개발하는데 집중할 수 있음
+- 앞의 JPA 설정을 그대로 사용
 
 ### 스프링 데이터 JPA 회원 리포지토리
+```java
 package hello.hellospring.repository;
+
 import hello.hellospring.domain.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
+
 import java.util.Optional;
+
 public interface SpringDataJpaMemberRepository extends JpaRepository<Member,
 Long>, MemberRepository {
-Optional<Member> findByName(String name);
+
+  Optional<Member> findByName(String name);
 }
-스프링 데이터 JPA 회원 리포지토리를 사용하도록 스프링 설정 변경
+```
+
+### 스프링 데이터 JPA 회원 리포지토리를 사용하도록 스프링 설정 변경
+```java
 package hello.hellospring;
+
 import hello.hellospring.repository.*;
 import hello.hellospring.service.MemberService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
 @Configuration
 public class SpringConfig {
-private final MemberRepository memberRepository;
-public SpringConfig(MemberRepository memberRepository) {
-this.memberRepository = memberRepository;
+  
+  private final MemberRepository memberRepository;
+  
+  public SpringConfig(MemberRepository memberRepository) {
+    this.memberRepository = memberRepository;
+  }
+
+  @Bean
+  public MemberService memberService() {
+    return new MemberService(memberRepository);
+  }
 }
-@Bean
-public MemberService memberService() {
-return new MemberService(memberRepository);
-}
-}
-스프링 데이터 JPA가 SpringDataJpaMemberRepository 를 스프링 빈으로 자동 등록해준다.
+```
+- 스프링 데이터 JPA가 `SpringDataJpaMemberRepository`를 스프링 빈으로 자동 등록
+
+### 스프링 JPA 제공 클래스
+<img width="543" alt="image" src="https://user-images.githubusercontent.com/108309396/234587506-946b330c-4b83-42a7-9ec1-cd69a59dc68e.png">
+
+### 스프링 데이터 JPA 제공 기능 
+- 인터페이스를 통한 기본적인 CRUD
+- `findByName(), findByEmail()`처럼 메서드 이름 만으로 조회 기능 제공 
+- 페이징 기능 자동 제공
+> 참고: 실무에서는 **JPA와 스프링 데이터 JPA**를 기본으로 사용하고, **복잡한 동적 쿼리는 Querydsl**이라는 라이브러리를 사용하면 된다. Querydsl을 사용하면 쿼리도 자바 코드로 안전하게 작성할 수 있고, 동적 쿼리도 편리하게 작성할 수 있다. 이 조합으로 해결하기 어려운 쿼리는 JPA가 제공하는 네이티브 쿼리를 사용하거나, 앞서 학습한 스프링 JdbcTemplate를 사용하면 된다.
