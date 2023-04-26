@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .done{
+      text-decoration:line-through;
+    }
+  </style>
+</head>
+<body>
+  <form action="" id="todo-form">
+    <input type="text">
+    <button>add</button>
+  </form>
+  <ul id="todo-list">
+    <!-- <li>not done</li>
+    <li class="done">done</li> -->
+
+  </ul>
+  <script>
+    // 1. form 선택
+    const todoForm = document.querySelector('#todo-form')
+    // const btn = document.querySelector('#todo-form > button')
+
+    // 7. ul 태그 선택
+    const todoList = document.querySelector('#todo-list')
+
+    // 2. form 이벤트 부착
+    todoForm.addEventListener('submit', function(e) {
+      // 3. form의 기본 이벤트 삭제
+      e.preventDefault()
+
+      // 4. form 안의 input 태그 선택
+      const todoInput = todoForm.querySelector('input')
+      // 5. input tag의 값 가져오기
+      // 9. value trimming
+      const value  = todoInput.value.trim()
+
+      // 10. trimming 조건 달기
+      if (value){
+        // 6. li tag 만들기
+        const liTag = document.createElement('li')
+        liTag.innerText = value
+        
+        // 8. li 태그 append
+        todoList.appendChild(liTag)
+        todoInput.value = ""
+
+        // 11. 업데이트 로직
+        liTag.addEventListener('click', function(e) {
+          liTag.classList.toggle('done')
+        })
+
+
+        // 12. 삭제 버튼 만들기
+        const deleteBtn = document.createElement('button')
+        deleteBtn.innerText = '삭제'
+        liTag.appendChild(deleteBtn)
+
+        // 13. 삭제 로직
+        deleteBtn.addEventListener('click', function(e) {
+          e.stopPropagation()
+          // liTag.remove()
+          e.target.parentNode.remove()
+        })
+
+      } else{
+        alert('값을 입력하시오')
+      }
+
+
+
+
+
+
+    })
+
+
+
+  </script>
+</body>
+</html>
