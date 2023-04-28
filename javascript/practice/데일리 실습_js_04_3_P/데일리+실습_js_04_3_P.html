@@ -24,14 +24,14 @@
     <section id="cardsSection" class="row">
       
       <!-- 카드 예시 -->
-      <article class="col-4">
+      <!-- <article class="col-4">
         <div class="card m-1">
           <div class="card-body">
             <h5 class="card-title">Example</h5>
             <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti placeat odit rerum asperiores beatae vitae doloremque consectetur magni delectus, fuga autem laudantium, quidem iusto voluptates non earum dolorem totam dolores.</p>
           </div>  
         </div>
-      </article>
+      </article> -->
       <!-- 카드 예시 -->
 
   </div>
@@ -45,8 +45,13 @@
     const titleTag = document.querySelector('#title')
     const contentTag = document.querySelector('#content')
     const btn = document.querySelector('button')
+    const form = document.querySelector('#form')
+    const div0 = document.querySelector('.container')
+    const section = document.querySelector('#cardsSection')
 
-    btn.addEventListener('click', function(event) {
+    form.addEventListener('submit', function(event) {
+      event.preventDefault()
+      console.log(titleTag.value);
       const title = titleTag.value
       const content = contentTag.value
 
@@ -65,11 +70,14 @@
       p.setAttribute('class', 'card-text')
       p.innerText = content
 
-      document.body.appendChild(article)
+      document.body.appendChild(div0)
+      div0.appendChild(section)
+      section.appendChild(article)
       article.appendChild(div1)
       div1.appendChild(div2)
       div2.appendChild(h5)
-      h5.appendChild(p)
+      div2.appendChild(p)
+      form.reset()
     })
 
 
