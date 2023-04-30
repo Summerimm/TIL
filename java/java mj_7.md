@@ -78,7 +78,7 @@
 - method에서 처리해야 할 하나 이상의 예외를 **호출한 곳으로** 전달(처리 위임)
   - 예외는 처리X, 단순히 전달
   - 예외를 전달받은 메서드는 다시 예외 처리의 책임 발생  
-  <img width="355" alt="image" src="https://user-images.githubusercontent.com/108309396/233767240-d9a82b74-e626-476a-a47b-e76866de79d4.png">
+  - <img width="355" alt="image" src="https://user-images.githubusercontent.com/108309396/233767240-d9a82b74-e626-476a-a47b-e76866de79d4.png">
   - 처리하려는 예외의 조상 타입으로 throws 처리 가능
 
 ## checked exceptio과 throws

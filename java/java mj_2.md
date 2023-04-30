@@ -12,6 +12,7 @@
 - 배열 요소의 초기화
   - 배열의 생성과 동시에 저장 대상 자료형에 대한 기본값으로 default 초기화 진행  
 <img width="443" alt="image" src="https://user-images.githubusercontent.com/108309396/229297203-56bef705-15c1-4063-8104-c66852ca4799.png">  
+
 - 생성과 동시에 할당한 값으로 초기화
   - `int[] b = new int[] {1, 3, 4};`
   - `int[] c = {1, 3, 4};`
@@ -79,7 +80,7 @@ for (int i=0; i<arr.length; i++){
 - 선언, 생성, 할당 동시에 `int[][] intArray = {{0, 1, 2}, {0, 1, 2}};`
 
 ## 2차원 배열 만들기(2)
-- 1차 생성: `int[][] intArray = new int[4][];
+- 1차 생성: `int[][] intArray = new int[4][];`
 - 1차 배열만 생성 후, 필요에 따라 2차 배열을 생성: `intArray[0] = new int[3]; intArray[1] = new int[2];`
 
 ## 2차원 배열의 메모리 사용 단계

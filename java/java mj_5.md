@@ -60,14 +60,14 @@ class SingletonClass {
 1. 다른 타입의 객체를 다루는 배열
    - 배열의 특징: 같은 타입의 데이터를 묶음으로 다룬다.
    - 다형성으로 다른 타입의 데이터를 하나의 배열로 관리 가능  
-    <img width="502" alt="image" src="https://user-images.githubusercontent.com/108309396/232312270-19547645-e450-4691-adb6-98c8f6b1ebb1.png">    
+   - <img width="502" alt="image" src="https://user-images.githubusercontent.com/108309396/232312270-19547645-e450-4691-adb6-98c8f6b1ebb1.png">    
    - Object는 모든 클래스의 조상이므로  Object의 배열은 어떤 타입의 객체라도 저장 가능  
    - `objs[3] = 3`: autoboxing 기능에 의해 가능(기본형은 Object를 상속받지 않지만 `Integer.valueOf(3)`을 autoboxing) 
 2. 매개변수의 다형성
    - 메서드가 호출되기 위해서는 메서드 이름과 파라미터가 맞아야 함
    - 조상을 파라미터로 처리한다면 객체의 타입에 따라 메서드를 만들 필요가 없어진다.  
-  <img width="200" alt="image" src="https://user-images.githubusercontent.com/108309396/232312699-a404a9c2-d2af-4d00-9a9d-d682b21c0b66.png">
-  - 즉, API에서 파라미터로 Object를 받는다는 것은 모든 객체를 처리한다는 말 &rarr; 필요하다면 하위클래스에서 오버라이딩
+   - <img width="200" alt="image" src="https://user-images.githubusercontent.com/108309396/232312699-a404a9c2-d2af-4d00-9a9d-d682b21c0b66.png">
+   - 즉, API에서 파라미터로 Object를 받는다는 것은 모든 객체를 처리한다는 말 &rarr; 필요하다면 하위클래스에서 오버라이딩
 
 ## 참조형 객체의 형 변환
 - 메모리에 있더라도 참조하는 변수의 타입에 따라 접근할 수 있는 내용이 제한됨  

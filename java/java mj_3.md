@@ -17,6 +17,7 @@
 - 상태, 속성: 변수, 필드
 - 기능, 행위: 메서드, 함수  
 <img width="627" alt="image" src="https://user-images.githubusercontent.com/108309396/229339016-ddbfee07-8ad9-40cd-bb6f-b206025066a7.png">  
+
 - 클래스
   - 객체를 정의 해놓은 것 즉 객체의 설계도, 틀
   - 클래스는 직접 사용할 수 없고, 직접 사용되는 객체를 만들기 위한 틀을 제공할 뿐

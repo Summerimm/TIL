@@ -41,7 +41,7 @@
 <img width="671" alt="image" src="https://user-images.githubusercontent.com/108309396/235356031-15d2ec63-588b-4c47-b944-780faa47e960.png">
 
 ## 스트림 체이닝(Stream Chaining)  
-- 필요에 따라 여러 보조 스트림을 연결해서 사용 가능
+- 필요에 따라 여러 보조 스트림을 연결해서 사용 가능  
 <img width="510" alt="image" src="https://user-images.githubusercontent.com/108309396/235356210-4bc590d3-ece9-4f6d-b645-79a49df42072.png"> 
 
 ## 보조스트림의 종류  
