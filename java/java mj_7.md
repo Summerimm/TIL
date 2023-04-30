@@ -33,13 +33,13 @@
   - 상위 타입의 예외가 먼저 선언되는 경우 뒤에 등장하는 catch 블록은 동작할 기회X
     - Unreachable catch block for Exception
   - 상속 관계가 없는 경우는 무관
-  - **상속 관계에서는 작은 범위(자식)에서 큰 범위(조상)순으로 정의**
+  - **상속 관계에서는 작은 범위(자식)에서 큰 범위(조상)순으로 정의**  
 <img width="296" alt="image" src="https://user-images.githubusercontent.com/108309396/233766245-386b78f2-f75b-4d41-9f75-6d8751184b87.png">  
 
 ## 다중 예외 처리를 이용한 Checked Exception 처리
 - 처리하지 않으면 컴파일 불가: Checked Exception
 - 예외 처리는 가능한 "구체적으로" 진행
-- 가급적 예외 상황 별로 처리하는 것을 권장
+- 가급적 예외 상황 별로 처리하는 것을 권장  
 <img width="405" alt="image" src="https://user-images.githubusercontent.com/108309396/233766299-b2523368-7504-4438-be54-cfd83c70db42.png">  
 
 - 심각하지 않은 예외를 굳이 세분화해서 처리하는 것도 낭비
@@ -48,7 +48,7 @@
 
 - `try ~ catch ~ finally` 구문을 이용한 예외 처리
   - `finally`는 예외 발생 여부와 상관없이 언제나 실행
-  - 중간에 return을 만나는 경우도 `finally` 블록을 먼저 수행 후 리턴 실행
+  - 중간에 return을 만나는 경우도 `finally` 블록을 먼저 수행 후 리턴 실행  
   <img width="300" alt="image" src="https://user-images.githubusercontent.com/108309396/233766497-4dfa0f8c-a604-4cdf-965f-4f248151d8e5.png">
 
 ### `finally`를 이용한 자원 정리
@@ -56,28 +56,28 @@
 
 - 주요 목적: try 블록에서 사용한 리소스 반납
 - 생성한 시스템 자원을 반납하지 않으면 장래 resource leak 발생 가능 &rarr; `close` 처리
-- `finally`에서 `close`를 통한 자원 반납
+- `finally`에서 `close`를 통한 자원 반납  
 <img width="465" alt="image" src="https://user-images.githubusercontent.com/108309396/233766951-06b1dca5-4a5a-4660-8fbe-b481d0f21d99.png">
 
 - `close` 메서드 자체가 `IOException` 유발 가능
   - FileInputStream 생성자에서 IOException 발생 시 fileInput은 null인 상황
 
 ## `try-with-resources`
-- JDK 1.7 이상에서 리소스의 자동 close 처리
+- JDK 1.7 이상에서 리소스의 자동 close 처리  
 <img width="346" alt="image" src="https://user-images.githubusercontent.com/108309396/233767145-005754c6-a1a7-4bf6-b0b2-09e05807a84b.png">  
 
 - try 선언문에 선언된 객체들에 대해 자동 close 호출(finally 역할)
-  - 단, 해당 객체들이 AutoClosable interface를 구현할 것(각종 IO stream, socket, connection)
-  <img width="109" alt="image" src="https://user-images.githubusercontent.com/108309396/233767156-20a50420-0d21-4df7-8c8f-55dcc225c4d1.png">
+  - 단, 해당 객체들이 AutoClosable interface를 구현할 것(각종 IO stream, socket, connection)  
+  - <img width="109" alt="image" src="https://user-images.githubusercontent.com/108309396/233767156-20a50420-0d21-4df7-8c8f-55dcc225c4d1.png">
   - 해당 객체는 try 블록에서 다시 할당될 수 없음
-  <img width="369" alt="image" src="https://user-images.githubusercontent.com/108309396/233767163-1a8ffc18-d631-4b1c-a29c-b0a3234c7e20.png">
+  - <img width="369" alt="image" src="https://user-images.githubusercontent.com/108309396/233767163-1a8ffc18-d631-4b1c-a29c-b0a3234c7e20.png">
 
 
 # `throws` 활용
 ## `throws` 키워드를 통한 처리 위임
 - method에서 처리해야 할 하나 이상의 예외를 **호출한 곳으로** 전달(처리 위임)
   - 예외는 처리X, 단순히 전달
-  - 예외를 전달받은 메서드는 다시 예외 처리의 책임 발생
+  - 예외를 전달받은 메서드는 다시 예외 처리의 책임 발생  
   <img width="355" alt="image" src="https://user-images.githubusercontent.com/108309396/233767240-d9a82b74-e626-476a-a47b-e76866de79d4.png">
   - 처리하려는 예외의 조상 타입으로 throws 처리 가능
 
@@ -99,7 +99,7 @@
 <img width="492" alt="image" src="https://user-images.githubusercontent.com/108309396/233767504-0031547b-6b79-4a48-9f5e-8c6778aacf26.png">
 
 ## Method overriding과 throws
-- 메서드 재정의 시 조상 클래스 메서드가 던지는 예외보다 부모 예외를 던질 수 없다.
+- 메서드 재정의 시 조상 클래스 메서드가 던지는 예외보다 부모 예외를 던질 수 없다.  
 <img width="261" alt="image" src="https://user-images.githubusercontent.com/108309396/233767551-03366eb8-33fa-40a3-90ef-59719a3feb9f.png">
 
 # 사용자 정의 예외
