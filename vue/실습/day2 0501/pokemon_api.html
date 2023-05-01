@@ -1,0 +1,110 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <button @click="getPokemon()" id="pokemonBtn">나와랏</button>
+    <img src="{{ api }}" alt="pokemon">
+  </div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+<script>
+  const POKEMON = "https://pokeapi.co/api/v2/pokemon/"
+  const pokemonBtn = document.querySelector('#pokemonBtn')
+
+  const num = _.sampleSize(_.range(1, 880), 6)
+  console.log(num);
+
+  new Vue({
+    el: '#app',
+    data: {
+      api: POKEMON,
+    }
+  })
+
+</script>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokemon</title>
+</head>
+<body>
+  <div id="app">
+    <p><img v-if="pokemonImage" :src="pokemonImage" alt="pokemon"></p>
+    <button @click="getPokemon()" id="pokemonBtn">Get Pokemon</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        api: "https://pokeapi.co/api/v2/pokemon/",
+        pokemonImage: null
+      },
+      methods: {
+        getPokemon() {
+          const randomPokemon = _.sampleSize(_.range(1, 880), 1)[0];
+          fetch(this.api + randomPokemon)
+            .then(response => response.json())
+            .then(data => {
+              this.pokemonImage = data.sprites.other['official-artwork']
+              .front_default;
+            });
+        }
+      }
+    });
+  </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokemon</title>
+</head>
+<body>
+  <div id="app">
+    <p><img v-if="isPokemonLoaded" :src="pokemonImage" alt="pokemon"></p>
+    <button @click="getPokemon()" id="pokemonBtn">Get Pokemon</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        api: "https://pokeapi.co/api/v2/pokemon/",
+        isPokemonLoaded: false,
+        pokemonImage: null
+      },
+      methods: {
+        getPokemon() {
+          const randomPokemon = _.sampleSize(_.range(1, 151), 1)[0];
+          fetch(this.api + randomPokemon)
+            .then(response => response.json())
+            .then(data => {
+              this.isPokemonLoaded = true;
+              this.pokemonImage = data.sprites.other['official-artwork'].front_default;
+            });
+        }
+      }
+    });
+  </script>
+</body>
+</html>
+
