@@ -74,7 +74,6 @@
 - 캡슐화
 - 독립적
 
-
 # SFC(Single File Component)
 - Vue에서의 component &rarr; 이름이 있는 재사용 가능한 Vue instance(new Vue()로 만든 인스턴스)
 - 하나의 `.vue`파일이 하나의 Vue instance이고, 하나의 컴포넌트
