@@ -78,17 +78,68 @@
 - component에서 데이터를 '사용'하기 위한 데이터의 흐름
   - `state` -> `getters` -> `component`
 
+# Vuex 실습
+### Object method shorthand
+- 객체 메서드 축약형을 사용할 것
+```javascript
+// before
+const obj1 = {
+  addValue: functon(value) {
+    return value
+  },
+}
 
+// after
+const obj2 = {
+  addValue(value) {
+    return value
+  }
+}
+```
 
+## state
+- `$store.state`로 접근 가능
+- store의 state에 message 데이터 정의  
+<img width="229" alt="image" src="https://user-images.githubusercontent.com/108309396/236629025-55839daa-ce1f-4b1b-a31c-10262ad28bb6.png">
 
+- component에 state 사용  
+<img width="268" alt="image" src="https://user-images.githubusercontent.com/108309396/236629040-07c478ec-8023-40f4-b488-92e2f6c42c77.png">
 
+- `$store.state`에 바로 접근하기보다 `computed`에 정의 후 접근하는 것을 권장  
+<img width="252" alt="image" src="https://user-images.githubusercontent.com/108309396/236629083-68ad2093-b956-465f-8b8a-949a0777fc49.png">
 
+## actions
+- `state`를 변경할 수 있는 `mutations` 호출
+- component에서 `dispatch()`에 의해 호출됨
+- `dispatch(actions-function, payload)` 
+  - 호출하고자 하는 actions 함수 & 넘겨주는 데이터(payload)
+- actions에 정의된 `changeMessage` 함수에 데이터 전달하기
+- component에서 actions는 `dispatch()`에 의해 호출됨  
+<img width="469" alt="image" src="https://user-images.githubusercontent.com/108309396/236629268-187ee56d-e5e5-4c0f-8f2c-15495a89d044.png">
 
+### actions의 인자
+1. `context`
+   - context는 store의 전반적인 속성을 모두 가지고 있으므로 context.state와 context.getters를 통해 mutations를 호출하는 것이 모두 가능
+   - `dispatch()`를 사용해 다른 actions도 호출 가능
+   - **단, actions에서 state를 직접 조작하지 말 것**
+2. `payload`
+   - 넘겨준 데이터를 받아서 사용
 
+## `mutations`
+- `actions`에서 `commit()`을 통해 mutations 호출
+- `commit(mutations-function, payload)`  
+<img width="370" alt="image" src="https://user-images.githubusercontent.com/108309396/236629946-2be9909d-0498-4f25-9ec3-1907e00f7cb4.png">
 
+- mutations 함수 작성
+- mutations 함수의 첫 번째 인자는 `state`, 두 번째 인자는 `payload`  
+<img width="350" alt="image" src="https://user-images.githubusercontent.com/108309396/236630072-9fe29491-e049-4753-a37c-1b74f511215f.png">
 
+## `getters`
+- `getters`는 `state`를 활용한 새로운 변수 == `computed`
+- getters 함수의 첫 번째 인자는 `state`, 두 번째 인자는 `getters`  
+<img width="460" alt="image" src="https://user-images.githubusercontent.com/108309396/236630140-d0c5d198-ab4f-4f18-82ad-76f2ebeb1d33.png">  
+<img width="461" alt="image" src="https://user-images.githubusercontent.com/108309396/236630230-4f8ef740-28ec-4c3f-a98d-20d8a544bbec.png">
 
-
-
-
-# 9시반에 옴 (아마도)
+- `getters`도 `state`와 마찬가지로 `computed`에 정의해서 사용하는 것을 권장  
+<img width="353" alt="image" src="https://user-images.githubusercontent.com/108309396/236630869-76f0a606-fae9-4744-ab86-0db062dc932c.png">  
+<img width="474" alt="image" src="https://user-images.githubusercontent.com/108309396/236630891-03aeeece-66ca-47f3-b3d7-b943a1167c1e.png">
