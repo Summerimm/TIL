@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .completed {
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1>Todo List</h1>
+    <p><input type="text" v-model="inputData">  
+    <button @click="addTodo">+</button></p>
+    <ul>
+      <li v-for="(todo, index) in todos" :key="index">
+        <input type="checkbox" id="checkTodo" v-model="todo.completed" @click="toggleTodo(index)">
+        <label :for="'checkTodo' + index" :class="{ completed: todo.completed }">{{ todo.text }}</label>
+      </li>
+    </ul>
+    <button @click="clearTodo">완료 목록 삭제</button>
+  </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      inputData: null,
+      todos: [
+      ]
+    },
+    methods: {
+      addTodo() {
+        if (!this.inputData.trim()) {
+          alert('내용을 입력해 주세요!')
+        } else {
+          const todo = {
+            text: this.inputData,
+            completed: false
+          }
+          this.todos.push(todo)
+          this.inputData = null
+        }
+      },
+      toggleTodo(index) {
+        this.todos[index].completed = !this.todos[index].completed
+      },
+      clearTodo() {
+        this.todos = this.todos.filter(todo => !todo.completed)
+      }
+    }, 
+  })
+</script>
+</html>

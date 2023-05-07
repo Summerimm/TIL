@@ -26,7 +26,7 @@
 - **v-접두사가 있는 특수 속성**에는 값을 할당할 수 있음
   - 값에는 JS 표현식을 작성할 수 있음
 - directive의 역할은 **표현식의 값이 변경될 때 반응적으로 DOM에 적용**하는 것
-- 기본구성
+- 기본구성  
 ![image](https://user-images.githubusercontent.com/108309396/235413417-4a63fa7c-3e81-4f42-9e9a-6e09f99b392e.png)  
   - `:`을 통해 **전달인자**를 받을 수 있음
   - `.`으로 표시되는 특수 접미사 - directive를 특별한 방법으로 바인딩
@@ -36,18 +36,18 @@
 - 각각의 instance들은 연결된 DOM element에만 영향을 미침
 - 연결되지 않은 DOM이 Vue의 영향을 받지 않았던 것과 동일한 상황
 
-### `v-text`
+## `v-text`
 ![image](https://user-images.githubusercontent.com/108309396/235413565-ab68de34-5c5a-40d2-b8bf-31334f192f5d.png)  
 - 기본적인 바인딩 방법
 - `{{ }}`와 동일한 역할(정확히 동일한 것은 아님)
 
-### `v-html`
+## `v-html`
 ![image](https://user-images.githubusercontent.com/108309396/235413660-e36c527a-6850-4389-b063-03faebee3254.png)  
 - RAW HTML을 표현할 수 있는 방법
 - 단, 사용자가 입력하거나 제공하는 컨텐츠에는 사용금지
   - XSS 공격
 
-### `v-show`
+## `v-show`
 ![image](https://user-images.githubusercontent.com/108309396/235413738-899d7cce-a2f1-4a08-9341-593027c248ab.png)  
 - 표현식에 작성된 값에 따라 element를 **보여줄 것인지 결정**
   - boolean 값이 변경될 때마다 반응
@@ -57,7 +57,7 @@
   - vue dev tools에서 `isActive` 변경 시 화면에 출력
   - 값을 다시 false로 변경 시 다시 사라짐
 
-### `v-if`
+## `v-if`
 ![image](https://user-images.githubusercontent.com/108309396/235413822-9c1cc1d7-18b1-4a76-b379-46d914b3df32.png)  
 - v-show와 사용 방법은 동일
 - `isActive`의 **값이 변경될 때 반응**
@@ -72,7 +72,7 @@
   - 표현식 결과가 false인 경우 렌더링조차 되지 않으므로 초기 렌더링 비용은 `v-show`보다 낮을 수 있음
   - 단, 표현식 값이 자주 변경되는 경우 잦은 재 렌더링으로 비용이 증가할 수 있음
 
-### `v-for`
+## `v-for`
 ![image](https://user-images.githubusercontent.com/108309396/235413936-8ca3f57d-3943-4187-b2cc-13119687f302.png)
 - `for..in..` 형식으로 작성
 - 반복한 데이터 타입에 모두 사용 가능
@@ -86,12 +86,12 @@
 - **v-for 사용 시 반드시 key 속성을 각 요소에 작성**
 - vue 화면 구성 시 이전과 달라진 점을 확인하는 용도로 활용
   - 따라서 key가 중복되어서는 안 됨
-- 각 요소가 고유한 값을 가지고 있다면 생략 가능
+- 각 요소가 고유한 값을 가지고 있다면 생략 가능  
 ![image](https://user-images.githubusercontent.com/108309396/235414187-761dbf9f-14d1-4b4a-b2fd-f95055119231.png)
 - 객체 순회 시 value가 할당되어 출력
 - 2번째 변수 할당 시 key 출력 가능
 
-### `v-on`
+## `v-on`
 ![image](https://user-images.githubusercontent.com/108309396/235414922-ce1e79d0-17a6-4ea9-b8b9-d262e4fc7c78.png)  
 - `:`을 통해 전달받은 인자를 확인
 - 값으로 JS 표현식 작성
@@ -102,7 +102,7 @@
 - `:`을 통해 전달된 인자에 따라 특별한 modifiers(수식어)가 있을 수 있음(ex. `v-on:keyup.enter` 등)
 - `@` shortcut 제공(ex. `@keyup.click`)
 
-### `v-bind`
+## `v-bind`
 ![image](https://user-images.githubusercontent.com/108309396/235415116-0cb32949-a4f6-4389-8d2c-d2838e55efad.png)  
 - HTML 기본 속성에 Vue data를 연결
 - class의 경우 다양한 형태로 연결 가능
@@ -113,7 +113,7 @@
 - `:` shortcut 제공
   - ex) `:class` 등
 
-### `v-model`
+## `v-model`
 ![image](https://user-images.githubusercontent.com/108309396/235415289-2dc8e6a3-725b-4c21-b03b-2e1f936e0ff4.png)
 - Vue instance와 DOM의 **양방향 바인딩**
 - Vue data 변경 시 v-model로 연결된 사용자 입력 element에도 적용
@@ -164,7 +164,7 @@
    - 데이터의 예측 가능한 행동을 유지(객체 불변성)
    - ![image](https://user-images.githubusercontent.com/108309396/235416438-ea5c99ae-21b4-48ff-a372-243840852492.png)
 2. `v-for`를 쓴 element에 절대 `v-if` 사용 금지
-   - 1. 목록의 항목을 필터링할 때: v-for는 v-if보다 우선순위가 높아 결국 모두 반복하게 됨  
-  ![image](https://user-images.githubusercontent.com/108309396/235417622-b86660f0-b975-4010-8300-3f034ebc4dd8.png)
-  - 2. 숨김 목록의 렌더링을 피할 때
-  - ![image](https://user-images.githubusercontent.com/108309396/235417706-5fb9926a-8826-461a-89d0-f3a933d28ae0.png)
+   1. 목록의 항목을 필터링할 때: v-for는 v-if보다 우선순위가 높아 결국 모두 반복하게 됨  
+     - ![image](https://user-images.githubusercontent.com/108309396/235417622-b86660f0-b975-4010-8300-3f034ebc4dd8.png)
+   2. 숨김 목록의 렌더링을 피할 때
+     - ![image](https://user-images.githubusercontent.com/108309396/235417706-5fb9926a-8826-461a-89d0-f3a933d28ae0.png)
