@@ -17,7 +17,7 @@
 
 ## `localStorage.getItem(key, value)`
 - key 값으로 저장된 데이터 불러오기
-- 데이터를 불러올 때도 문자열로 불러옴
+- 데이터를 불러올 때도 문자열로 불러옴  
 ![image](https://user-images.githubusercontent.com/108309396/236718457-56a9fbcd-c2cf-4f84-8e7a-f5059b305823.png)
 
 ## `JSON.stringify`
@@ -39,7 +39,7 @@
 - `vuex-persistedstate`
   - Vuex store의 상태를 브라우저 local stoarage에 저장해주는 plugin
   - 이전 상태를 유지할 수 있도록 함
-  - `vuex` key에 state의 message가 가진 값들이 value로 할당됨
+  - `vuex` key에 state의 message가 가진 값들이 value로 할당됨  
 ![image](https://user-images.githubusercontent.com/108309396/236720415-8fcbccec-df47-426f-8fb9-9eb4fbf48629.png)
 - 추가 옵션을 사용하여 필요에 따라 저장 방식 변경 가능  
 ![image](https://user-images.githubusercontent.com/108309396/236720601-f3f4280c-20e2-4c1c-b082-23a60eead6f0.png)
@@ -66,16 +66,16 @@
 ## `mapActions`
 - 컴포넌트에서 `this.$store.dispatch()`를 호출하는 대신 액션 메서드를 직접 호출하여 사용할 수 있음
 1. 배열 형태로 매핑
-   - changeMessage에 넘겨주어야 할 inputData를 changeMessage 호출 시 인자로 직접 값을 넘겨주어야 함
+   - changeMessage에 넘겨주어야 할 inputData를 changeMessage 호출 시 인자로 직접 값을 넘겨주어야 함  
   ![image](https://user-images.githubusercontent.com/108309396/236729819-354b8087-b2cc-44e9-8f9c-849c768e09ab.png)
 2. 객체 형태로 매핑
   - Actions의 changeMessage를 actionscChangeMessage에 매핑
   - this.actionsChangeMessage 형식으로 사용
   - payload를 넘겨주거나 추가적인 로직 작성 가능  
   ![image](https://user-images.githubusercontent.com/108309396/236730226-68ad02b4-2f6c-4fea-95dc-46dcee26d83e.png)
-3. mapGetters
+3. mapGetters  
 ![image](https://user-images.githubusercontent.com/108309396/236730271-bee1288b-7614-4078-9444-44816a29cf66.png)  
-- 상황에 따라서는 배열과 객체 형태로 각각 매핑하여 사용 가능
+- 상황에 따라서는 배열과 객체 형태로 각각 매핑하여 사용 가능  
 ![image](https://user-images.githubusercontent.com/108309396/236730423-4e3b750e-c7f4-4453-bcde-3ce3d3583ad7.png)
 
 

@@ -69,7 +69,7 @@
 
 ### Dog API를 사용한 404 예시
 형식은 유효하지만 특정 리소스를 찾을 수 없는 경우
-- 데이터가 없음을 명시하고 404 page로 이동해야 함
+- 데이터가 없음을 명시하고 404 page로 이동해야 함  
 ![image](https://github.com/Haaarimmm/TIL/assets/108309396/6f99c42b-e5ec-417e-9ae1-4f8e22c77769)  
 ![image](https://github.com/Haaarimmm/TIL/assets/108309396/1e91faca-1128-4464-b482-3e5ec3088dfe)  
 ![image](https://github.com/Haaarimmm/TIL/assets/108309396/b444c332-1953-4a75-87f0-f1eee07f8f79)

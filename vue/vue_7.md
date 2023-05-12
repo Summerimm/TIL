@@ -131,7 +131,7 @@
 - 동적 인자 전달
   - URL의 특정 값을 변수처럼 사용 가능(Django에서의 variable routing)
 - `HelloView.vue` 작성 및 route 추가
-- route를 추가할 때 동적 인자를 명시
+- route를 추가할 때 동적 인자를 명시  
 ![image](https://user-images.githubusercontent.com/108309396/236981305-d5bd5dfd-6b62-447f-bc02-8e347818ff18.png)  
 ![image](https://user-images.githubusercontent.com/108309396/236981342-25e20337-4e74-40c1-8073-e224544ef066.png)
 - `$route.params`로 변수에 접근 가능
@@ -140,7 +140,7 @@
 - 선언적 방식 네비게이션
   - params를 이용하여 동적 인자 전달 가능  
   ![image](https://user-images.githubusercontent.com/108309396/236981592-ff9c70d2-e529-46dd-8831-0ae7d20bdd8c.png)
-- 프로그래밍 방식 네비게이션
+- 프로그래밍 방식 네비게이션  
 ![image](https://user-images.githubusercontent.com/108309396/236981658-f48ea927-8b0e-4516-b197-dac7819590ad.png)
 
 ## router에 컴포넌트를 등록하는 또다른 방법

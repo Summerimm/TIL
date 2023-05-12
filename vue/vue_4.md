@@ -26,7 +26,7 @@
 - 요소에 속성을 작성하듯이 사용 가능 &rarr; `prop-data-name="value"`
   - 속성의 키 값은 kebab-case를 사용
 - 전달받은 props를 type과 함께 명시
-- 잘못된 타입을 전달하는 경우 브라우저의 콘솔에서 사용자에게 경고
+- 잘못된 타입을 전달하는 경우 브라우저의 콘솔에서 사용자에게 경고  
 ![image](https://user-images.githubusercontent.com/108309396/235822266-fc8e493f-34be-4e27-acc2-8a869c879644.png)  
 ![image](https://user-images.githubusercontent.com/108309396/235822298-8b02faa3-d708-412d-bd34-dafb02c615ef.png)
 
@@ -43,7 +43,7 @@
 ![image](https://user-images.githubusercontent.com/108309396/235822542-9f7224bd-b443-4b9f-91b6-b7a65b6e72ab.png)
 - `:dynamic-props="dynamicProps"는 앞의 key값이란 이름으로 뒤의 " "안의 데이터(dynamicProps)를 전달하겠다는 뜻
 - 즉, `:my-props="dynamicProps"`로 데이터를 넘긴다면 자식 컴포넌트에서 myProps로 데이터를 받아야 함
-- v-bind로 묶여있는 " "안의 구문은 js의 구문으로, dynamicProps라는 변수에 대한 data를 전달 가능
+- v-bind로 묶여있는 " "안의 구문은 js의 구문으로, dynamicProps라는 변수에 대한 data를 전달 가능  
 ![image](https://user-images.githubusercontent.com/108309396/235823121-3fafba82-ed80-4bf3-8950-a6088b9bbc15.png)  
 ![image](https://user-images.githubusercontent.com/108309396/235823131-ed723537-c0a3-4e4e-8b1b-a543a74aa096.png)
 
@@ -71,9 +71,9 @@
 - `$emit` 메서드를 통해 부모 컴포넌트에 이벤트를 발생
   - `$emit('event-name')` 형식으로 사용하며 부모 컴포넌트에 event-name이라는 이벤트가 발생했다는 것을 알림
 1. 자식 컴포넌트에 버튼을 만들고 클릭 이벤트를 추가 
-2. `$emit`을 통해 부모 컴포넌트에게 child-to-parent 이벤트를 트리거
+2. `$emit`을 통해 부모 컴포넌트에게 child-to-parent 이벤트를 트리거  
 ![image](https://user-images.githubusercontent.com/108309396/235824442-eeea490b-015c-40f7-9906-cb293429be4f.png)
-3. emit된 이벤트를 상위 컴포넌트에서 청취 후 핸들러 함수 실행
+3. emit된 이벤트를 상위 컴포넌트에서 청취 후 핸들러 함수 실행  
 ![image](https://user-images.githubusercontent.com/108309396/235824600-647426b1-273b-43ef-9de5-14c01dd77765.png)  
 
 ### Emit Event 흐름 정리
@@ -83,7 +83,7 @@
 
 ## emit with data
 - 이벤트를 발생(emit)시킬 때 인자로 데이터를 전달 가능
-- 전달한 데이터는 이벤트와 연결된 부모 컴포넌트의 핸들러 함수의 인자로 사용 가능
+- 전달한 데이터는 이벤트와 연결된 부모 컴포넌트의 핸들러 함수의 인자로 사용 가능  
 ![image](https://user-images.githubusercontent.com/108309396/235824791-2dca3077-e7ef-48f7-8eee-ac2391e906ac.png)  
 ![image](https://user-images.githubusercontent.com/108309396/235824835-c203e457-6a5b-40a3-8f9f-4f9b45061c02.png)
 1. 자식 컴포넌트에 있는 버튼 클릭 이벤트를 청취하여 연결된 핸들러 함수(ChildToParent) 호출
@@ -93,7 +93,7 @@
 4. 호출된 함수에서 console.log(`~child data~`) 실행
 
 ## emit with dynamic data
-- 동적인 데이터도 전달 가능
+- 동적인 데이터도 전달 가능  
 ![image](https://user-images.githubusercontent.com/108309396/235825575-6198168f-1c2c-424a-be1d-90531ad57c0e.png)  
 ![image](https://user-images.githubusercontent.com/108309396/235825634-0f6a17d4-b07f-4876-a156-22b853c1f657.png)
 1. 자식 컴포넌트에 있는 keyup.enter 이벤트를 청취하여 연결된 핸들러 함수(ChildInput) 호출
@@ -105,7 +105,7 @@
 
 # Lifecycle Hooks
 - 각 vue 인스턴스는 생성과 소멸의 과정 중 단계별 초기화 과정을 거침
-- 각 단계가 트리거가 되어 특정 로직 수행 가능
+- 각 단계가 트리거가 되어 특정 로직 수행 가능  
 ![image](https://user-images.githubusercontent.com/108309396/235825864-7386d375-4430-41fe-a8e3-d698c7bd140a.png)  
 ![image](https://user-images.githubusercontent.com/108309396/235825893-b4c6b025-8e37-45fe-ae77-23ce912595c5.png)
 

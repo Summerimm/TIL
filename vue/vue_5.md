@@ -61,7 +61,7 @@
 
 ### Mutations & Actions
 - Mutations: state를 변경
-- Actions: state 변경을 제외한 나머지 로직(비즈니스 로직)
+- Actions: state 변경을 제외한 나머지 로직(비즈니스 로직)  
 <img width="637" alt="image" src="https://user-images.githubusercontent.com/108309396/236448888-62835b97-633d-48e9-b678-9b575e2db8e3.png">
 
 ### 4. `getters`
