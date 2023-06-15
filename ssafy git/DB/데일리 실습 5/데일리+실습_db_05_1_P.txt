@@ -1,0 +1,42 @@
+day16
+│
+└── day16_problem1
+    │
+    ├── project1
+    │   │   
+    │   ├── __init__.py
+    │   ├── asgi.py
+    │   ├── settings.py
+    │   ├── urls.py
+    │   └── wsgi.py
+    │   
+    ├── movies
+    │   │   
+    │   ├── migrations/
+    │   ├── __init__.py
+    │   ├── admin.py
+    │   ├── apps.py
+    │   ├── models.py
+    │   ├── tests.py
+    │   ├── urls.py
+    │   ├── views.py
+    │   └── templates
+    │       │         
+    │       └── movies
+    │           │   
+    │           ├── create.html
+    │           ├── detail.html
+    │	    ├── index.html
+    │	    └── update.html
+    │       
+    ├── templates
+    │       │         
+    │       └── base.html
+    │       
+    ├── venv/
+    │       
+    ├── db.sqlite3
+    │  
+    └── manage.py
+    │  
+    └── requirements.txt
