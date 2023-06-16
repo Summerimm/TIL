@@ -1,4 +1,4 @@
-# 3 Process
+# 3. Process
 - **"Process is a program in execution"**
 - Context? 현재 시점의 상태를 규명하기 위해 필요한 요소들(timesharing 구현을 위해 필요)
   1. CPU 수행 상태를 나타내는 hardware context: Program Counter, 각종 register
@@ -77,8 +77,6 @@
    - 여유 공간 마련을 위해 프로세스를 통째로 메모리에서 디스크로 쫒차냄
    - 프로세스에게서 memory를 뺏는 문제
    - degree of multiprogramming을 제어
-
----
 
 # Thread
 ![image](https://github.com/Haaarimmm/TIL/assets/108309396/2749c5ef-3d84-47e1-9d4e-0e368801f7bb)

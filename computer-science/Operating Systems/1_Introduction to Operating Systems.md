@@ -1,4 +1,4 @@
-# 1 Introduction to Operating Systems
+# 1. Introduction to Operating Systems
 - OS: 컴퓨터 시스템의 **자원을 효율적으로 관리**
   - resource(자원): CPU, Memory, I/O Device
 
