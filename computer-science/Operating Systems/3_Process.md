@@ -6,6 +6,23 @@
   3. 프로세스 관련 kernel data structure: PCB, kernel stack(프로세스 별로 보유)
 - ![image](https://github.com/Haaarimmm/TIL/assets/108309396/0b9d2f45-ddc5-4ade-84c5-f7c87b075b61)
 
+# Process Control Block(PCB)
+- ![image](https://github.com/Haaarimmm/TIL/assets/108309396/742c2a5b-3e8f-4dde-a9aa-54a5bd2fd801)  
+- OS가 각 프로세스를 관리하기 위해 프로세스 당 유지하는 정보
+- 구조체로 유지
+1. OS가 관리 상 사용하는 정보: Process state, PID, scheduling information, priority
+2. CPU 수행 관련 하드웨어 값: PC, registers
+3. 메모리 관련: code, data, stack의 위치 정보
+4. 파일 관련: Open file descriptors
+
+# Kernel Stack
+- **Kernel Stack**이란?
+  - kernel mode에서 실행되는 code와 data를 저장하는 stack
+- Kernel stack의 목적
+  1. 커널 함수 호출: 함수가 실행되는 동안 필요한 데이터와 정보를 스택에 저장
+  2. interrupt 처리: interrupt 처리에 필요한 데이터 및 register 상태 등을 저장
+  3. context switching: 현재 실행 중인 프로세스의 state 정보를 저장하고 다음 작업의 state 정보를 로드
+
 # Process State
 - 프로세스는 state가 변경되며 수행됨
 1. **Running**: CPU 소유권을 가지고 instruction을 수행 중인 상태
@@ -31,20 +48,17 @@
 ![image](https://github.com/Haaarimmm/TIL/assets/108309396/57675129-62ad-43ee-b4a9-774363ced87c)  
 ![image](https://github.com/Haaarimmm/TIL/assets/108309396/554ddfd7-da46-4a3a-a723-e4ca12137f2f)  
 
-# Process Control Block(PCB)
-![image](https://github.com/Haaarimmm/TIL/assets/108309396/742c2a5b-3e8f-4dde-a9aa-54a5bd2fd801)  
-- OS가 각 프로세스를 관리하기 위해 프로세스 당 유지하는 정보
-- 구조체로 유지
-1. OS가 관리 상 사용하는 정보: Process state, PID, scheduling information, priority
-2. CPU 수행 관련 하드웨어 값: PC, registers
-3. 메모리 관련: Code, data, stack의 위치 정보
-4. 파일 관련: Open file descriptors
 
 # Context Switching
-![image](https://github.com/Haaarimmm/TIL/assets/108309396/b332724e-54f9-4db0-8a7c-6dbb551bcb1f)  
+- ![image](https://github.com/Haaarimmm/TIL/assets/108309396/b332724e-54f9-4db0-8a7c-6dbb551bcb1f)  
 - Context Switching: CPU를 한 프로세스에서 다른 프로세스로 넘겨주는 과정
   1. CPU를 내어주는 프로세스의 상태를 그 프로세스의 PCB에 저장
   2. CPU를 새롭게 얻는 프로세스의 상태를 PCB에서 읽어옴
+- Memory map의 역할
+   - 현재 실행 중인 프로세스의 address space를 저장하고 새로운 프로세스의 address space을 로드함으로써
+→ logical address와 physical address 간의 매핑 유지
+   - 페이지 테이블 갱신
+   - 보호 및 권한 설정 → 메모리 보호와 가상 메모리 관리
 - System call이나 interrupt 발생 시 반드시 context switching이 일어나는 것 X
 ![image](https://github.com/Haaarimmm/TIL/assets/108309396/94ca7922-226c-4336-a3c0-ea622e7bbdc5)
 - (1)의 경우에도 CPU 수행 정보 등 context의 일부를 PCB에 save해야 하지만 context switching을 하는 (2)의 경우 부담이 훨씬 큼(cache memory flush)
