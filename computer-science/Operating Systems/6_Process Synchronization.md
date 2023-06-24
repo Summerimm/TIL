@@ -27,3 +27,53 @@
 - Problem
   - 하나의 프로세스가 critical section에 있을 때 다른 모든 프로세스는 critical section에 들어갈 수 없어야 한다
   - ![image](https://github.com/Haaarimmm/TIL/assets/108309396/18dd3919-4528-4ccc-9870-b1369c93384b)
+
+# Initial Attempts to Solve Problem
+- 두 개의 프로세스가 있다고 가정 $P_0, P_1$
+- 프로세스들의 일반적인 구조  
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/3cc61b81-dc82-44f3-87ba-93e2fa773d97)  
+- 프로세스들은 수행의 동기화를 위해 몇몇 변수를 공유할 수 있다 &rarr; synchronization variable
+
+# 프로그램적 해결법의 충족 조건
+1. **Mutual Exclusion**(상호 배타)
+   - 프로세스 Pi가 critical section 부분을 수행 중이면 다른 모든 프로세스들은 그들의 critical section에 들어가면 안 된다
+2. **Progress**
+   - 아무도 critical section에 있지 않은 상태에서 critical section에 들어가고자 하는 프로세스가 있으면 들어가게 해주어야 한다
+3. **Bounded Waiting**
+   - 프로세스가 critical section에 들어가려고 요청한 후부터 그 요청이 허용될 때까지 다른 프로세스들이 critical section에 들어가는 횟수에 한계가 있어야 한다
+   - 기다리는 시간이 유한해야 한다
+- 가정
+  - 모든 프로세스의 수행 속도는 0보다 크다
+  - 프로세스들 간의 상대적인 수행 속도는 가정하지 않는다
+
+# Algorithm 1
+- Synchronization variable(`int i`, initially turn = 0)
+- $P_i$ can enter its critical section if `(turn == i)`
+- Process $P_0$  
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/47413929-3545-4783-949c-535e70b70d10)  
+- Satisfy *mutual exclusion*, but not *progress*
+- 즉, 과잉양보: 반드시 한 번씩 교대로 들어가야만 함(swap-turn). 그가 turn을 내 값으로 바꿔줘야만 내가 들어갈 수 있음. 특정 프로세스가 더 빈번히 critical section을 들어가야 한다면?
+
+# Algorithm 2
+- Synchronization variable
+  - `boolean flag[2]`, initially `flag[모두] = false` &rarr; no one is in CS
+  - $P_i$ ready to enter its CS if `flag[i] == true`
+- Process $P_i$  
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/56c89871-b1a5-4191-8abc-2327a7b42c2f)
+- Satisfy *mutual exclusion*, but not *progress*
+- 둘 다 2행까지 수행 후 끊임없이 양보하는 상황 발생 가능
+
+# Algorithm 3 (Peterson's Algorithm)
+- Combined synchronization variables of algorithms 1 and 2
+- Process $P_i$  
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/3ad54988-256c-4eac-a46a-e5c53e038d98)
+- meets all three requirements &rarr; solves the critical section problem for 2 processes
+- **Busy waiting(= Spin lock)**(계속 CPU와 memory를 쓰면서 wait)
+
+# Synchronization Hardware
+- 하드웨어적으로 **Test & modify**를 **atomic하게** 수행할 수 있도록 지원하는 경우 앞의 문제는 간단히 해결  
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/a142c5cf-0d02-4edf-bf72-93e408a618a1)  
+- Mutual Exclusion with Test & Set  
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/fa643a71-7695-4a28-a85d-f35645697961)
+
+# Semaphores
