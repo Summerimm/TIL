@@ -68,7 +68,7 @@
 - Process $P_i$  
 ![image](https://github.com/Haaarimmm/TIL/assets/108309396/3ad54988-256c-4eac-a46a-e5c53e038d98)
 - meets all three requirements &rarr; solves the critical section problem for 2 processes
-- **Busy waiting(= Spin lock)**(계속 CPU와 memory를 쓰면서 wait)
+- **Busy waiting(=Spin lock)**(계속 CPU와 memory를 쓰면서 wait)
 
 # Synchronization Hardware
 - 하드웨어적으로 **Test & modify**를 **atomic하게** 수행할 수 있도록 지원하는 경우 앞의 문제는 간단히 해결  
@@ -77,3 +77,49 @@
 ![image](https://github.com/Haaarimmm/TIL/assets/108309396/fa643a71-7695-4a28-a85d-f35645697961)
 
 # Semaphores
+- 앞의 방식들을 추상화시킴
+- Semaphore S
+  - integer variable = 자원의 개수와 같음
+  - 아래의 두 가지 atomic 연산에 의해서만 접근 가능
+  - ![image](https://github.com/Haaarimmm/TIL/assets/108309396/91e44ca4-0253-40ed-ba8f-9a2ae75c8bbd)
+  - P연산: lock을 얻음, V연산: lock을 반납함
+
+# Critical Section of n Processes
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/45a1c296-b81e-4c73-8a8c-67bc16f16b6e)
+- busy-wait(=spin lock)는 효율적이지 못 함
+- Block(Sleep) & Wakeup(=sleep lock) 방식의 구현
+
+# Block / Wakeup Implementation
+- Semaphore를 다음과 같이 정의
+- ![image](https://github.com/Haaarimmm/TIL/assets/108309396/3cd9aade-f59c-40ec-83c3-7960ae03eab7)
+- block과 wakeup을 다음과 같이 가정
+- **block**: 커널은 block을 호출한 프로세스를 suspend시킴. 이 프로세스의 PCB를 semaphore에 대한 wait queue에 넣음
+- **wakeup(P)**: block된 프로세스 P를 wakeup시킴. 이 프로세스의 PCB를 ready queue로 옮김
+- ![image](https://github.com/Haaarimmm/TIL/assets/108309396/cd01d8cb-9d55-4fef-961f-320ed6f37dde)
+
+# Implementation P() & V()
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/602935f0-7bbd-494a-878f-57c133a2d7f1)
+- P()에서 미리 S를 1빼고 음수면 sleep
+- V()에서 S에 1을 더하고 0이하면 wakeup
+
+# Which is better?
+- Block/wakeup overhead vs Critical section 길이
+  - critical section 길이가 긴 경우 Block/Wakeup이 적당
+  - critical section 길이가 매우 짧은 경우 Block/Wakeup overhead가 busy-wait overhead보다 더 커질 수 있음
+  - 일반적으로는 Block/wakeup 방식이 better!
+
+# Two Types of Semaphores
+1. Counting semaphore
+   - 도메인이 0 이상인 임의의 정수값
+   - 주로 resource counting에 사용
+2. Binary semaphore(=mutex)
+   - 0 또는 1 값만 가질 수 있는 semaphore
+   - 주로 mutual exclusion(lock/unlock)에 사용
+
+# Problem: Deadlock and Starvation
+1. Deadlock
+   - 둘 이상의 프로세스가 서로 상대방에 의해 충족될 수 있는 event를 무한히 기다리는 현상
+   - S와 Q가 1로 초기화된 semaphore라 하자.
+   - ![image](https://github.com/Haaarimmm/TIL/assets/108309396/1371a01a-8f05-43d0-98b5-87dd92219c05)
+2. Starvation
+   - Indefinite blocking: 프로세스가 suspend된 이유에 해당하는 세마포어 큐에서 빠져나갈 수 없는 현상
