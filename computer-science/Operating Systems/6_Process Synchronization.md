@@ -123,3 +123,64 @@
    - ![image](https://github.com/Haaarimmm/TIL/assets/108309396/1371a01a-8f05-43d0-98b5-87dd92219c05)
 2. Starvation
    - Indefinite blocking: 프로세스가 suspend된 이유에 해당하는 세마포어 큐에서 빠져나갈 수 없는 현상
+
+# Classical Problems of Synchronization
+## 1. Bounded-Buffer Problem(Producer-Consumer Problem)
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/ffbe53b1-781b-4413-8e86-ec3b25202e29)  
+- Shared data: buffer 자체 및 buffer 조작 변수(empty/full buffer의 시작 위치)
+- Synchronization variables
+   - mutual exclusion &rarr; Need binary semaphore(shared data의 mutual exclusion을 위해)
+   - resource count &rarr; Need integer semaphore(남은 full/empty buffer의 수 표시)
+   - `semaphore full = 0`(full buffer의 개수 count), `empty = n`(empty buffer의 개수 count), `mutex = 1`(lock을 걸기 위한 변수)
+- pseudo-code 
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/d0cd4e7f-75cf-44c2-a7bb-489de3631819)
+
+## 2. Readers and Writers Problem
+- 한 process가 DB에 write 중일 때 다른 process가 접근하면 안 됨
+- read는 동시에 여럿이 해도 됨
+- solution
+  - Writer가 DB에 접근 허가를 아직 얻지 못한 상태에서는 모든 대기 중인 Reader들을 다 DB에 접근하게 해준다
+  - Writer는 대기 중인 Reader가 하나도 없을 때 DB 접근이 허용된다
+  - 일단 Writer가 DB에 접근 중이면 Reader들은 접근이 금지된다
+  - Writer가 DB에서 빠져나가야만 Reader의 접근이 허용된다
+- Shared data: DB 자체, int readcnt = 0(현재 DB에 접근 중인 Reader의 수)
+- Synchronization variables
+  - semaphore mutex = 1: 공유 변수 readcnt를 접근하는 critical section의 mutual exclusion 보장을 위해 사용
+  - db = 1: Reader와 Writer가 공유 DB 자체를 올바르게 접근하게 하는 역할
+- pseudo-code  
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/b4900a5b-bc23-4a25-99ce-ef76429ccd44)
+
+## 3. Dining-Philosophers Problem
+- Synchronization variables: semaphore chopstick[5](initially all values are 1)  
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/2e729995-cf99-4ebe-9cc7-877260d451b2)
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/8a5d17ad-2d4f-4014-ac3c-4d9d42d9ff95)
+- problem
+  - Deadlock의 가능성 존재
+  - 모든 철학자가 동시에 배가 고파져 왼쪽 젓가락을 집어버린 경우
+- solution
+  - 4명의 철학자만이 테이블에 동시에 앉을 수 있도록 한다
+  - 젓가락을 두 개 모두 집을 수 있을 때에만 젓가락을 집을 수 있게 한다
+    ![image](https://github.com/Haaarimmm/TIL/assets/108309396/fee18782-7ab7-4b46-81c4-c87cc57f44c0)
+  - 비대칭: 짝수(홀수)철학자는 왼쪽(오른쪽) 젓가락부터 집도록
+
+# Semaphore의 문제점
+- 구현 어려움
+- 정확성 입증이 어려움
+- 자발적 협력이 필요
+- 한 번의 실수가 모든 시스템에 치명적 영향
+- example
+  - ![image](https://github.com/Haaarimmm/TIL/assets/108309396/6496d079-92f8-4663-a70e-fa9f3aed4113)
+
+# Monitor
+- 동시 수행 중인 프로세스 사이에서 abstract data type의 안전한 공유를 보장하기 위한 high-level synchronization construct
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/e21a0429-717f-49f0-b28f-cddc34b7866e)
+- 모니터 내에서는 한 번에 하나의 프로세스만이 활동 가능
+- 프로그래머가 동기화 제약 조건을 명시적으로 코딩할 필요없음
+- 프로세스가 모니터 안에서 기다릴 수 있도록 하기 위해 condition variable 사용(`condition x, y`)
+- Condition variable은 **wait**과 **signal**연산에 의해서만 접근 가능
+  - `x.wait()`: `x.wait()`을 invoke한 프로세스는 다른 프로세스가 x.signal()을 invoke하기 전까지 suspend된다
+  - `x.signal()`: `x.signal()`은 정확하게 하나의 suspend된 프로세스를 resume한다. suspend된 프로세스가 없으면 아무 일도 일어나지 않음
+- ![image](https://github.com/Haaarimmm/TIL/assets/108309396/f1a3cb5d-795b-463d-bd16-a271739a017c)
+
+## Condition Variable: Bounded-Buffer Problem
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/177ee093-4e7d-4a89-a034-d7d824e1fcba)
