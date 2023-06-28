@@ -1,4 +1,4 @@
-# 6. Process Synchronization
+# 6. Process Synchronization(Concurrency Control)
 ## 데이터의 접근
 ![image](https://github.com/Haaarimmm/TIL/assets/108309396/6c0291c2-dcfe-4101-99be-9e353603db4f)
 
@@ -82,7 +82,7 @@
   - integer variable = 자원의 개수와 같음
   - 아래의 두 가지 atomic 연산에 의해서만 접근 가능
   - ![image](https://github.com/Haaarimmm/TIL/assets/108309396/91e44ca4-0253-40ed-ba8f-9a2ae75c8bbd)
-  - P연산: lock을 얻음, V연산: lock을 반납함
+  - P(S): lock을 얻음, V(S): lock을 반납함
 
 # Critical Section of n Processes
 ![image](https://github.com/Haaarimmm/TIL/assets/108309396/45a1c296-b81e-4c73-8a8c-67bc16f16b6e)
@@ -171,7 +171,7 @@
 - example
   - ![image](https://github.com/Haaarimmm/TIL/assets/108309396/6496d079-92f8-4663-a70e-fa9f3aed4113)
 
-# Monitor
+# Monitor(Condition Variable)
 - 동시 수행 중인 프로세스 사이에서 abstract data type의 안전한 공유를 보장하기 위한 high-level synchronization construct
 ![image](https://github.com/Haaarimmm/TIL/assets/108309396/e21a0429-717f-49f0-b28f-cddc34b7866e)
 - 모니터 내에서는 한 번에 하나의 프로세스만이 활동 가능
@@ -184,3 +184,6 @@
 
 ## Condition Variable: Bounded-Buffer Problem
 ![image](https://github.com/Haaarimmm/TIL/assets/108309396/177ee093-4e7d-4a89-a034-d7d824e1fcba)
+
+## Condition Variable: Dining Philosophers Problem
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/ef79bf48-2bc3-450a-be93-0ede0672adce)
