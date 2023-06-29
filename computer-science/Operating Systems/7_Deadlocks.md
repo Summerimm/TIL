@@ -1,18 +1,16 @@
 # 7. Deadlocks
 ## The Deadlock Problem
-- **Deadlock**
-  - 일련의 프로세스들이 서로가 가진 자원을 기다리며 block된 상태
+- **Deadlock**: 일련의 프로세스들이 서로가 가진 자원을 기다리며 block된 상태
 - Resource(자원)
   - 하드웨어, 소프트웨어 등을 포함
   - I/O device, CPU cycle, memory space, semaphore 등
-  - 프로세스가 자원을 사용하는 절차
-    - request, allocate, use, release
+  - 프로세스가 자원을 사용하는 절차: request &rarr; allocate &rarr; use &rarr; release
 
 # Deadlock 발생의 4가지 조건
-1. Mutual exclusion: 매 순간 하나의 프로세스만이 자원을 사용 가능
-2. No preemption: 프로세스는 자원을 스스로 내어놓고 강제로 빼앗기지 않음
-3. Hold and wait: 자원을 가진 프로세스가 다른 자원을 기다릴 때 보유자원을 놓지 않고 계속 가지고 있음
-4. Circular wait: 자원을 기다리는 프로세스 간에 사이클이 형성됨
+1. **Mutual exclusion**: 매 순간 *하나의 프로세스만이 자원을 사용 가능*
+2. **No preemption**: 프로세스는 자원을 스스로 내어놓고 *강제로 빼앗기지 않음*
+3. **Hold and wait**: 자원을 가진 프로세스가 다른 자원을 기다릴 때 *보유자원을 놓지 않고 계속 가지고 있음*
+4. **Circular wait**: 자원을 기다리는 프로세스 간에 *사이클이 형성*됨
 
 # Resource-Allocation Graph(자원 할당 그래프)
 - ![image](https://github.com/Haaarimmm/TIL/assets/108309396/9c491ffb-ca41-4417-82f9-d607856ee0e3)  
@@ -26,15 +24,15 @@
    - if *several instances* per resource type, *possibility of deadlock*
 
 # Deadlock의 처리 방법
-1. Deadlock Prevention
+1. **Deadlock Prevention**
    - 자원 할당 시 deadlock의 4가지 필요 조건 중 어느 하나가 만족되지 않도록 방지
    - Utilization &darr;, throughput &darr;, starvation problem
-2. Deadlock Avoidance
+2. **Deadlock Avoidance**
    - 자원 요청에 대한 부가 정보를 이용해 deadlock 가능성 없는 경우에만 자원 할당
    - 시스템 state가 원래 state로 돌아올 수 있는 경우에만 자원 할당
-3. Deadlock Detection and recovery
+3. **Deadlock Detection and recovery**
    - deadlock 발생은 허용하되 그에 대한 detection 루틴을 두어 deadlock 발견 시 recover
-4. Deadlock Ignorance
+4. **Deadlock Ignorance**
    - Deadlock을 시스템이 책임X
    - 대부분의 OS가 채택
 
@@ -80,3 +78,34 @@
 - $P_0, P_1, P_2, P_3, P_4$
 - A(10), B(5), C(7) instances
 - ![image](https://github.com/Haaarimmm/TIL/assets/108309396/f3c2c9c2-1f97-437b-8ad5-1f085f79a663)
+
+# Deadlock Detection and Recovery
+- Deadlock Detection
+  1. single instance per resource type: 자원 할당 그래프에서의 cycle이 곧 deadlock을 의미
+  2. multiple instance per resource type: Banker's algorithm과 유사한 방법 활용
+- Wait-for graph algorithm
+  - single instance per resource type
+  - Wait-for graph
+    - 자원할당 그래프의 변형
+    - 프로세스만으로 node 구성
+    - $P_j$가 가지고 있는 자원을 $P_k$가 기다리는 경우 $P_k$ &rarr; $P_j$
+  - algorithm
+    - Wait-for graph에 *사이클이 존재하는 지*를 주기적으로 조사
+    - $O(n^2)$
+- Recovery
+  1. **Process termination**
+     - Abort all deadlocked processes
+     - Abort one process at a time until the deadlock cycle is eliminated
+  2. **Resource Preemption**
+     - 비용을 최소화할 victim의 선정
+     - safe state로 rollback하여 process를 restart
+     - Starvation 문제
+        - 동일한 프로세스가 게속해서 victim으로 선정되는 경우
+        - cost factor에 rollback 횟수도 같이 고려
+
+## Single instance per resource type
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/4e2ef6ba-b4d0-4ef8-b225-8386309a7d9a)
+
+## Multiple instance per resource type
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/f2aafbc4-cb79-4497-8a8c-5f7da9d2d31a)
+
