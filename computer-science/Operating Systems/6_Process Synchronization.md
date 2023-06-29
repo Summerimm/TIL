@@ -80,9 +80,9 @@
 - 앞의 방식들을 추상화시킴
 - Semaphore S
   - integer variable = 자원의 개수와 같음
-  - 아래의 두 가지 atomic 연산에 의해서만 접근 가능
-  - ![image](https://github.com/Haaarimmm/TIL/assets/108309396/91e44ca4-0253-40ed-ba8f-9a2ae75c8bbd)
-  - P(S): lock을 얻음, V(S): lock을 반납함
+  - 아래의 두 가지 atomic 연산에 의해서만 접근 가능  
+  ![image](https://github.com/Haaarimmm/TIL/assets/108309396/91e44ca4-0253-40ed-ba8f-9a2ae75c8bbd)
+  - **P(S): lock을 얻음, V(S): lock을 반납함**
 
 # Critical Section of n Processes
 ![image](https://github.com/Haaarimmm/TIL/assets/108309396/45a1c296-b81e-4c73-8a8c-67bc16f16b6e)
@@ -132,7 +132,7 @@
    - mutual exclusion &rarr; Need binary semaphore(shared data의 mutual exclusion을 위해)
    - resource count &rarr; Need integer semaphore(남은 full/empty buffer의 수 표시)
    - `semaphore full = 0`(full buffer의 개수 count), `empty = n`(empty buffer의 개수 count), `mutex = 1`(lock을 걸기 위한 변수)
-- pseudo-code 
+- pseudo-code   
 ![image](https://github.com/Haaarimmm/TIL/assets/108309396/d0cd4e7f-75cf-44c2-a7bb-489de3631819)
 
 ## 2. Readers and Writers Problem
@@ -143,11 +143,11 @@
   - Writer는 대기 중인 Reader가 하나도 없을 때 DB 접근이 허용된다
   - 일단 Writer가 DB에 접근 중이면 Reader들은 접근이 금지된다
   - Writer가 DB에서 빠져나가야만 Reader의 접근이 허용된다
-- Shared data: DB 자체, int readcnt = 0(현재 DB에 접근 중인 Reader의 수)
+- Shared data: `DB 자체, int readcnt = 0(현재 DB에 접근 중인 Reader의 수)`
 - Synchronization variables
-  - semaphore mutex = 1: 공유 변수 readcnt를 접근하는 critical section의 mutual exclusion 보장을 위해 사용
-  - db = 1: Reader와 Writer가 공유 DB 자체를 올바르게 접근하게 하는 역할
-- pseudo-code  
+  - `semaphore mutex = 1`: 공유 변수 readcnt를 접근하는 critical section의 mutual exclusion 보장을 위해 사용
+  - `db = 1`: Reader와 Writer가 공유 DB 자체를 올바르게 접근하게 하는 역할
+- pseudo-code    
 ![image](https://github.com/Haaarimmm/TIL/assets/108309396/b4900a5b-bc23-4a25-99ce-ef76429ccd44)
 
 ## 3. Dining-Philosophers Problem
@@ -168,17 +168,17 @@
 - 정확성 입증이 어려움
 - 자발적 협력이 필요
 - 한 번의 실수가 모든 시스템에 치명적 영향
-- example
-  - ![image](https://github.com/Haaarimmm/TIL/assets/108309396/6496d079-92f8-4663-a70e-fa9f3aed4113)
+- example  
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/6496d079-92f8-4663-a70e-fa9f3aed4113)
 
 # Monitor(Condition Variable)
-- 동시 수행 중인 프로세스 사이에서 abstract data type의 안전한 공유를 보장하기 위한 high-level synchronization construct
+- 동시 수행 중인 프로세스 사이에서 abstract data type의 안전한 공유를 보장하기 위한 high-level synchronization construct  
 ![image](https://github.com/Haaarimmm/TIL/assets/108309396/e21a0429-717f-49f0-b28f-cddc34b7866e)
 - 모니터 내에서는 한 번에 하나의 프로세스만이 활동 가능
 - 프로그래머가 동기화 제약 조건을 명시적으로 코딩할 필요없음
 - 프로세스가 모니터 안에서 기다릴 수 있도록 하기 위해 condition variable 사용(`condition x, y`)
 - Condition variable은 **wait**과 **signal**연산에 의해서만 접근 가능
-  - `x.wait()`: `x.wait()`을 invoke한 프로세스는 다른 프로세스가 x.signal()을 invoke하기 전까지 suspend된다
+  - `x.wait()`: `x.wait()`을 invoke한 프로세스는 다른 프로세스가 `x.signal()`을 invoke하기 전까지 suspend된다
   - `x.signal()`: `x.signal()`은 정확하게 하나의 suspend된 프로세스를 resume한다. suspend된 프로세스가 없으면 아무 일도 일어나지 않음
 - ![image](https://github.com/Haaarimmm/TIL/assets/108309396/f1a3cb5d-795b-463d-bd16-a271739a017c)
 
@@ -187,3 +187,16 @@
 
 ## Condition Variable: Dining Philosophers Problem
 ![image](https://github.com/Haaarimmm/TIL/assets/108309396/ef79bf48-2bc3-450a-be93-0ede0672adce)
+
+# Semaphore vs Monitor
+- 세마포어
+  - 주로 공유 자원의 동시 접근을 제어하기 위해 사용
+  - 여러 프로세스가 공유 자원에 접근하는 순서를 조정하고, 상호 배제와 동기화를 달성할 수 있음
+  - 세마포어는 저수준의 동기화 메커니즘이며, 개발자가 직접 세마포어를 조작해야 함
+- 모니터
+  - 고급 프로그래밍 언어에서 제공되는 동기화 추상화입니다.
+  - 모니터는 더 추상화된 수준에서 동기화를 처리하며, 개발자는 모니터 내에서 프로시저를 작성하여 상호 배제와 동기화를 자동으로 처리할 수 있음
+- 요약
+  - 세마포어는 저수준의 원시 동기화 도구로서 다양한 동기화 문제를 해결하는 데 사용
+  - 모니터는 고수준의 추상화로서 모듈화와 코드의 가독성을 향상시키는 데 중점을 둠
+  - 따라서, 세마포어는 프로세스 간의 동기화에 더 많은 유연성을 제공, 모니터는 모듈 수준에서의 동기화와 추상화를 제공

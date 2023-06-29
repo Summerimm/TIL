@@ -35,16 +35,17 @@
 4. **Deadlock Ignorance**
    - Deadlock을 시스템이 책임X
    - 대부분의 OS가 채택
+   -  deadlock은 자주 발생하는 이벤트가 아니기 때문에 데드락을 방지하기 위해 많은 오버헤드를 두는 것이 비효율적
 
 # Deadlock Prevention
 1. Mutual exclusion
-   - 공유해서는 안 되는 자원의 경우 반드시 성립해야 함
+   - 배제 불가: 공유해서는 안 되는 자원의 경우 반드시 성립해야 함
 2. Hold and wait
    - 프로세스가 자원을 요청할 때 다른 어떤 자원도 가지고 있지 않아야 함
    - sol 1) 프로세스 시작 시 모든 필요한 자원을 할당받게 함
    - sol 2) 자원이 필요한 경우 보유 자원을 모두 놓고 다시 요청
 3. No preemption
-   - 프로세스가 어떤 자원을 기다려야 하는 경우 이미 보유한 자원이 선점됨
+   - 프로세스가 어떤 자원을 기다려야 하는 경우 이미 보유한 자원이 선점됨(강제로 빼앗길 수 있음)
    - 모든 필요한 자원을 얻을 수 있을 때 그 프로세스는 다시 시작됨
    - state를 쉽게 save하고 다시 restore할 수 있는 자원에서 주로 사용(CPU, memory)
 4. Circular wait
@@ -57,13 +58,13 @@
 - **safe sequence**
    - 프로세스의 sequence가 safe하려면 $P_i$의 자원 요청이 "가용 자원 + 모든 $P_j$의 보유 자원"에 의해 충족되어야 함
    - 조건을 만족하면 다음 방법으로 모든 프로세스의 수행 보장
-     - $P_i$의 자원 요청이 즉시 충족될 수 ㅇ벗으면 모든 $P_j$가 종료될 때까지 기다림
+     - $P_i$의 자원 요청이 즉시 충족될 수 없으면 모든 $P_j$가 종료될 때까지 기다림
      - $P_{i-1}$이 종료되면 $P_i$의 자원요청을 만족시켜 수행 
 - 시스템이 safe state에 있으면 &rarr; no deadlock
 - 시스템이 unsafe state에 있으면 &rarr; possibility of deadlock
 - Avoidance algorithm
    - Single instance per resource types: **Resource Allocation Graph Algorithm**  
-   - Multiple instances per resource types: **Banker's Algorithm** 사용
+   - Multiple instances per resource types: **Banker's Algorithm**
 
 ## Resource Allocation Graph Algorithm
 - Clamin edge $P_i$ &rarr; $R_j$
@@ -78,6 +79,8 @@
 - $P_0, P_1, P_2, P_3, P_4$
 - A(10), B(5), C(7) instances
 - ![image](https://github.com/Haaarimmm/TIL/assets/108309396/f3c2c9c2-1f97-437b-8ad5-1f085f79a663)
+- ![image](https://github.com/Haaarimmm/TIL/assets/108309396/3df0f9c8-7c60-46dd-86b8-86d1a8a040fc)
+
 
 # Deadlock Detection and Recovery
 - Deadlock Detection
