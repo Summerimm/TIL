@@ -66,3 +66,8 @@
         spring.datasource.password=123456
         spring.datasource.url=jdbc:mariadb://localhost:3306/board
         ```
+2. MariaDB Database(스키마) 생성
+   - 통모양 버튼 클릭 후 'board' 이름으로 생성 &rarr; Apply
+   - 8080 포트를 이미 사용 시, 위 코드에 `server.port=8090` 추가
+3. DB에 테이블 생성
+   - id INT(PK, NN(Not Null), AI(Auto Increment)), title VARCHAR(45)(NN), content TEXT(NN)
