@@ -71,3 +71,19 @@
    - 8080 포트를 이미 사용 시, 위 코드에 `server.port=8090` 추가
 3. DB에 테이블 생성
    - id INT(PK, NN(Not Null), AI(Auto Increment)), title VARCHAR(45)(NN), content TEXT(NN)
+
+# CRUD: 전체적인 프로젝트 구조
+1. `src/main/java/com.study.board/`
+  - `controller`: `BoardController` 
+    - Django에서의 View 역할
+    - `@GetMapping/PostMapping`을 통해 URL 설정
+  - `entity`: `Board` - 
+  - `repository`: `BoardRepository` - 
+  - `service`: `BoardService` - 
+2. `src/main/resources/templates`
+  - `boardlist.html`
+  - `boardupdate.html`
+  - `boarddetail.html`
+  - `boardform.html`
+  - `message.html`
+# 3.Create: 게시글 작성
