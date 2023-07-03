@@ -1,4 +1,4 @@
-# [Toy Project] Spring Boot를 이용한 게시판 CRUD
+# [Toy Project] Board CRUD using Spring Boot
 - OS: MacOS M1(ARM 64-bit)
 - 개발언어: Java(JDK 11)
 - 프레임워크: Spring Boot
