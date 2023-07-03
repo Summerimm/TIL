@@ -1,5 +1,4 @@
 # 8. Memory Management
-
 ## Logical vs Physical Address
 1. **Logical address(=virtual address)**
    - 프로세스마다 독립적으로 가지는 주소 공간
@@ -142,11 +141,10 @@
 - 비용이 많이 듦
 - Execution time binding인 경우에만 수행 가능
 
-# Noncontiguous allocation
-## Paging
+# Noncontiguous allocation - 1. Paging
 - Process의 virtual memory를 **동일한 사이즈의 page 단위로 나눔**
 - virtual memory의 내용이 page 단위로 noncontiguous하게 저장됨
-- 일부는 backing storage에, 일부는 physical memory에 저장
+- 일부는 backing storage에, 일부는 physical memory에 저장  
 ![image](https://github.com/Haaarimmm/TIL/assets/108309396/94c16d85-5bd6-4239-8b5a-76b25513f49e)
 
 ## Address Translation Architecture
@@ -160,7 +158,7 @@
   - page table 접근 1번, 실제 date/instruction 접근 1번
 - 속도 향상을 위해 Translation Look-aside Buffer(**TLB**)라 불리는 고속의 lookup hardware *cache* 사용
 
-## Paging Hardware with TLB
+# Paging Hardware with TLB
 ![image](https://github.com/Haaarimmm/TIL/assets/108309396/622afbac-8806-4f3c-a578-02096ce52d89)
 
 ## TLB
@@ -177,7 +175,7 @@
 - Hit ratio = $\alpha$
 - EAT = (1 + $\epsilon$)$\alpha$ + (2 + $\epsilon$)(1 - $\alpha$) = 2 + $\epsilon$ - $\alpha$
 
-## Two-Level Page Table
+# Two-Level Page Table
 ![image](https://github.com/Haaarimmm/TIL/assets/108309396/5f998c46-3168-43e7-986e-ae6ab6bb9b62)  
 - 현대의 컴퓨터는 address space가 매우 큰 프로그램 지원
   - 32 bit address 사용 시 : $2^{30}$ = G, 4GB의 address space
@@ -188,9 +186,81 @@
   - 사용되지 않는 주소 공간에 대한 outer page table의 entry 값은 NULL(대응하는 inner page table이 없음)
 - Example
   - logical address: 20bit page number, 12bit page offset
-  - 20bit 중 10bit page directory number, 10bit page directory offset
-  - ![image](https://github.com/Haaarimmm/TIL/assets/108309396/3b81fd00-70f8-4890-a4ed-f05a5f2e9168)
+  - 20bit 중 10bit page directory number, 10bit page directory offset  
+  ![image](https://github.com/Haaarimmm/TIL/assets/108309396/3b81fd00-70f8-4890-a4ed-f05a5f2e9168)
   - $P_1$: outer page table의 index
   - $P_2$: outer page table의 offset
-- Address-Translation Scheme
+- Address-Translation Scheme    
 ![image](https://github.com/Haaarimmm/TIL/assets/108309396/c942a499-a90a-4a65-abb2-78bc119f00b8)
+
+## Multilevel Paging and Performance
+- Address space가 더 커지면 다단계 페이지 테이블 필요
+- 각 단계의 페이지 테이블이 메모리에 존재하므로 Logical addressdml physical address **변환에 더 많은 메모리 접근 필요**
+- TLB를 통해 메모리 접근 시간을 줄일 수 있음
+- ex) 4단계 페이지 테이블을 사용하는 경우: 메모리 접근 5번 필요
+
+## Valid(v) / Invalid(i) Bit in a Page Table
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/3989a344-34fe-41a2-ab59-e555c8ac59f5)  
+- 6, 7번 page가 현재 사용되지 않지만 만들어놓고 invalid bit을 통해 check
+- PTE마다 가지는 bit
+  - *Protection bit*: page에 대한 접근 권한(read/write/read-only)
+  - *Valid/Invalid bit*
+    - valid: 해당 주소의 frame에 그 프로세스를 구성하는 유효한 내용이 있음을 뜻함(접근 허용)
+    - invalid: 프로세스가 주소 부분을 사용하지 않는 경우, 해당페이지가 메모리에 올라와 있지않고 Swap area에 있는 경우(접근  불허)
+
+# Inverted Page Table
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/05e125d6-af91-4873-9985-b1a38d7089a5)  
+- page table이 매우 큰 이유
+  - 모든 process별로 logical address에 대응되는 모든 page에 대해 PTE가 존재
+  - 대응하는 page가 메모리에 있든 아니든 간에 page table에는 entry로 존재
+- **Inverted Page Table**
+  - **Page frame 하나 당 page table에 하나의 entry를 둔 것**(system-wide)
+  - 각 PTE는 각각의 물리적 메모리의 PFN이 담고 있는 내용 표시(PID, process의 logical address)
+  - 단점: 테이블 전체를 탐색해야 함
+  - 조치: Base register 사용(expensive)
+
+# Shared Page
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/2dcc0f83-1e0f-464a-9f6b-d214a1ccabc7)  
+- Shared code
+  - Re-entrant Code(=Pure code)
+  - **read-only**로 하여 프로세스 간에 하나의 code만 메모리에 올림(ex. text editors, window systems, compilers)
+  - **Shared code는 모든 프로세스의 logical address space에서 동일한 위치에 있어야 함**
+- Private code and data
+  - 각 프로세스들은 독자적으로 메모리에 올림
+  - Private data는 logical address space의 아무 곳에 와도 무방
+
+# Noncontiguous allocation - 2. Segmentation
+- 프로그램은 의미 단위인 여러 개의 segment로 구성
+  - 일반적으로는 code, stack, data 부분이 하나씩의 세그먼트로 정의됨
+- Segment = logical unit
+  - main(), function, global variables, stack, symbol table, arrays...
+
+## Segmentation Artchitecture
+- Logical address: **<segment-number, offset>**
+- Segment table
+  - base - **starting physical address** of the segment
+  - limit - **length** of the segment
+- **Segment-Table Base Register(STBR)**: 물리적 메모리에서의 segment table의 위치
+- **Segment-Table Length Register(STLR)**: 프로그램이 사용하는 segment의 수
+- 장점: Segment는 의미 단이기 때문에 Sharing과 Protection에 있어 paging보다 훨씬 효과적
+  - Sharing
+    - shared segment
+    - same segment number
+    - ![image](https://github.com/Haaarimmm/TIL/assets/108309396/d5656343-841a-481a-9ccf-d83dcd04c919)
+  - Protection bit: segment별로 존재
+    - Valid bit = 0 &rarr; illegal segment
+    - Read/Write/Execution 권한 bit
+- 단점: Segment의 길이가 동일X &rarr; 가변 분할 방식에서와 동일한 문제점들이 발생
+  - Allocation
+    - first fit / best fit
+    - external fragmentation 발생
+
+## Segmentation Hardware
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/b48f5b1a-b5c3-4cbd-9b95-3cd0f0c2f938)  
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/03df8303-6a4a-43c8-8170-ac30f1437d86)
+
+# Paged Segmentation
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/9fa1982d-76c9-4632-831f-6e858d1c3c16)
+- pure segmentation과의 차이점
+  - segment-table entry가 segment의 base address를 가지고 있는 것이 아니라 segment를 구성하는 page table의 base address를 가지고 있음
+- segment offset이 segment length 이내일 경우만 valid
