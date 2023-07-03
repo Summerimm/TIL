@@ -220,14 +220,15 @@
   - 조치: Base register 사용(expensive)
 
 # Shared Page
-![image](https://github.com/Haaarimmm/TIL/assets/108309396/2dcc0f83-1e0f-464a-9f6b-d214a1ccabc7)  
-- Shared code
-  - Re-entrant Code(=Pure code)
-  - **read-only**로 하여 프로세스 간에 하나의 code만 메모리에 올림(ex. text editors, window systems, compilers)
-  - **Shared code는 모든 프로세스의 logical address space에서 동일한 위치에 있어야 함**
-- Private code and data
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/894b5f26-be76-4b1f-8a16-ce8cab96034d)   
+- Shared Page 조건
+  1. Shared code(=Re-entrant, pure code)가 read-only여야 한다.
+  2. 하나의 code만 메모리에 올린다.
+  3. Shared code는 모든 프로세스에서 logical address가 동일해야 한다.
+  - ex. text editors, window systems, compilers)
+- Private code and data(↔ Shared code)
   - 각 프로세스들은 독자적으로 메모리에 올림
-  - Private data는 logical address space의 아무 곳에 와도 무방
+  - Private data는 logical address가 달라도 무방
 
 # Noncontiguous allocation - 2. Segmentation
 - 프로그램은 의미 단위인 여러 개의 segment로 구성
@@ -259,8 +260,22 @@
 ![image](https://github.com/Haaarimmm/TIL/assets/108309396/b48f5b1a-b5c3-4cbd-9b95-3cd0f0c2f938)  
 ![image](https://github.com/Haaarimmm/TIL/assets/108309396/03df8303-6a4a-43c8-8170-ac30f1437d86)
 
-# Paged Segmentation
-![image](https://github.com/Haaarimmm/TIL/assets/108309396/9fa1982d-76c9-4632-831f-6e858d1c3c16)
+# Segmentation with Paging
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/9b61931d-4e71-46e1-8b15-402e424522c0)  
+- Outer Table이 Segmentation, Inner Table이 Paging 기법 사용 
 - pure segmentation과의 차이점
   - segment-table entry가 segment의 base address를 가지고 있는 것이 아니라 segment를 구성하는 page table의 base address를 가지고 있음
 - segment offset이 segment length 이내일 경우만 valid
+
+## Physical address 계산법
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/9fa1982d-76c9-4632-831f-6e858d1c3c16)  
+- Logical address
+  - s : Segment number
+  - d : displacement(offset)
+  - p : Page number
+  - d' == d (if valid)
+  - f : Frame number
+1. STBR + s 를 통해 Segment Table Entry 찾음
+2. Segment Length가 d(offset)보다 크면 통과(valid)
+3. Page Table Base + p를 통해 Page Table Entry 찾음
+4. PTE의 f 와 d'을 합치면 physical address
