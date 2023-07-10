@@ -22,19 +22,19 @@
 - Kernel mode로 들어가서 page fault handler가 invoke됨
 - Page fault 처리 순서
   1. Invalid reference? (eg. bad address, protection violation) &rarr; abort process
-  2. 빈 page frame을 가져온다. 없으면 다른 page frame을 뺏어온다.
-  3. 해당 페이지를 디스크에서 메모리로 읽어온다
+  2. 빈 page frame을 가져온다. 없으면 다른 page frame을 뺏어온다. (page replacement)
+  3. 해당 페이지를 디스크에서 메모리로 읽어온다 (Disk I/O)
      1. 디스크 I/O가 끝나기까지 이 프로세스는 CPU를 preempt당함(blocked)
      2. 디스크 read가 끝나면 PTE에 frame number 기록 후 valid로 set
-     3. ready queue에 프로세스를 삽입 &rarr; dispatch later
+     3. ready queue에 프로세스를 추가 &rarr; dispatch later
   4. 프로세스가 CPU를 잡고 다시 running
   5. 중단되었던 instruction을 재개
 
 ## Steps in Handling a Page Fault
-![image](https://github.com/Haaarimmm/TIL/assets/108309396/a1aae29e-7da8-4ad2-9884-df21195b1518)
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/86874e9c-dca2-4ece-aae3-a9b76c0960ba)
 
 ## Performance of Demand Paging
-- Page Fault rate $0 \le p \le 1$
+- Page fault rate $0 \le p \le 1$
   - $p = 0$, no page faults
   - $p = 1$, every reference is a fault
 - Effective Access Time = $(1 - p) \times$memory access + $p \times$(OS & HW page fault overhead + [swap page out if needed] + swap page in + OS & HW restart overhead)
