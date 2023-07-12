@@ -109,7 +109,15 @@
 4. Data block: 파일의 실제 내용을 보관
 
 # FAT File System
-![image](https://github.com/Haaarimmm/TIL/assets/108309396/376e4d66-e247-4ef7-a0b0-2f9a7472141a)
+- ![image](https://github.com/Haaarimmm/TIL/assets/108309396/376e4d66-e247-4ef7-a0b0-2f9a7472141a)
+  - FAT: 파일의 메타데이터 중 위치정보만을 FAT에 보관한다.
+  - 나머지는 메타데이터는 디렉토리가 보관한다.
+  - linked allocation 형태의 위치정보를 블록에 담고있는 것이 아니라, FAT에 저장한다.
+  - 배열 형태로 각 블록의 다음 블록을 저장하고 있다.
+- 장점
+  - 배드섹터가 발생하더라도 FAT에서 pointer를 관리하므로 reliability 해결
+  - FAT 테이블만 메모리에 올려두면 디스크의 block에 직접 접근이 가능하다.
+  - 공간 효율성 문제 해결
 
 # Free-Space Management
 ![image](https://github.com/Haaarimmm/TIL/assets/108309396/b0ad42de-0014-45be-b8d3-7c3f20b937e7)  
@@ -132,7 +140,7 @@
 
 ## 4. Counting
    - 프로그램들이 종종 여러 개의 연속적인 block을 할당하고 반납한다는 성질에 착안
-   - (first free block, # of contiguous free blocks)을 유지
+   - (first free block, # of contiguous free blocks)
 
 # Directory Implementation
 ## 1. Linear list
@@ -145,8 +153,8 @@
    - ![image](https://github.com/Haaarimmm/TIL/assets/108309396/5565267d-0e3b-4b6d-b019-56ccdd149d4a)
    - linear list + hashing
    - Hash table은 file name을 이 파일의 linear list의 위치로 바꾸어줌
-   - search time을 없앰
-   - collision 발생 가능
+   - 직접 접근이 가능하므로 search time을 없앰
+   - Hash collision 발생 가능
 
 ### File의 metadata의 보관 위치
   - 디렉토리 내에 직접 보관
@@ -159,6 +167,7 @@
    - 이름의 나머지 부분은 동일한 directory file의 일부에 존재
 
 # VFS and NFS
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/74b7f77d-938e-42c9-9a20-e7f357e3c886)  
 ## 1. Virtual File System(VFS)
    - 서로 다른 다양한 file system에 대해 동일한 시스템 콜 인터페이스(API)를 통해 접근할 수 있게 해주는 OS의 layer
 
@@ -176,7 +185,7 @@
 - 매핑시킨 영역에 대한 메모리 접근 연산은 파일의 입출력을 수행하게 함
 
 ## Buffer Cache
-- 파일 시스템을 통한 I/O 연산은 메모리의 특정 영역인 buffer cache 사용
+- 파일 시스템을 통한 I/O 연산은 OS가 메모리의 특정 영역인 buffer cache 사용
 - File 사용의 locality 활용
   - 한 번 읽어온 block에 대한 후속 요청 시 buffer cache에서 즉시 전달
 - 모든 프로세스가 공용으로 사용
@@ -184,3 +193,29 @@
 
 ## Unified Buffer Cache
 - 최근의 OS에서는 기존의 buffer cache가 page cache에 통합됨
+
+# Page Cache and Buffer Cache
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/05982d51-fb8f-4abd-a1de-a8a226bf1243)![image](https://github.com/Haaarimmm/TIL/assets/108309396/f519f422-8ec7-458f-8cf3-1385c76ee223)
+- read(), write() system call - 반드시 OS를 거쳐 buffer cache에 있으면 바로 전달
+- memory-mapped I/O system call - buffer cache에 읽어온 후 page cache에 copy함
+  - OS 간섭없이 memory 접근을 통해 file 입출력 가능
+- Unified buffer cache 사용 시 경로가 단순해짐
+
+# Program Execution
+- 프로그램 실행 &rarr; File system에 저장된 실행파일을 실행하여 프로세스가 됨 &rarr; 프로세스만의 독자적인 주소 공간이 생성
+- 실행할 부분은 실제 메모리에 올라가고, 나머지는 swap area에 보관됨
+- 하지만 주소공간 중 **code 영역**은 이미 실행파일 형태로 *read-only 형태로 저장*되어 있음
+- 메모리 주소 공간이 만들어질 때 data, stack 영역은 만들어져서 메모리에 올라가고 사용되지 않으면 swap area로 내려감
+- 하지만 code 영역은 이미 실행파일에 들어있기 때문에 page를 삭제해버리고 필요해지면 file system으로부터 이 영역을 불러옴
+- 이는 메모리에 프로세스를 올리는 loader가 쓰는 memory-mapped I/O의 일종: 프로세스의 주소공간 중 code 영역을 실행파일에 mapping
+
+
+# Memory-mapped I/O를 통해 데이터 파일을 사용하는 과정
+- 어떤 프로세스가 데이터 파일을 memory-mapped I/O를 통해 사용하고자 할 때, `mmap()` 시스템 콜을 통해 해당 파일을 자신의 주소공간에 매핑
+- 그럼 실제 메모리 상의 페이지에도 파일에 매핑된 페이지가 존재할 것
+- 이 페이지를 조회하고자 하면 아직 매핑만 된 상태이고 파일이 올라오지 않았으므로 page fault가 발생함
+- 이 때는 swap area에서 page를 불러오는 것이 아니라 file system에 가서 파일의 내용을 메모리에 올려야 함
+
+# Read-Write system call을 통해 읽는 과정
+- 어떤 프로세스가 데이터 파일을 사용하고자 할때, `read()` 시스템콜을 통해 운영체제가 현재 buffer cache(page cache)에 올라와있지 않은 데이터 파일을 buffer cache(page cache)에 등록한다. 
+- 그리고 사용자 프로세스 주소공간에 복사하여 사용할 수 있도록 해준다.
