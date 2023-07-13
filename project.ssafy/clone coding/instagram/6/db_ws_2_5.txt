@@ -1,0 +1,59 @@
+Happystagram
+    │
+    ├── instapjt
+    │      │   
+    │      ├── __init__.py
+    │      ├── asgi.py
+    │      ├── settings.py
+    │      ├── urls.py
+    │      └── wsgi.py
+		│                 
+    ├── accounts
+    │     │   
+    │     ├── migrations/
+    │     ├── __init__.py
+    │     ├── admin.py
+    │     ├── apps.py
+    │     ├── forms.py
+    │     ├── models.py
+    │     ├── tests.py
+    │     ├── urls.py
+    │     ├── views.py
+    │     └── templates
+    │             │         
+    │             └── accounts
+    │                   │   
+    │                   ├── delete.html
+    │                   ├── login.html
+    │                   ├── password.html
+    │                   ├── profile.html
+    │                   ├── signup.html
+    │                   └── update.html 
+    │ 
+    ├── posts
+    │     │   
+    │     ├── migrations/
+    │     ├── __init__.py
+    │     ├── admin.py
+    │     ├── apps.py
+    │     ├── forms.py
+    │     ├── models.py
+    │     ├── tests.py
+    │     ├── urls.py
+    │     ├── views.py
+    │     └── templates
+    │             │         
+    │             └── posts
+    │                   │   
+    │                   ├── form.html
+    │                   ├── post.html
+    │                   └── index.html
+    │
+    ├── templates
+    │       │   
+    │       └── base.html                 
+    │                    
+    │ 
+    ├── venv
+    ├── requirements.txt
+		└── manage.py
