@@ -51,3 +51,22 @@
 - `endOfWeek() (Saturday), startOfWeek() (Sunday)`
 - `endOfMonth(), startOfMonth(), endOfYear(), startOfYear()`
 - `currentUser()`
+
+## Workflow
+- Ticket이 생성되고 완료될 때까지의 상태 변화
+- 프로젝트 진행상황을 한 눈에 파악 가능
+- 불필요한 커뮤니케이션 감소
+- ![image](https://github.com/Haaarimmm/TIL/assets/108309396/1b4b44b9-64fa-4925-b2a3-69d5b879c9be)
+- 프로젝트 설정 - 워크플로 - 텍스트 클릭 시 확인 가능
+  - 팀에 일괄 반영이 됨
+
+## Component
+- 팀장 권한으로 등록 시 같은 태그 사용 가능
+  - 담당자(PL)
+
+## 스윔레인
+- 담당자 기준으로 해놓으면 편함
+
+## 릴리스
+- 빌드에 대한 버전 컨트롤
+- 백로그에서 드래그를 통해 설정 가능
