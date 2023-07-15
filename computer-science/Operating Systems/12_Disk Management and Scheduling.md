@@ -90,9 +90,13 @@
 - Redundant Array of Independent Disks: 여러 개의 디스크를 묶어서 사용
 - RAID의 사용 목적
    1. 디스크 처리 속도 향상 
-     - 여러 디스크에 block의 내용을 분산 저장
-     - 병렬적으로 읽어 옴(interleaving, striping)
+      - 여러 디스크에 block의 내용을 분산 저장 &rarr; 동시 액세스 가능
+      - 병렬적으로 읽어 옴(interleaving, striping)
    2. 신뢰성(reliability) 향상
-     - 동일 정보를 여러 디스크에 중복 저장
-     - 하나의 디스크가 고장 시 다른 디스크에서 읽어옴(Mirroring, shadowing)
-     - 단순한 중복 저장이 아니라 일부 디스크에 parity를 저장하여 공간의 효율성을 높일 수 있다 
+      - 동일 정보를 여러 디스크에 중복 저장
+      - 하나의 디스크가 고장 시 다른 디스크에서 읽어옴(Mirroring, shadowing)
+        - Disk mirroring: 디스크에 저장된 데이터들은 짝을 이루고 있는 미러 디스크의 같은 위치에 복사
+      - 단순한 중복 저장이 아니라 일부 디스크에 parity를 저장하여 공간의 효율성을 높일 수 있다
+        - parity bit $p = b1 ⊕ b2 ⊕ b3 ⊕ b4$ 
+        - 단점: 쓰기 동작 때마다 parity bit 갱신 필요 &rarr; 시간 지연 발생
+        - ![image](https://github.com/Haaarimmm/TIL/assets/108309396/4ef55884-0be8-4e31-97b3-dfa10aa7d63e)
