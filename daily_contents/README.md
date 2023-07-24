@@ -77,3 +77,29 @@ https는 서버와 클라이언트 사이의 모든 데이터를 암호화 하�
 - 사용자 증가 시 성능의 문제 일으킬 수 있으며, 확장성이 어렵다
 - 토큰의 경우 로그인이 필요한 작업일 경우 헤더에 토큰을 함께 보내 인증받은 사용자인지 확인
 - 상태를 유지하지 않으므로 stateless
+
+# Day 4. 230724
+## Redis란?
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/e8852873-e79a-41c1-9cbd-9bbc62348201)
+- Key, value 형태의 비정형 데이터를 저장하고 관리하기 위한 DBMS
+- DB, cache, 메모리 브로커로 사용되며 **인메모리 데이터 구조**를 가짐
+
+### Cache server?
+- DB는 데이터를 물리 디스크에 직접 쓰기 때문에 서버세 문제가 발생하더라도 데이터 손실X
+- But, 매번 디스크에 접근해야 하기 때문에 사용자가 많아질수록 부하&uarr;
+- Redis는 cache server의 대표적인 예
+
+### Redis의 특징
+- Key, Value 구조이기 때문에 쿼리 사용할 필요X
+- 메모리에서 데이터를 처리하기 때문에 속도 빠름
+- String, Lists, Sets, Sorted sets, Hashs 자료 구조 지원
+- Singled Threaded: 한 번에 하나의 명령만 처리 가능
+
+### Redis 사용 주의사항
+- 서버에 장애 발생 시, 데이터 유실 가능성 있음
+- Singled Threaded의 특성 상, 한 번에 하나의 명령만 처리 가능하기 때문에 처리하는 데 시간이 오래 걸리는 요청, 명령은 피해야 함
+
+### Redis 심화
+- Master-Slave 형식의 데이터 이중화 구조: Redis Replication
+- 분산처리: Redis cluster
+- 장애 복구 시스템: Redis Sentinel, Redis Topology, Redis Sharding, Redis Failover
