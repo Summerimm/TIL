@@ -103,3 +103,27 @@ https는 서버와 클라이언트 사이의 모든 데이터를 암호화 하�
 - Master-Slave 형식의 데이터 이중화 구조: Redis Replication
 - 분산처리: Redis cluster
 - 장애 복구 시스템: Redis Sentinel, Redis Topology, Redis Sharding, Redis Failover
+
+### MacOS Redis 사용법
+1. MacOS Redis 설치
+   - `brew install redis`: 설치
+   - `redis-server --version`: 버전 확인
+   - `brew uninstall redis`: 삭제
+2. MacOS Redis 실행
+  - 2-1. Foreground로 실행하기(정상 설치 확인 용도): `redis-server`
+  - 2-2. Background로 실행하기(실제 Redis 사용 시)
+    - `brew services start redis`: 실행
+    - `brew services restart redis`: 재실행
+    - `brew services stop redis`: 중지
+3. Redis 실행 상태 확인
+   - `brew services info redis`
+4. Redis CLI 사용
+   - `redis-cli`: redis-cli 사용
+   - `set {key} {value}`: redis 데이터 생성, 수정(같은 key값 존재 시, 데이터만 업데이트)
+   - `get {key}`: 데이터 조회
+   - `keys *`: key 목록 조회
+   - `rename {key} {key2}`: key 수정
+   - `dbsize`: key 개수 조회
+   - `del {key}`: key(데이터) 삭제
+   - `flushall`: 전체 데이터 삭제
+   - `HGETALL {key}`: Hash 형태의 데이터 조회
