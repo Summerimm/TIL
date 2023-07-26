@@ -1,5 +1,5 @@
 # Day 1. 230718
-## 1. GET 방식과 POST 방식의 차이에 대해 설명해 보세요
+## 1. GET 방식과 POST 방식의 차이
 - 프론트엔드에서 백엔드로 데이터 전송 시, 데이터를 **패킷의 header에 담아서 보내느냐, body에 담아서 보내느냐**의 차이
 - header에 담아서 보낼 때는 암호화하지 않음 &rarr; GET
 - body에 담아서 보낼 때는 암호화함 &rarr; POST
@@ -11,10 +11,10 @@
 - 또한 POST방식은 GET방식보다 상대적으로 큰 데이터를 전송할 수 있어서 큰 데이터를 전송할 때에는 POST방식을 사용합니다.
 
 # Day 2. 230719
-## 1. 반정규화에 대해 간단하게 설명해 보세요.
+## 1. 반정규화
 - 데이터베이스의 **성능 향상**을 위하여, **데이터 중복을 허용**하고 **조인을 줄이는** 데이터베이스 성능 향상 방법
 
-## 2. HTTP와 HTTPS의 차이에 대해 설명해보세요.
+## 2. HTTP와 HTTPS의 차이
 - http와 https의 차이는 서버와 클라이언트 사이에 전송되는 **데이터를 암호화 하느냐 그렇지 않느냐**의 차이입니다. 
 https는 서버와 클라이언트 사이의 모든 데이터를 암호화 하여 전송하기 때문에 보안에 강합니다.
 - 하지만 암호화하는 시간이 더 걸리기 때문에 **상대적으로 속도가 느리다**는 단점이 있습니다.
@@ -130,4 +130,43 @@ https는 서버와 클라이언트 사이의 모든 데이터를 암호화 하�
 
 # Day 5. 230725
 ## ORM이란?
-- 
+
+
+# Day 6. 230726
+## 1. Framework란?
+- 소프트웨어의 구조를 유지보수, 재사용, 확장이 용이하도록 미리 설계해놓은 것.
+
+## 2. openVidu
+### WebRTC(Web Real-Time Communication)
+- 웹 브라우저가 서로 통신할 수 있또록 설계된 API
+- 웹 브라우저 상에서 음성채팅, 화상채팅, 데이터 교환 가능
+- P2P(Peer-to-Peer) 통신에 최적화
+
+### 시그널링(Signaling)
+- Signaling Server를 통해 데이터를 주고 받는 프로세스
+- 서로 다른 두 peer간 미디어 통신을 하기 위해 서로 상대방의 정보를 파악하는 과정
+
+### Signaling Server
+- 시그널링 서버는 단지 웹 브라우저를 특정하기 위한 시그널링 과정으로만 쓰임
+- 시그널링을 마친 뒤 실제 데이터는 P2P 혹은 중개 서버를 통해 주고 받음
+- 서버는 Websocket(TCP) 사용(cf. WebRTC는 UDP)
+- ![image](https://github.com/Haaarimmm/TIL/assets/108309396/98bf1d8c-054f-41b3-b11e-3138dcf72f81)
+
+### STUN(Session Traversal Utilities fro NAT) Server
+- Publice IP를 알려주는 서버
+- NAT 환경(사설망)에 놓인 클라이언트는 자신의 public IP를 알지 못함
+- STUN 서버는 peer 자신의 Public IP를 알려주는 서버
+
+### TURN(Traversal Using Relays around NAT) Server
+- 중개서버
+- TURN 서버는 Public 망에 존재하기 때문에 각 peer들이 접속 가능
+- 두 peer가 같은 NAT환경에 있거나 방화벽 등의 이유로 P2P 통신 불가능 할 시 TURN 서버를 경유하여 통신
+
+### WebRTC에서 데이터 교환이 일어나는 과정
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/7b9c2e57-c983-4d2a-b243-c921531d3d7f)
+
+### openVidu란?
+- 웹 또는 앱에서 화상 통화를 쉽게 추가할 수 있는 플랫폼
+- Kurento 기반의 중개 서버를 쉽게 추가할 수 있도록 완전한 기술스택 제공
+  - Kurento: WebRTC 미디어 서버 역할을 함과 동시에 애플리케이션을 돕는 클라이언트 API 세트
+  - ![image](https://github.com/Haaarimmm/TIL/assets/108309396/2f5c5ef4-5bc9-4d94-b75c-cd0c40c88fd3)
