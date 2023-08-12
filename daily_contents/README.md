@@ -79,6 +79,22 @@ https는 서버와 클라이언트 사이의 모든 데이터를 암호화 하�
 - 토큰의 경우 로그인이 필요한 작업일 경우 헤더에 토큰을 함께 보내 인증받은 사용자인지 확인
 - 상태를 유지하지 않으므로 stateless
 
+## JWT(JSON Web Token)
+- 인증에 필요한 정보들을 암호화시킨 JSON 토큰
+- JWT : Header + Payload + Signature
+
+1. Header
+   - alg: 서명 암호화 알고리즘(HMAC SHA256, RSA)
+   - typ: 토큰 유형(JWT)
+2. Payload: Claim이 담김(claim: key-value로 이루어진 한 쌍의 정보)
+   - Registered claims: iss(발행자), exp(만료시간), sub(제목), iag(발행 시간), jti(JWI ID)
+   - Public claims
+   - Private claims
+
+### JWT를 이용한 인증과정
+![image](https://github.com/Haaarimmm/TIL/assets/108309396/7f927b22-8d8e-4c62-9ef4-1b9540f75bbf)
+
+
 # Day 4. 230724
 ## Redis란?
 ![image](https://github.com/Haaarimmm/TIL/assets/108309396/e8852873-e79a-41c1-9cbd-9bbc62348201)
